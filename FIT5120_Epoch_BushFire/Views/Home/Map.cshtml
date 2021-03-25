@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "Map";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Map</h2>
+<body>
+    <div id='map' style='width: 400px; height: 300px;'></div>
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoicjRuZDBubiIsImEiOiJja2VraTMxYWUwMDAyMnBvNHV3Zms1dDg4In0.jWJGHKKIF0cGc3NrQcIoSg';
+var map = new mapboxgl.Map({
+container: 'map', // container ID
+    style: 'mapbox://styles/r4nd0nn/ckmly5z8e4xlj17o4j5oy4zoz', // style URL
+center: [-74.5, 40], // starting position [lng, lat]
+zoom: 9 // starting zoom
+});
+    </script>
+</body>

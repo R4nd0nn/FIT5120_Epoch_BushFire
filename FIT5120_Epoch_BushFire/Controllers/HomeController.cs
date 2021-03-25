@@ -4,26 +4,19 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace FIT5120_Epoch_BushFire.Controllers
+namespace test.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Home()
         {
+            ViewBag.Head = "Introduction";
+            ViewBag.Message = "";
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Map()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
             return View();
         }
     }
