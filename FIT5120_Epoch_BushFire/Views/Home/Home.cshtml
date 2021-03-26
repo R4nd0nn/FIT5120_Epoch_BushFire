@@ -3,32 +3,108 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-6">
-            <p>@ViewBag.Head</p>
-            <p1>@ViewBag.Message</p1>
+
+
+    <div class="searchfunction">
+        <div class="row">
+            <form>
+                <label>You can search the bushfire here:</label>
+                <input type="text" name="search" placeholder="Search the bushfire..">
+                <input type="submit" value="Submit" />
+            </form>
+            <style>
+                form {
+                    margin-top: 80px;
+                    text-align: center;
+                }
+
+                input {
+                    background-repeat: no-repeat;
+                    border: 2px solid grey;
+                }
+            </style>
+
         </div>
     </div>
+<div class="link">
     <div class="row">
         <div class="col-md-4">
-            <h1>Keep Farm safe</h1>
-            <p>
-                <a href="https://localhost:44309/Home/Home"><img src="~/Image/farm.jpg" alt="farm" width="200" height="200" /></a>
-            </p>
+            <div class="container farm">
+                <div class="kfs">
+
+                    <h1>KEEP FARM SAFE</h1>
+                    <p>
+                        <a href="https://localhost:44309/Home/Home"><img style="border: 3px solid black;border-style: double;border-radius:8px" src="~/Image/farm.jpg" alt="farm" width="300" height="400"  /></a>
+                    </p>
+                </div>
+            </div>
         </div>
         <div class="col-md-4">
-            <h2>Keep cattle safe</h2>
-            <p>
-                <a href="https://localhost:44309/Home/Home"><img src="~/Image/cattle.jpg" alt="cattle" width="200" height="200" /></a>
-            </p>
+            <div class="kcs">
+                <h1>KEEP CATTLE SAFE</h1>
+                <p>
+                    <a href="https://localhost:44309/Home/Home"><img style="border: 3px solid black;border-style: double;border-radius: 8px
+" src="~/Image/cattle.jpg" alt="cattle" width="300" height="400" /></a>
+                </p>
+            </div>
         </div>
         <div class="col-md-4">
-            <h2>Insurance</h2>
-            <p>
-                <a href="https://localhost:44309/Home/Home"><img src="~/Image/insurance.jpg" alt="insurance" width="200" height="200" /></a>
-            </p>
+            <div class="ins">
+                <h1>INSURANCE</h1>
+                <p>
+                    <a href="https://localhost:44309/Home/Home"><img style="border:3px solid black;border-style:double;border-radius:8px" src="~/Image/insurance.jpg" alt="insurance" width="300" height="400" /></a>
+                </p>
+            </div>
         </div>
     </div>
-</div>"
+</div>
+
+
+
+<style>
+    .link {
+        position: relative;
+        margin-top: 100px;
+        font-family: 'Century Gothic';
+    }
+
+    .kcs {
+        margin-left: 150px;
+    }
+
+        .kcs h1 {
+            position: absolute;
+            top: 40px;
+            left: 190px;
+            border-style: double;
+            font-size: 30px;
+            font-weight: 900;
+        }
+
+    .kfs {
+        margin-left: 180px;
+    }
+
+        .kfs h1 {
+            position: absolute;
+            top: 40px;
+            left: 240px;
+            border-style: double;
+            font-size: 30px;
+            font-weight: 900;
+        }
+
+    .ins {
+        margin-left: 125px;
+    }
+
+        .ins h1 {
+            position: absolute;
+            top: 40px;
+            left: 210px;
+            border-style: double;
+            font-size: 30px;
+            font-weight: 900;
+        }
+</style>
 

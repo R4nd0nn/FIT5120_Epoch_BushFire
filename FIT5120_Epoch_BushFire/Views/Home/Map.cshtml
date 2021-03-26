@@ -4,16 +4,82 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Map</h2>
-<body>
-    <div id='map' style='width: 400px; height: 300px;'></div>
-    <script>
-        mapboxgl.accessToken = 'pk.eyJ1IjoicjRuZDBubiIsImEiOiJja2VraTMxYWUwMDAyMnBvNHV3Zms1dDg4In0.jWJGHKKIF0cGc3NrQcIoSg';
-var map = new mapboxgl.Map({
-container: 'map', // container ID
-    style: 'mapbox://styles/r4nd0nn/ckmly5z8e4xlj17o4j5oy4zoz', // style URL
-center: [-74.5, 40], // starting position [lng, lat]
-zoom: 9 // starting zoom
-});
-    </script>
-</body>
+
+-
+<div class="mapfunction">
+    <div class="container">
+        <div class="row">
+            <div class="map">
+                <button class="collapsible" style="width:1730px;margin-top:50px;">Map</button>
+                <div class="content">
+                    <p>
+                        <div id='map' style='width: 2000px; height:1000px'></div>
+                        <script>
+                            mapboxgl.accessToken = 'pk.eyJ1IjoicjRuZDBubiIsImEiOiJja2VraTMxYWUwMDAyMnBvNHV3Zms1dDg4In0.jWJGHKKIF0cGc3NrQcIoSg';
+                            var map = new mapboxgl.Map({
+                                container: 'map', // container ID
+                                style: 'mapbox://styles/r4nd0nn/ckmly5z8e4xlj17o4j5oy4zoz', // style URL
+                                center: [-74.5, 40], // starting position [lng, lat]
+                                zoom: 9 // starting zoom
+                            });
+                        </script>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <script>
+            var coll = document.getElementsByClassName("collapsible");
+            var i;
+
+            for (i = 0; i < coll.length; i++) {
+                coll[i].addEventListener("click", function () {
+                    this.classList.toggle("active");
+                    var content = this.nextElementSibling;
+                    if (content.style.maxHeight) {
+                        content.style.maxHeight = null;
+                    } else {
+                        content.style.maxHeight = content.scrollHeight + "px";
+                    }
+                });
+            }
+        </script>
+    </div>
+  </div>
+    <style>
+        .collapsible {
+            left: -280px;
+            position: relative;
+            background: url(/image/cattle.jpg) no-repeat;
+            color: white;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+        }
+
+            .active, .collapsible:hover {
+                background-color: #555;
+            }
+
+            .collapsible:after {
+                content: '\002B';
+                color: white;
+                font-weight: bold;
+                float: right;
+                margin-left: 5px;
+            }
+
+
+        .content {
+            padding: 0 18px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+            background-color: #f1f1f1;
+        }
+
+    </style>
+

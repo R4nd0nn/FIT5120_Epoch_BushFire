@@ -10,8 +10,6 @@ namespace test.Controllers
     {
         public ActionResult Home()
         {
-            ViewBag.Head = "Introduction";
-            ViewBag.Message = "";
             return View();
         }
 
