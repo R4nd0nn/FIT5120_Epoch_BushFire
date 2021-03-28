@@ -8,7 +8,7 @@ namespace FIT5120_Epoch_BushFire.SendEmail
     public class Email
     {
         // Please use your API KEY here.
-        private const String API_KEY = "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";
+        private const String API_KEY = "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";
 
         public void Send(String toEmail, String subject, String contents)
         {
