@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Validation;
@@ -7,13 +8,14 @@ using System.Web;
 using System.Web.Mvc;
 using FIT5120_Epoch_BushFire.Models;
 
+
 namespace FIT5120_Epoch_BushFire.Controllers
 {
     public class GetNotifyUserController : Controller
     {
         // GET: GetNotifyUser
         private GetNotifyUser_MDContainer db = new GetNotifyUser_MDContainer();
-        public ActionResult UpdateUser()
+        public ActionResult Home()
         {
             return View();
         }
@@ -48,7 +50,9 @@ namespace FIT5120_Epoch_BushFire.Controllers
                     }
                 }
             }
-            return View();
+            return RedirectToAction("Home", "Home"); ;
         }
+
+   
         }
     }

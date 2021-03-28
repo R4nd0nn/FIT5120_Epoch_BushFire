@@ -16,23 +16,7 @@ namespace test.Controllers
 
             return View();
         }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Update(string Firstname, string Lastname, string Address, string EmailAddress)
-        {
-            GetNotifyUser getnotifyuser = new GetNotifyUser();
-            getnotifyuser.FirstName = Firstname;
-            getnotifyuser.LastName = Lastname;
-            getnotifyuser.Address = Address;
-            getnotifyuser.EmailAddress = EmailAddress;
-                if (ModelState.IsValid)
-                {
-                    db.GetNotifyUserSet.Add(getnotifyuser);
-                    db.SaveChanges();
-                }
-            return View();
 
-        }
         public ActionResult Map()
         {
             return View();
