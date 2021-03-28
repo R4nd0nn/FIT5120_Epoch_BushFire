@@ -1,4 +1,4 @@
-﻿
+﻿using FIT5120_Epoch_BushFire.SendEmail;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -36,6 +36,12 @@ namespace FIT5120_Epoch_BushFire.Controllers
                     db.Entry(getNotifyUser).State = EntityState.Modified;
                     db.GetNotifyUserSet.Add(getNotifyUser);
                     db.SaveChanges();
+                    String toEmail = eadress;
+                    String subject = "FIT5120MA28Team";
+                    String contents = "Thanks for registering on our website. We will send your notification for Bushfire";
+                    Email es = new Email();
+                    es.Send(toEmail, subject, contents);
+
                 }
                 
             }
@@ -53,6 +59,7 @@ namespace FIT5120_Epoch_BushFire.Controllers
             return RedirectToAction("Home", "Home"); ;
         }
 
-   
-        }
+
+
+    }
     }
