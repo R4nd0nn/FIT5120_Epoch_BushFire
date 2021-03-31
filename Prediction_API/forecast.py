@@ -7,7 +7,6 @@ import os
 
 BASE_URL = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/"
 KEY = "85RUM6YVQND6VQ73AZ2D282U8"
-#KEY = "DWVCZAHTPJQWNGLTNDHSTD2FV"
 
 SOIL_MOISTURE_DEFICITS = None
 LOCALITY = None
