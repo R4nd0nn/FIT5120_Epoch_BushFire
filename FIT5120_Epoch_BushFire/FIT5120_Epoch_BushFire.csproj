@@ -52,7 +52,28 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="IronPython, Version=2.7.11.0, Culture=neutral, PublicKeyToken=7f709c5b713576e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\IronPython.2.7.11\lib\net45\IronPython.dll</HintPath>
+    </Reference>
+    <Reference Include="IronPython.Modules, Version=2.7.11.0, Culture=neutral, PublicKeyToken=7f709c5b713576e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\IronPython.2.7.11\lib\net45\IronPython.Modules.dll</HintPath>
+    </Reference>
+    <Reference Include="IronPython.SQLite, Version=2.7.11.0, Culture=neutral, PublicKeyToken=7f709c5b713576e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\IronPython.2.7.11\lib\net45\IronPython.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="IronPython.Wpf, Version=2.7.11.0, Culture=neutral, PublicKeyToken=7f709c5b713576e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\IronPython.2.7.11\lib\net45\IronPython.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Dynamic, Version=1.3.0.0, Culture=neutral, PublicKeyToken=7f709c5b713576e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamicLanguageRuntime.1.3.0\lib\net45\Microsoft.Dynamic.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Scripting, Version=1.3.0.0, Culture=neutral, PublicKeyToken=7f709c5b713576e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamicLanguageRuntime.1.3.0\lib\net45\Microsoft.Scripting.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Scripting.Metadata, Version=1.3.0.0, Culture=neutral, PublicKeyToken=7f709c5b713576e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamicLanguageRuntime.1.3.0\lib\net45\Microsoft.Scripting.Metadata.dll</HintPath>
+    </Reference>
     <Reference Include="SendGrid, Version=9.22.0.0, Culture=neutral, PublicKeyToken=4f047e93159395ca, processorArchitecture=MSIL">
       <HintPath>..\packages\SendGrid.9.22.0\lib\net452\SendGrid.dll</HintPath>
     </Reference>
@@ -137,8 +158,27 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\GetNotifyUserController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IndicatorController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FireForecast.cs">
+      <DependentUpon>Fire_forecast.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Fire_forecast.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Fire_forecast.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Fire_forecast.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Fire_forecast.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Fire_forecast.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Fire_forecast.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\GetNotifyUser.cs">
       <DependentUpon>GetNotifyUser_MD.tt</DependentUpon>
@@ -178,11 +218,24 @@
     <Content Include="Image\background.jpg" />
     <Content Include="Image\cattle.jpg" />
     <Content Include="Image\farm.jpg" />
+    <Content Include="Image\gold_semicircle.png" />
+    <Content Include="Image\grey_semicircle.png" />
     <Content Include="Image\insurance.jpg" />
     <Content Include="Image\logo.jpg" />
     <Content Include="Image\nitify.png" />
     <Content Include="Image\search-512.png" />
     <Content Include="Image\weather.jpg" />
+    <Content Include="Models\Fire_forecast.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Fire_forecast.Context.cs</LastGenOutput>
+      <DependentUpon>Fire_forecast.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\Fire_forecast.edmx.sql" />
+    <Content Include="Models\Fire_forecast.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Fire_forecast.cs</LastGenOutput>
+      <DependentUpon>Fire_forecast.edmx</DependentUpon>
+    </Content>
     <Content Include="Models\GetNotifyUser_MD.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>GetNotifyUser_MD.Context.cs</LastGenOutput>
@@ -202,6 +255,13 @@
     </EntityDeploy>
     <Content Include="Models\GetNotifyUser_MD.edmx.diagram">
       <DependentUpon>GetNotifyUser_MD.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\Fire_forecast.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Fire_forecast.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Fire_forecast.edmx.diagram">
+      <DependentUpon>Fire_forecast.edmx</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\BushFIreFarm - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
@@ -229,7 +289,9 @@
     <Content Include="Views\Home\Home.cshtml" />
     <Content Include="Views\Home\Map.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\Indicator\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

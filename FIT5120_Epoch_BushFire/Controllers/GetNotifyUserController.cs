@@ -56,7 +56,7 @@ namespace FIT5120_Epoch_BushFire.Controllers
                     }
                 }
             }
-            return RedirectToAction("Home", "Home"); ;
+            return RedirectToAction("Home", "Home"); 
         }
 
 
