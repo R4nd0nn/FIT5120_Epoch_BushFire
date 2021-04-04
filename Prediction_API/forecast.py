@@ -1,13 +1,14 @@
+import os
 import requests
 import json
 import pickle
 import math
 from urllib import parse
-import os
+import logging
 
 BASE_URL = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/"
-KEY = "85RUM6YVQND6VQ73AZ2D282U8"
-
+#KEY = "85RUM6YVQND6VQ73AZ2D282U8"
+KEY = "DWVCZAHTPJQWNGLTNDHSTD2FV"
 SOIL_MOISTURE_DEFICITS = None
 LOCALITY = None
 
@@ -32,14 +33,22 @@ def get_forecast(locality):
     Get 15 days weather forecast from Visual Crossing Weather API
     """
     quoted_locality = parse.quote(locality)
-    forecast_url = BASE_URL + '{locality}/'.format(locality=quoted_locality) # forecast url
+    forecast_url = BASE_URL + '{locality},VIC/'.format(locality=quoted_locality) # forecast url
     params = {
         'key': KEY,
-        'include': 'fcst'
+        'include': 'fcst',
+        'unitGroup': 'metric'
     }
 
     response = requests.get(forecast_url, params=params)
+
+    if response.status_code != 200:
+        logging.info("Unsuccessful request from WeatherAPI for %r", locality)
+        logging.info(response.text)
+        raise RuntimeError(response.text)
+
     forecast = json.loads(response.text)
+    logging.info("Successfully fetched forecast for %r", locality)
     return forecast
 
 
@@ -49,16 +58,24 @@ def get_historical_weather(locality):
     """
     # quote the locality string (for url encoding)
     quoted_locality = parse.quote(locality)
-    historical_url = BASE_URL + '{locality}/last7days'.format(locality=quoted_locality)
+    historical_url = BASE_URL + '{locality},VIC/last7days'.format(locality=quoted_locality)
     params = {
         'key': KEY,
-        'include': 'obs'
+        'include': 'obs',
+        'unitGroup': 'metric'
     }
 
     # send get request
     response = requests.get(historical_url, params=params)
+
+    if response.status_code != 200:
+        logging.info("Unsuccessful request from WeatherAPI for %r", locality)
+        logging.info(response.text)
+        raise RuntimeError(response.text)
+
     # load JSON response
     observations = json.loads(response.text)
+    logging.info("Successfully fetched historical observations for %r", locality)
     return observations
 
 def find_last_precipitation(obs):
@@ -100,17 +117,20 @@ def get_fire_danger_forecast(locality):
     # load data if not present
     if SOIL_MOISTURE_DEFICITS is None and LOCALITY is None:
         load_data()
+        logging.info("Dataset loaded into application.")
 
     locality = locality.lower()
+    logging.info("Calulating fire danger rating for %r", locality)
 
     if locality not in SOIL_MOISTURE_DEFICITS:
-        raise ValueError("Locality not found")
+        logging.error("Locality not found in dataset %r", locality)
+        raise LookupError("Locality not found.")
 
     SMD = SOIL_MOISTURE_DEFICITS[locality]
     observations = get_historical_weather(locality)
-    days_since_last_percipitation = find_last_percipitation(observations)
+    days_since_last_precipitation = find_last_precipitation(observations)
     forecast = get_forecast(locality)
-    A = days_since_last_percipitation - 1
+    A = days_since_last_precipitation - 1
 
     for day in forecast['days']:
         if day['precip'] == 0:
@@ -118,12 +138,10 @@ def get_fire_danger_forecast(locality):
         else:
             A = 0
 
-        R = day['precip'] # percipitation in mm
-        V = day['windspeed'] #windspeed in km/h
-        T = day['tempmax'] #maximum temperature in degree C
+        R = day['precip'] # precipitation in mm
+        V = day['windspeed'] # windspeed in km/h
+        T = day['tempmax'] # maximum temperature in degree C
         RH = day['humidity']
-
-
 
         # Calculate Drought factor
         x = (A ** 1.3) / ((A** 1.3) + R - 2)
@@ -137,4 +155,5 @@ def get_fire_danger_forecast(locality):
         day['FFDI'] = FFDI
         day['FFDI_category'] = FFDI_category
 
+    logging.info("Successfully calculated predictions for %r", locality)
     return forecast
