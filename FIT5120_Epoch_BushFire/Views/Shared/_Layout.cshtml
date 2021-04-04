@@ -10,7 +10,7 @@
     @Scripts.Render("~/bundles/modernizr")
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
-
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 </head>
 <body>
     <div class="navgation">
@@ -21,9 +21,10 @@
                     <li class="nav2">@Html.ActionLink("Map", "Map", "Home")</li>
                     <li class="nav3">@Html.ActionLink("Explore", "Map", "Home")</li>
                 </ul>
-                <button id="gbn" style="width: 200px;height: 50px;font-family:Century Gothic;background:transparent;border-style:double;float:right;margin-top:6%">Get Bushfire Notification</button>
+                <button id="gbn" style="width: 200px;height: 50px;font-family:Century Gothic;background:transparent;border-style:double;float:right;margin-top:6%;color:white">Get Bushfire Notification</button>
             </div>
         </div>
+        <img src="~/Image/split.png" style="transform:rotate(180deg);width:1505px;position:absolute;margin-top:180px" />
         <div id="myModal" class="modal">
             <div class="modal-content">
                 <div class="modal-header">
@@ -44,7 +45,7 @@
                             <input type="text" id="adress" name="adress"><br><br>
                             <label for="eadress">Your Email Address:</label>
                             <input type="text" id="eadress" name="eadress"><br><br>
-                            <input id="submit" type="submit" value="Submit" />
+                            <input style="text-align:center" id="submit" type="submit" value="Submit" />
                         </form>
                     }
                 </div>
@@ -72,6 +73,7 @@
             #submit {
                 width: 80px;
             }
+            
             .modal-body input {
                 width: 240px;
                 border: none;
@@ -128,14 +130,15 @@
             .navgation {
                 /* The image used */
                 background: url("/image/background.jpg");
+                width: 1505px;
                 min-height: 380px;
-                margin-right: 200px;
                 margin-left: 200px;
                 background-position: center;
                 background-repeat: no-repeat;
                 /* Needed to position the navbar */
                 position: relative;
                 font-family: 'Century Gothic';
+                z-index: 1030;
             }
 
             .navbar-nav {
@@ -160,8 +163,13 @@
                 position: relative;
                 border-style: solid;
             }
+            .navgation .container .row:hover {
+                transform: scale(1.10); 
+                transition-duration: 0.5s;
+            }
         </style>
     </div>
+
     <div class="body-content">
         @RenderBody()
         <footer>
@@ -171,6 +179,7 @@
         <style>
             footer {
                 margin-top: 100px;
+                color:white;
             }
         </style>
     </div>

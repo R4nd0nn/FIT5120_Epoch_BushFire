@@ -38,7 +38,8 @@ namespace FIT5120_Epoch_BushFire.Controllers
                     db.SaveChanges();
                     String toEmail = eadress;
                     String subject = "FIT5120MA28Team";
-                    String contents = "Thanks for registering on our website. We will send your notification for Bushfire";
+                    String contents = "Dear " + fname +
+                        " Thanks for registering on our website. We will send your notification for Bushfire";
                     Email es = new Email();
                     es.Send(toEmail, subject, contents);
 
@@ -59,7 +60,13 @@ namespace FIT5120_Epoch_BushFire.Controllers
             return RedirectToAction("Home", "Home"); 
         }
 
+        [HttpPost]
+        public ActionResult indicator()
+        {
 
+
+            return RedirectToAction("Home", "Home");
+        }
 
     }
     }
