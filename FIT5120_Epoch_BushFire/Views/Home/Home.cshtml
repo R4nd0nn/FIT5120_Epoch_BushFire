@@ -4,7 +4,7 @@
 
 
 
-    <style>
+<style>
     .fire_danger_rating {
         font: normal 16px/1.5 'Roboto', sans-serif;
         margin-top: 30px;
@@ -29,115 +29,115 @@
     /* CHART-SKILLS STYLES
                 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
-        .mainrating .chart-skills {
-            position: relative;
-            width: 350px;
-            height: 175px;
-            overflow: hidden;
+    .mainrating .chart-skills {
+        position: relative;
+        width: 350px;
+        height: 175px;
+        overflow: hidden;
+    }
+
+    .chart-skills::before,
+    .chart-skills::after {
+        position: absolute;
+    }
+
+    .chart-skills::before {
+        content: '';
+        width: inherit;
+        height: inherit;
+        border: 45px solid rgba(211, 211, 211, .3);
+        border-bottom: none;
+        border-top-left-radius: 175px;
+        border-top-right-radius: 175px;
+    }
+
+    .chart-skills::after {
+        left: 50%;
+        bottom: 10px;
+        transform: translateX(-50%);
+        font-size: 1rem;
+        font-weight: 900;
+        color: orangered;
+    }
+
+    .chart-skills li {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: inherit;
+        height: inherit;
+        border: 45px solid;
+        border-top: none;
+        border-bottom-left-radius: 175px;
+        border-bottom-right-radius: 175px;
+        transform-origin: 50% 0;
+        transform-style: preserve-3d;
+        backface-visibility: hidden;
+        animation-fill-mode: forwards;
+        animation-duration: .4s;
+        animation-timing-function: linear;
+    }
+
+        .chart-skills li:nth-child(1) {
+            z-index: 4;
+            border-color: green;
         }
 
-        .chart-skills::before,
-        .chart-skills::after {
-            position: absolute;
-        }
-
-        .chart-skills::before {
-            content: '';
-            width: inherit;
-            height: inherit;
-            border: 45px solid rgba(211, 211, 211, .3);
-            border-bottom: none;
-            border-top-left-radius: 175px;
-            border-top-right-radius: 175px;
-        }
-
-        .chart-skills::after {
-            left: 50%;
-            bottom: 10px;
-            transform: translateX(-50%);
-            font-size: 1rem;
-            font-weight: 900;
-            color: orangered;
-        }
-
-        .chart-skills li {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: inherit;
-            height: inherit;
-            border: 45px solid;
-            border-top: none;
-            border-bottom-left-radius: 175px;
-            border-bottom-right-radius: 175px;
-            transform-origin: 50% 0;
-            transform-style: preserve-3d;
-            backface-visibility: hidden;
-            animation-fill-mode: forwards;
-            animation-duration: .4s;
-            animation-timing-function: linear;
-        }
-
-            .chart-skills li:nth-child(1) {
-                z-index: 4;
-                border-color: green;
-            }
-
-            .chart-skills li:nth-child(2) {
-                z-index: 3;
-                border-color: yellow;
-                animation-delay: .4s;
-            }
-
-            .chart-skills li:nth-child(3) {
-                z-index: 2;
-                border-color: darkorange;
-                animation-delay: .8s;
-            }
-
-            .chart-skills li:nth-child(4) {
-                z-index: 1;
-                border-color: firebrick;
-                animation-delay: 1.2s;
-            }
-
-        .chart-skills span {
-            position: absolute;
-            font-size: 15px;
-            backface-visibility: hidden;
-            animation: fade-in .4s linear forwards;
-        }
-
-        .chart-skills li:nth-child(1) span {
-            top: 5px;
-            left: 10px;
-            color:green;
-            transform: rotate(-21.6deg);
-        }
-
-        .chart-skills li:nth-child(2) span {
-            top: 20px;
-            left: 10px;
-            color:yellow;
-            transform: rotate(-79.2deg);
+        .chart-skills li:nth-child(2) {
+            z-index: 3;
+            border-color: yellow;
             animation-delay: .4s;
         }
 
-        .chart-skills li:nth-child(3) span {
-            top: 18px;
-            left: 10px;
-            color: darkorange;
-            transform: rotate(-140.4deg);
+        .chart-skills li:nth-child(3) {
+            z-index: 2;
+            border-color: darkorange;
             animation-delay: .8s;
         }
 
-        .chart-skills li:nth-child(4) span {
-            top: 10px;
-            left: 10px;
-            color: firebrick;
-            transform: rotate(-180deg);
+        .chart-skills li:nth-child(4) {
+            z-index: 1;
+            border-color: firebrick;
             animation-delay: 1.2s;
         }
+
+    .chart-skills span {
+        position: absolute;
+        font-size: 15px;
+        backface-visibility: hidden;
+        animation: fade-in .4s linear forwards;
+    }
+
+    .chart-skills li:nth-child(1) span {
+        top: 5px;
+        left: 10px;
+        color: green;
+        transform: rotate(-21.6deg);
+    }
+
+    .chart-skills li:nth-child(2) span {
+        top: 20px;
+        left: 10px;
+        color: yellow;
+        transform: rotate(-79.2deg);
+        animation-delay: .4s;
+    }
+
+    .chart-skills li:nth-child(3) span {
+        top: 18px;
+        left: 10px;
+        color: darkorange;
+        transform: rotate(-140.4deg);
+        animation-delay: .8s;
+    }
+
+    .chart-skills li:nth-child(4) span {
+        top: 10px;
+        left: 10px;
+        color: firebrick;
+        transform: rotate(-180deg);
+        animation-delay: 1.2s;
+    }
 
 
 
@@ -204,475 +204,541 @@
             opacity: 1;
         }
     }
-    </style>
-    <body style="background-color:black">
-        <div class="mainrating">
-            <div class="fire_danger_rating">
-                <p style="color:white;font-size:36px;text-align:center;font-family:Stencil"> Fire Danger Rating for 7 Days</p>
-                <ul class="chart-skills">
-                    <li id="li1">
-                        <span id="span1">Low</span>
-                    </li>
-                    <li id="li2">
-                        <span id="span2">Medium</span>
-                    </li>
-                    <li id="li3">
-                        <span id="span3">High</span>
-                    </li>
-                    <li id="li4">
-                        <span id="span4">Very High</span>
-                    </li>
-                </ul>
-                <p style="text-align:center;font-family:'Arial Rounded MT';color:white">Fire Danger Rating<br />@DateTime.Now.ToString("MM-dd")</p>
-            </div>
+</style>
+<body style="background-color:black">
+    <div class="mainrating">
+        <div class="fire_danger_rating">
+            <p style="color:white;font-size:36px;text-align:center;font-family:Stencil;margin-top:50px"> Fire Danger Rating for 7 Days</p>
+            <ul class="chart-skills">
+                <li id="li1">
+                    <span id="span1">Low</span>
+                </li>
+                <li id="li2">
+                    <span id="span2">Medium</span>
+                </li>
+                <li id="li3">
+                    <span id="span3">High</span>
+                </li>
+                <li id="li4">
+                    <span id="span4">Very High</span>
+                </li>
+            </ul>
+            <p style="text-align:center;font-family:'Arial Rounded MT';color:white">Fire Danger Rating<br />@DateTime.Now.DayOfWeek : @DateTime.Now.ToString("MM-dd")</p>
         </div>
-
-        <div class="searchfunction">
-            <div class="row">
-                <label style="margin-top:100px;margin-left:680px;font-family:Arial Rounded MT;color:white">You can check danger rating here:</label>
-                <input type="text" id="search" placeholder="Input a suburb..">
-                <button onclick="newfunction()">Submit</button>
-                <button onclick="getdata()">reset</button>
-                <script>
-                    function getdata() {
-                        window.location.reload();
-                    }
-                    function newfunction() {
-                        var location = document.getElementById('search').value;
-                        var jsonurl = 'https://fireprediction.ga/forecast?locality=' + location;
-                        var forecastdata_date = "";
-                        var forecastdata_longtitude = "";
-                        var forecastdata_latitude = "";
-                        var forecastdata_rating_0 = "";
-                        var forecastdata_rating_1 = "";
-                        var forecastdata_rating_2 = "";
-                        var forecastdata_rating_3 = "";
-                        var forecastdata_rating_4 = "";
-                        var forecastdata_rating_5 = "";
-                        var forecastdata_rating_6 = "";
-                        var forecastdata_address = "";
-                        $.getJSON(jsonurl, function (data) {
-                            forecastdata_latitude = data.latitude;
-                            forecastdata_longtitude = data.longitude;
-                            forecastdata_address = data.address;
-                            forecastdata_date = data.days[0].datetime;
-                            forecastdata_rating_0 = data.days[0].FFDI_category;
-                            forecastdata_rating_1 = data.days[1].FFDI_category;
-                            forecastdata_rating_2 = data.days[2].FFDI_category;
-                            forecastdata_rating_3 = data.days[3].FFDI_category;
-                            forecastdata_rating_4 = data.days[4].FFDI_category;
-                            forecastdata_rating_5 = data.days[5].FFDI_category;
-                            forecastdata_rating_6 = data.days[6].FFDI_category;
-                            if (forecastdata_rating_0 === "low-moderate") {
-                                document.getElementById("li1").style.animationName = "rotate-one";
-                            }
-                            else if (forecastdata_rating_0 === "high") {
-                                document.getElementById("li1").style.animationName = "rotate-one";
-                            }
-                            else if (forecastdata_rating_0 === "very high") {
-                                document.getElementById("li1").style.animationName = "rotate-one";
-                                document.getElementById("li2").style.animationName = "rotate-two";
-                            }
-                            else if (forecastdata_rating_0 === "severe") {
-                                document.getElementById("li1").style.animationName = "rotate-one";
-                                document.getElementById("li2").style.animationName = "rotate-two";
-                                document.getElementById("li3").style.animationName = "rotate-three";
-                            }
-                            else if (forecastdata_rating_0 === "extreme") {
-                                document.getElementById("li1").style.animationName = "rotate-one";
-                                document.getElementById("li2").style.animationName = "rotate-two";
-                                document.getElementById("li3").style.animationName = "rotate-three";
-                                document.getElementById("li4").style.animationName = "rotate-four";
-                            }
-
-
-                            if (forecastdata_rating_1 === "low-moderate") {
-                                document.getElementById("li1_1").style.animationName = "rotate-one";
-                            }
-                            else if (forecastdata_rating_1 === "high") {
-                                document.getElementById("li1_1").style.animationName = "rotate-one";
-                            }
-                            else if (forecastdata_rating_1 === "very high") {
-                                document.getElementById("li1_1").style.animationName = "rotate-one";
-                                document.getElementById("li2_1").style.animationName = "rotate-two";
-                            }
-                            else if (forecastdata_rating_1 === "severe") {
-                                document.getElementById("li1_1").style.animationName = "rotate-one";
-                                document.getElementById("li2_1").style.animationName = "rotate-two";
-                                document.getElementById("li3_1").style.animationName = "rotate-three";
-                            }
-                            else if (forecastdata_rating_1 === "extreme") {
-                                document.getElementById("li1_1").style.animationName = "rotate-one";
-                                document.getElementById("li2_1").style.animationName = "rotate-two";
-                                document.getElementById("li3_1").style.animationName = "rotate-three";
-                                document.getElementById("li4_1").style.animationName = "rotate-four";
-                            }
-
-                            if (forecastdata_rating_2 === "low-moderate") {
-                                document.getElementById("li1_2").style.animationName = "rotate-one";
-                            }
-                            else if (forecastdata_rating_2 === "high") {
-                                document.getElementById("li1_2").style.animationName = "rotate-one";
-                            }
-                            else if (forecastdata_rating_2 === "very high") {
-                                document.getElementById("li1_2").style.animationName = "rotate-one";
-                                document.getElementById("li2_2").style.animationName = "rotate-two";
-                            }
-                            else if (forecastdata_rating_2 === "severe") {
-                                document.getElementById("li1_2").style.animationName = "rotate-one";
-                                document.getElementById("li2_2").style.animationName = "rotate-two";
-                                document.getElementById("li3_2").style.animationName = "rotate-three";
-                            }
-                            else if (forecastdata_rating_2 === "extreme") {
-                                document.getElementById("li1_2").style.animationName = "rotate-one";
-                                document.getElementById("li2_2").style.animationName = "rotate-two";
-                                document.getElementById("li3_2").style.animationName = "rotate-three";
-                                document.getElementById("li4_2").style.animationName = "rotate-four";
-                            }
-
-
-                            if (forecastdata_rating_3 === "low-moderate") {
-                                document.getElementById("li1_3").style.animationName = "rotate-one";
-                            }
-                            else if (forecastdata_rating_3 === "high") {
-                                document.getElementById("li1_3").style.animationName = "rotate-one";
-                            }
-                            else if (forecastdata_rating_3 === "very high") {
-                                document.getElementById("li1_3").style.animationName = "rotate-one";
-                                document.getElementById("li2_3").style.animationName = "rotate-two";
-                            }
-                            else if (forecastdata_rating_3 === "severe") {
-                                document.getElementById("li1_3").style.animationName = "rotate-one";
-                                document.getElementById("li2_3").style.animationName = "rotate-two";
-                                document.getElementById("li3_3").style.animationName = "rotate-three";
-                            }
-                            else if (forecastdata_rating_3 === "extreme") {
-                                document.getElementById("li1_3").style.animationName = "rotate-one";
-                                document.getElementById("li2_3").style.animationName = "rotate-two";
-                                document.getElementById("li3_3").style.animationName = "rotate-three";
-                                document.getElementById("li4_3").style.animationName = "rotate-four";
-                            }
-
-                            if (forecastdata_rating_4 === "low-moderate") {
-                                document.getElementById("li1_4").style.animationName = "rotate-one";
-                            }
-                            else if (forecastdata_rating_4 === "high") {
-                                document.getElementById("li1_4").style.animationName = "rotate-one";
-                            }
-                            else if (forecastdata_rating_4 === "very high") {
-                                document.getElementById("li1_4").style.animationName = "rotate-one";
-                                document.getElementById("li2_4").style.animationName = "rotate-two";
-                            }
-                            else if (forecastdata_rating_4 === "severe") {
-                                document.getElementById("li1_4").style.animationName = "rotate-one";
-                                document.getElementById("li2_4").style.animationName = "rotate-two";
-                                document.getElementById("li3_4").style.animationName = "rotate-three";
-                            }
-                            else if (forecastdata_rating_4 === "extreme") {
-                                document.getElementById("li1_4").style.animationName = "rotate-one";
-                                document.getElementById("li2_4").style.animationName = "rotate-two";
-                                document.getElementById("li3_4").style.animationName = "rotate-three";
-                                document.getElementById("li4_4").style.animationName = "rotate-four";
-                            }
-
-                            if (forecastdata_rating_5 === "low-moderate") {
-                                document.getElementById("li1_5").style.animationName = "rotate-one";
-                            }
-                            else if (forecastdata_rating_5 === "high") {
-                                document.getElementById("li1_5").style.animationName = "rotate-one";
-                            }
-                            else if (forecastdata_rating_5 === "very high") {
-                                document.getElementById("li1_5").style.animationName = "rotate-one";
-                                document.getElementById("li2_5").style.animationName = "rotate-two";
-                            }
-                            else if (forecastdata_rating_5 === "severe") {
-                                document.getElementById("li1_5").style.animationName = "rotate-one";
-                                document.getElementById("li2_5").style.animationName = "rotate-two";
-                                document.getElementById("li3_5").style.animationName = "rotate-three";
-                            }
-                            else if (forecastdata_rating_5 === "extreme") {
-                                document.getElementById("li1_5").style.animationName = "rotate-one";
-                                document.getElementById("li2_5").style.animationName = "rotate-two";
-                                document.getElementById("li3_5").style.animationName = "rotate-three";
-                                document.getElementById("li4_5").style.animationName = "rotate-four";
-                            }
-
-                            if (forecastdata_rating_6 === "low-moderate") {
-                                document.getElementById("li1_6").style.animationName = "rotate-one";
-                            }
-                            else if (forecastdata_rating_6 === "high") {
-                                document.getElementById("li1_6").style.animationName = "rotate-one";
-                            }
-                            else if (forecastdata_rating_6 === "very high") {
-                                document.getElementById("li1_6").style.animationName = "rotate-one";
-                                document.getElementById("li2_6").style.animationName = "rotate-two";
-                            }
-                            else if (forecastdata_rating_6 === "severe") {
-                                document.getElementById("li1_6").style.animationName = "rotate-one";
-                                document.getElementById("li2_6").style.animationName = "rotate-two";
-                                document.getElementById("li3_6").style.animationName = "rotate-three";
-                            }
-                            else if (forecastdata_rating_6 === "extreme") {
-                                document.getElementById("li1_6").style.animationName = "rotate-one";
-                                document.getElementById("li2_6").style.animationName = "rotate-two";
-                                document.getElementById("li3_6").style.animationName = "rotate-three";
-                                document.getElementById("li4_6").style.animationName = "rotate-four";
-                            }
-                        })
-                    }
-
-
-                </script>
-
-
-            </div>
-        </div>
+    </div>
+    <div class="searchfunction">
         <div class="row">
-            <div class="subrating">
-                <div class="sub1">
-                    <div class="col-md-2">
-                        <div class="fire_danger_rating">
-                            <ul class="chart-skills">
-                                <li id="li1_1">
-                                    <span id="span1"></span>
-                                </li>
-                                <li id="li2_1">
-                                    <span id="span2"></span>
-                                </li>
-                                <li id="li3_1">
-                                    <span id="span3"></span>
-                                </li>
-                                <li id="li4_1">
-                                    <span id="span4"></span>
-                                </li>
-                            </ul>
-                            <p style="text-align:center;margin-top:20px;font-family:'Arial Rounded MT';color:white">Fire Danger Rating<br />@DateTime.Now.AddDays(1).ToString("MM-dd")</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="sub2">
-                    <div class="col-md-2">
-                        <div class="fire_danger_rating">
-                            <ul class="chart-skills">
-                                <li id="li1_2">
-                                    <span id="span1"></span>
-                                </li>
-                                <li id="li2_2">
-                                    <span id="span2"></span>
-                                </li>
-                                <li id="li3_2">
-                                    <span id="span3"></span>
-                                </li>
-                                <li id="li4_2">
-                                    <span id="span4"></span>
-                                </li>
-                            </ul>
-                            <p style="text-align:center;margin-top:20px;font-family:'Arial Rounded MT';color:white">Fire Danger Rating<br />@DateTime.Now.AddDays(2).ToString("MM-dd")</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="sub3">
-                    <div class="col-md-2">
-                        <div class="fire_danger_rating">
-                            <ul class="chart-skills">
-                                <li id="li1_3">
-                                    <span id="span1"></span>
-                                </li>
-                                <li id="li2_3">
-                                    <span id="span2"></span>
-                                </li>
-                                <li id="li3_3">
-                                    <span id="span3"></span>
-                                </li>
-                                <li id="li4_3">
-                                    <span id="span4"></span>
-                                </li>
-                            </ul>
-                        </div>
-                        <p style="text-align:center;margin-top:20px;font-family:'Arial Rounded MT';color:white">Fire Danger Rating<br />@DateTime.Now.AddDays(3).ToString("MM-dd")</p>
-                    </div>
-                </div>
-                <div class="sub4">
-                    <div class="col-md-2">
-                        <div class="fire_danger_rating">
-                            <ul class="chart-skills">
-                                <li id="li1_4">
-                                    <span id="span1"></span>
-                                </li>
-                                <li id="li2_4">
-                                    <span id="span2"></span>
-                                </li>
-                                <li id="li3_4">
-                                    <span id="span3"></span>
-                                </li>
-                                <li id="li4_4">
-                                    <span id="span4"></span>
-                                </li>
-                            </ul>
-                            <p style="text-align:center;margin-top:20px;font-family:'Arial Rounded MT';color:white">Fire Danger Rating<br />@DateTime.Now.AddDays(4).ToString("MM-dd")</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="sub5">
-                    <div class="col-md-2">
-                        <div class="fire_danger_rating">
-                            <ul class="chart-skills">
-                                <li id="li1_5">
-                                    <span id="span1"></span>
-                                </li>
-                                <li id="li2_5">
-                                    <span id="span2"></span>
-                                </li>
-                                <li id="li3_5">
-                                    <span id="span3"></span>
-                                </li>
-                                <li id="li4_5">
-                                    <span id="span4"></span>
-                                </li>
-                            </ul>
-                            <p style="text-align:center;margin-top:20px;font-family:'Arial Rounded MT';color:white">Fire Danger Rating<br />@DateTime.Now.AddDays(5).ToString("MM-dd")</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="sub6">
-                    <div class="col-md-2">
-                        <div class="fire_danger_rating">
-                            <ul class="chart-skills">
-                                <li id="li1_6">
-                                    <span id="span1"></span>
-                                </li>
-                                <li id="li2_6">
-                                    <span id="span2"></span>
-                                </li>
-                                <li id="li3_6">
-                                    <span id="span3"></span>
-                                </li>
-                                <li id="li4_6">
-                                    <span id="span4"></span>
-                                </li>
-                            </ul>
-                            <p style="text-align:center;margin-top:20px;font-family:'Arial Rounded MT';color:white">Fire Danger Rating<br />@DateTime.Now.AddDays(6).ToString("MM-dd")</p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-            <style>
-                .subrating .chart-skills {
-                    position: relative;
-                    width: 200px;
-                    height: 100px;
-                    overflow: hidden;
+            <p style="margin-top:100px;margin-left:41%;font-family:Arial Rounded MT;color:white;font-size:20px">You can check danger rating here:</p>
+            <input type="text" id="search" placeholder="Input a suburb.." style="margin-left:41%;width:220px">
+            <button onclick="newfunction();myfunction()">Submit</button>
+            <button onclick="getdata()">reset</button>
+            <script>
+                function getdata() {
+                    window.location.reload();
                 }
-            </style>
+                function newfunction() {
+                    var location = document.getElementById('search').value;
+                    var jsonurl = 'https://fireprediction.ga/forecast?locality=' + location;
+                    var forecastdata_date = "";
+                    var forecastdata_longtitude = "";
+                    var forecastdata_latitude = "";
+                    var forecastdata_rating_0 = "";
+                    var forecastdata_rating_1 = "";
+                    var forecastdata_rating_2 = "";
+                    var forecastdata_rating_3 = "";
+                    var forecastdata_rating_4 = "";
+                    var forecastdata_rating_5 = "";
+                    var forecastdata_rating_6 = "";
+                    var forecastdata_address = "";
+                    $.getJSON(jsonurl, function (data) {
+                        forecastdata_latitude = data.latitude;
+                        forecastdata_longtitude = data.longitude;
+                        forecastdata_address = data.address;
+                        forecastdata_date = data.days[0].datetime;
+                        forecastdata_rating_0 = data.days[0].FFDI_category;
+                        forecastdata_rating_1 = data.days[1].FFDI_category;
+                        forecastdata_rating_2 = data.days[2].FFDI_category;
+                        forecastdata_rating_3 = data.days[3].FFDI_category;
+                        forecastdata_rating_4 = data.days[4].FFDI_category;
+                        forecastdata_rating_5 = data.days[5].FFDI_category;
+                        forecastdata_rating_6 = data.days[6].FFDI_category;
+                        if (forecastdata_rating_0 === "low-moderate") {
+                            document.getElementById("li1").style.animationName = "rotate-one";
+                        }
+                        else if (forecastdata_rating_0 === "high") {
+                            document.getElementById("li1").style.animationName = "rotate-one";
+                        }
+                        else if (forecastdata_rating_0 === "very high") {
+                            document.getElementById("li1").style.animationName = "rotate-one";
+                            document.getElementById("li2").style.animationName = "rotate-two";
+                        }
+                        else if (forecastdata_rating_0 === "severe") {
+                            document.getElementById("li1").style.animationName = "rotate-one";
+                            document.getElementById("li2").style.animationName = "rotate-two";
+                            document.getElementById("li3").style.animationName = "rotate-three";
+                        }
+                        else if (forecastdata_rating_0 === "extreme") {
+                            document.getElementById("li1").style.animationName = "rotate-one";
+                            document.getElementById("li2").style.animationName = "rotate-two";
+                            document.getElementById("li3").style.animationName = "rotate-three";
+                            document.getElementById("li4").style.animationName = "rotate-four";
+                        }
+
+
+                        if (forecastdata_rating_1 === "low-moderate") {
+                            document.getElementById("li1_1").style.animationName = "rotate-one";
+                        }
+                        else if (forecastdata_rating_1 === "high") {
+                            document.getElementById("li1_1").style.animationName = "rotate-one";
+                        }
+                        else if (forecastdata_rating_1 === "very high") {
+                            document.getElementById("li1_1").style.animationName = "rotate-one";
+                            document.getElementById("li2_1").style.animationName = "rotate-two";
+                        }
+                        else if (forecastdata_rating_1 === "severe") {
+                            document.getElementById("li1_1").style.animationName = "rotate-one";
+                            document.getElementById("li2_1").style.animationName = "rotate-two";
+                            document.getElementById("li3_1").style.animationName = "rotate-three";
+                        }
+                        else if (forecastdata_rating_1 === "extreme") {
+                            document.getElementById("li1_1").style.animationName = "rotate-one";
+                            document.getElementById("li2_1").style.animationName = "rotate-two";
+                            document.getElementById("li3_1").style.animationName = "rotate-three";
+                            document.getElementById("li4_1").style.animationName = "rotate-four";
+                        }
+
+                        if (forecastdata_rating_2 === "low-moderate") {
+                            document.getElementById("li1_2").style.animationName = "rotate-one";
+                        }
+                        else if (forecastdata_rating_2 === "high") {
+                            document.getElementById("li1_2").style.animationName = "rotate-one";
+                        }
+                        else if (forecastdata_rating_2 === "very high") {
+                            document.getElementById("li1_2").style.animationName = "rotate-one";
+                            document.getElementById("li2_2").style.animationName = "rotate-two";
+                        }
+                        else if (forecastdata_rating_2 === "severe") {
+                            document.getElementById("li1_2").style.animationName = "rotate-one";
+                            document.getElementById("li2_2").style.animationName = "rotate-two";
+                            document.getElementById("li3_2").style.animationName = "rotate-three";
+                        }
+                        else if (forecastdata_rating_2 === "extreme") {
+                            document.getElementById("li1_2").style.animationName = "rotate-one";
+                            document.getElementById("li2_2").style.animationName = "rotate-two";
+                            document.getElementById("li3_2").style.animationName = "rotate-three";
+                            document.getElementById("li4_2").style.animationName = "rotate-four";
+                        }
+
+
+                        if (forecastdata_rating_3 === "low-moderate") {
+                            document.getElementById("li1_3").style.animationName = "rotate-one";
+                        }
+                        else if (forecastdata_rating_3 === "high") {
+                            document.getElementById("li1_3").style.animationName = "rotate-one";
+                        }
+                        else if (forecastdata_rating_3 === "very high") {
+                            document.getElementById("li1_3").style.animationName = "rotate-one";
+                            document.getElementById("li2_3").style.animationName = "rotate-two";
+                        }
+                        else if (forecastdata_rating_3 === "severe") {
+                            document.getElementById("li1_3").style.animationName = "rotate-one";
+                            document.getElementById("li2_3").style.animationName = "rotate-two";
+                            document.getElementById("li3_3").style.animationName = "rotate-three";
+                        }
+                        else if (forecastdata_rating_3 === "extreme") {
+                            document.getElementById("li1_3").style.animationName = "rotate-one";
+                            document.getElementById("li2_3").style.animationName = "rotate-two";
+                            document.getElementById("li3_3").style.animationName = "rotate-three";
+                            document.getElementById("li4_3").style.animationName = "rotate-four";
+                        }
+
+                        if (forecastdata_rating_4 === "low-moderate") {
+                            document.getElementById("li1_4").style.animationName = "rotate-one";
+                        }
+                        else if (forecastdata_rating_4 === "high") {
+                            document.getElementById("li1_4").style.animationName = "rotate-one";
+                        }
+                        else if (forecastdata_rating_4 === "very high") {
+                            document.getElementById("li1_4").style.animationName = "rotate-one";
+                            document.getElementById("li2_4").style.animationName = "rotate-two";
+                        }
+                        else if (forecastdata_rating_4 === "severe") {
+                            document.getElementById("li1_4").style.animationName = "rotate-one";
+                            document.getElementById("li2_4").style.animationName = "rotate-two";
+                            document.getElementById("li3_4").style.animationName = "rotate-three";
+                        }
+                        else if (forecastdata_rating_4 === "extreme") {
+                            document.getElementById("li1_4").style.animationName = "rotate-one";
+                            document.getElementById("li2_4").style.animationName = "rotate-two";
+                            document.getElementById("li3_4").style.animationName = "rotate-three";
+                            document.getElementById("li4_4").style.animationName = "rotate-four";
+                        }
+
+                        if (forecastdata_rating_5 === "low-moderate") {
+                            document.getElementById("li1_5").style.animationName = "rotate-one";
+                        }
+                        else if (forecastdata_rating_5 === "high") {
+                            document.getElementById("li1_5").style.animationName = "rotate-one";
+                        }
+                        else if (forecastdata_rating_5 === "very high") {
+                            document.getElementById("li1_5").style.animationName = "rotate-one";
+                            document.getElementById("li2_5").style.animationName = "rotate-two";
+                        }
+                        else if (forecastdata_rating_5 === "severe") {
+                            document.getElementById("li1_5").style.animationName = "rotate-one";
+                            document.getElementById("li2_5").style.animationName = "rotate-two";
+                            document.getElementById("li3_5").style.animationName = "rotate-three";
+                        }
+                        else if (forecastdata_rating_5 === "extreme") {
+                            document.getElementById("li1_5").style.animationName = "rotate-one";
+                            document.getElementById("li2_5").style.animationName = "rotate-two";
+                            document.getElementById("li3_5").style.animationName = "rotate-three";
+                            document.getElementById("li4_5").style.animationName = "rotate-four";
+                        }
+
+                        if (forecastdata_rating_6 === "low-moderate") {
+                            document.getElementById("li1_6").style.animationName = "rotate-one";
+                        }
+                        else if (forecastdata_rating_6 === "high") {
+                            document.getElementById("li1_6").style.animationName = "rotate-one";
+                        }
+                        else if (forecastdata_rating_6 === "very high") {
+                            document.getElementById("li1_6").style.animationName = "rotate-one";
+                            document.getElementById("li2_6").style.animationName = "rotate-two";
+                        }
+                        else if (forecastdata_rating_6 === "severe") {
+                            document.getElementById("li1_6").style.animationName = "rotate-one";
+                            document.getElementById("li2_6").style.animationName = "rotate-two";
+                            document.getElementById("li3_6").style.animationName = "rotate-three";
+                        }
+                        else if (forecastdata_rating_6 === "extreme") {
+                            document.getElementById("li1_6").style.animationName = "rotate-one";
+                            document.getElementById("li2_6").style.animationName = "rotate-two";
+                            document.getElementById("li3_6").style.animationName = "rotate-three";
+                            document.getElementById("li4_6").style.animationName = "rotate-four";
+                        }
+
+                        var weatherurl = "https://api.tomorrow.io/v4/timelines?location=" + forecastdata_latitude + "," + forecastdata_longtitude + "&fields=temperature&timesteps=1d&units=metric&apikey=zMAXh4NpzYZZGYKIXA0zTNrFeZCM1Lce";
+                        $.getJSON(weatherurl, function (weather) {
+                            weather.data.timelines[0].intervals[0].values.temperature;
+                        })
+                    })
+                }
+            </script>
         </div>
-        <hr style="border-top: 3px double;color:white;width:1505px;text-align:center">
-        <p style="color:white;font-size:36px;text-align:center;font-family:Stencil">Description</p>
-        <div class="row" style="margin-left:10%">
-            <div class="col-md-6" style="margin-top:50px">
-                <p1 style="color: white; font-size: 20px; font-family:cursive">Australia  is  one  of  the  most  fire-prone countries  in  the  worlddue  toits weather  and  land conditions. Apart from having a dry conditionin summer, the temperature in Australia is on the  rise.  This  providesthe  idealconditions  for a bushfire  to  occur.Farmers living  near  the bushlands and forests arethe ones who suffer the most from wildfires.Their significantassets are  crops  and their  livestock,which  gets  affected  by occurrences  of  bushfire. It  is  reported that from the recent bushfires of 2019-2020, 14% of agricultural land was burned. Also,the loss of livestock such as sheep and cattle areestimated to be more than 25000, consisting of 2%of  all in  Australia.Some  of these  lossesare  related  to  the  lack  of awareness  and preparedness to protect themselves during a bushfire.</p1>
-            </div>
-            <div class="col-md-6" style="opacity:0.8" ;>
-                <img src="~/Image/split.png" style="width:750px;position:absolute;margin-top:20px;min-height:100px;" />
-                <img src="~/Image/split.png" style="transform:rotate(180deg);width:750px;position:absolute;margin-top:250px;min-height:100px" />
-                <img src="~/Image/bushfirebackground2.jpg" style="width:650px;height:300px;margin-top:50px;" />
-            </div>
-        </div>
-
-
-        <hr style="border-top: 3px double;color:white;width:1505px;text-align:center">
-        <div class="link">
-            <div class="row">
-                <div id="zoom" class="col-md-4">
-                    <div class="container farm">
-                        <div class="kfs">
-
-                            <h1>KEEP FARM SAFE</h1>
-                            <p>
-                                <a href="https://localhost:44309/Home/Home"><img style="border: 3px solid black;border-style: double;border-radius:8px" src="~/Image/farm.jpg" alt="farm" width="300" height="400" /></a>
-                            </p>
-                        </div>
+    </div>
+    <div class="row">
+        <div class="subrating">
+            <div class="sub1">
+                <div class="col-md-2">
+                    <div class="fire_danger_rating">
+                        <ul class="chart-skills">
+                            <li id="li1_1">
+                                <span id="span1"></span>
+                            </li>
+                            <li id="li2_1">
+                                <span id="span2"></span>
+                            </li>
+                            <li id="li3_1">
+                                <span id="span3"></span>
+                            </li>
+                            <li id="li4_1">
+                                <span id="span4"></span>
+                            </li>
+                        </ul>
+                        <p style="text-align:center;margin-top:20px;font-family:'Arial Rounded MT';color:white">@DateTime.Now.AddDays(1).DayOfWeek : @DateTime.Now.AddDays(1).ToString("MM-dd")</p>
                     </div>
                 </div>
-                <div id="zoom" class="col-md-4">
-                    <div class="kcs">
-                        <h1>KEEP CATTLE SAFE</h1>
-                        <p>
-                            <a href="https://localhost:44309/Home/Home">
-                                <img style="border: 3px solid black;border-style: double;border-radius: 8px
-" src="~/Image/cattle.jpg" alt="cattle" width="300" height="400" />
-                            </a>
-                        </p>
-                    </div>
-                </div>
-                <div id="zoom" class="col-md-4">
-                    <div class="ins">
-                        <h1>INSURANCE</h1>
-                        <p>
-                            <a href="https://localhost:44309/Home/Home"><img style="border:3px solid black;border-style:double;border-radius:8px" src="~/Image/insurance.jpg" alt="insurance" width="300" height="400" /></a>
-                        </p>
+            </div>
+            <div class="sub2">
+                <div class="col-md-2">
+                    <div class="fire_danger_rating">
+                        <ul class="chart-skills">
+                            <li id="li1_2">
+                                <span id="span1"></span>
+                            </li>
+                            <li id="li2_2">
+                                <span id="span2"></span>
+                            </li>
+                            <li id="li3_2">
+                                <span id="span3"></span>
+                            </li>
+                            <li id="li4_2">
+                                <span id="span4"></span>
+                            </li>
+                        </ul>
+                        <p style="text-align:center;margin-top:20px;font-family:'Arial Rounded MT';color:white">@DateTime.Now.AddDays(2).DayOfWeek : @DateTime.Now.AddDays(2).ToString("MM-dd")</p>
                     </div>
                 </div>
             </div>
+            <div class="sub3">
+                <div class="col-md-2">
+                    <div class="fire_danger_rating">
+                        <ul class="chart-skills">
+                            <li id="li1_3">
+                                <span id="span1"></span>
+                            </li>
+                            <li id="li2_3">
+                                <span id="span2"></span>
+                            </li>
+                            <li id="li3_3">
+                                <span id="span3"></span>
+                            </li>
+                            <li id="li4_3">
+                                <span id="span4"></span>
+                            </li>
+                        </ul>
+                    </div>
+                    <p style="text-align:center;margin-top:20px;font-family:'Arial Rounded MT';color:white">@DateTime.Now.AddDays(3).DayOfWeek : @DateTime.Now.AddDays(3).ToString("MM-dd")</p>
+                </div>
+            </div>
+            <div class="sub4">
+                <div class="col-md-2">
+                    <div class="fire_danger_rating">
+                        <ul class="chart-skills">
+                            <li id="li1_4">
+                                <span id="span1"></span>
+                            </li>
+                            <li id="li2_4">
+                                <span id="span2"></span>
+                            </li>
+                            <li id="li3_4">
+                                <span id="span3"></span>
+                            </li>
+                            <li id="li4_4">
+                                <span id="span4"></span>
+                            </li>
+                        </ul>
+                        <p style="text-align:center;margin-top:20px;font-family:'Arial Rounded MT';color:white">@DateTime.Now.AddDays(4).DayOfWeek : @DateTime.Now.AddDays(4).ToString("MM-dd")</p>
+                    </div>
+                </div>
+            </div>
+            <div class="sub5">
+                <div class="col-md-2">
+                    <div class="fire_danger_rating">
+                        <ul class="chart-skills">
+                            <li id="li1_5">
+                                <span id="span1"></span>
+                            </li>
+                            <li id="li2_5">
+                                <span id="span2"></span>
+                            </li>
+                            <li id="li3_5">
+                                <span id="span3"></span>
+                            </li>
+                            <li id="li4_5">
+                                <span id="span4"></span>
+                            </li>
+                        </ul>
+                        <p style="text-align:center;margin-top:20px;font-family:'Arial Rounded MT';color:white">@DateTime.Now.AddDays(5).DayOfWeek : @DateTime.Now.AddDays(5).ToString("MM-dd")</p>
+                    </div>
+                </div>
+            </div>
+            <div class="sub6">
+                <div class="col-md-2">
+                    <div class="fire_danger_rating">
+                        <ul class="chart-skills">
+                            <li id="li1_6">
+                                <span id="span1"></span>
+                            </li>
+                            <li id="li2_6">
+                                <span id="span2"></span>
+                            </li>
+                            <li id="li3_6">
+                                <span id="span3"></span>
+                            </li>
+                            <li id="li4_6">
+                                <span id="span4"></span>
+                            </li>
+                        </ul>
+                        <p style="text-align:center;margin-top:20px;font-family:'Arial Rounded MT';color:white">@DateTime.Now.AddDays(6).DayOfWeek : @DateTime.Now.AddDays(6).ToString("MM-dd")</p>
+                    </div>
+                </div>
+
+            </div>
         </div>
-
-
-
         <style>
-            .link {
+            .subrating .chart-skills {
                 position: relative;
-                margin-top: 100px;
-                font-family: 'Century Gothic';
+                width: 200px;
+                height: 100px;
+                overflow: hidden;
             }
-
-            .kcs {
-                margin-left: 150px;
-            }
-
-                .kcs h1 {
-                    position: absolute;
-                    top: 40px;
-                    left: 190px;
-                    border-style: double;
-                    font-size: 30px;
-                    font-weight: 900;
-                }
-
-            .kfs {
-                margin-left: 180px;
-            }
-
-                .kfs h1 {
-                    position: absolute;
-                    top: 40px;
-                    left: 240px;
-                    border-style: double;
-                    font-size: 30px;
-                    font-weight: 900;
-                }
-
-            .ins {
-                margin-left: 125px;
-            }
-
-                .ins h1 {
-                    position: absolute;
-                    top: 40px;
-                    left: 210px;
-                    border-style: double;
-                    font-size: 30px;
-                    font-weight: 900;
-                }
-
-            #zoom {
-                transition: transform .3s; /* Animation */
-                margin: 0 auto;
-            }
-
-                #zoom:hover {
-                    transform: scale(1.10); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
-                }
         </style>
+    </div>
 
-    </body>
+
+    <div class="row" style="opacity:0.8;margin-left:13%" ;>
+        <div class="description">
+            <img src="~/Image/split.png" style="width:1700px;position:absolute;margin-top:20px;min-height:100px;" />
+            <img src="~/Image/split.png" style="transform:rotate(180deg);width:1700px;position:absolute;margin-top:250px;min-height:100px" />
+            <img src="~/Image/background.jpg" style="width:1550px;height:300px;margin-top:50px;" />
+        </div>
+    </div>
+    <p style="color:white;font-size:36px;text-align:center;font-family:Stencil;margin-top:10px">Description</p>
+    <div class="row" style="margin-left:12%">
+        <div class="col-md-6" style="margin-top:50px">
+            <p1 style="color: white; font-size: 20px; font-family:cursive")">Australia  is  one  of  the  most  fire-prone countries  in  the  worlddue  toits weather  and  land conditions. Apart from having a dry conditionin summer, the temperature in Australia is on the  rise.  This  providesthe  idealconditions  for a bushfire  to  occur.Farmers living  near  the bushlands and forests arethe ones who suffer the most from wildfires.Their significantassets are  crops  and their  livestock,which  gets  affected  by occurrences  of  bushfire. It  is  reported that from the recent bushfires of 2019-2020, 14% of agricultural land was burned. Also,the loss of livestock such as sheep and cattle areestimated to be more than 25000, consisting of 2%of  all in  Australia.Some  of these  lossesare  related  to  the  lack  of awareness  and preparedness to protect themselves during a bushfire.</p1>
+        </div>
+        <div class="col-md-6" style="opacity:0.8" ;>
+            <img src="~/Image/split.png" style="width:750px;position:absolute;margin-top:20px;min-height:100px;" />
+            <img src="~/Image/split.png" style="transform:rotate(180deg);width:750px;position:absolute;margin-top:250px;min-height:100px" />
+            <img src="~/Image/bushfirebackground2.jpg" style="width:650px;height:300px;margin-top:50px;" />
+        </div>
+    </div>
+
+    <hr style="border-top: 3px double;color:white;width:1505px;text-align:center">
+    <h2 style="color:white;font-size:36px;text-align:center;font-family:Stencil"> Fire-Prone Area Map Of Your Suburb </h2>
+    <div class="container-fluid" style="justify-content: right; width:1525px">
+        <div id="map" style="justify-content: right;"></div>
+    </div>
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoiamRhaDAwMDEiLCJhIjoiY2ttb3pvMmYyMjlsdzJvdDRzc3R3ZWp1bSJ9.k4l8C8SfWsC8GDxRwdp4xQ'
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/jdah0001/ckn43upw24mwn18nz8ko60usa',
+            center: [144.9631, - 37.8136],
+            zoom: 12
+        });
+        var marker1 = new mapboxgl.Marker({ color: 'black' })
+            .setLngLat([144.9631, -37.8136])
+            .addTo(map);
+
+        function myfunction() {
+            var location = document.getElementById('search').value;
+            var jsonurl = 'https://fireprediction.ga/forecast?locality=' + location;
+            var forecastdata_longtitude = "";
+            var forecastdata_latitude = "";
+            $.getJSON(jsonurl, function (data) {
+                forecastdata_latitude = data.latitude;
+                forecastdata_longtitude = data.longitude;
+                b = parseFloat(forecastdata_latitude);
+                a = parseFloat(forecastdata_longtitude);
+
+                mapboxgl.accessToken = 'pk.eyJ1IjoiamRhaDAwMDEiLCJhIjoiY2ttb3pvMmYyMjlsdzJvdDRzc3R3ZWp1bSJ9.k4l8C8SfWsC8GDxRwdp4xQ'
+                var map = new mapboxgl.Map({
+                    container: 'map',
+                    style: 'mapbox://styles/jdah0001/ckn43upw24mwn18nz8ko60usa',
+                    center: [a, b],
+                    zoom: 12
+                });
+                var marker1 = new mapboxgl.Marker({ color: 'black' })
+                    .setLngLat([a, b])
+                    .addTo(map);
+                mapboxgl.accessToken = 'pk.eyJ1IjoiamRhaDAwMDEiLCJhIjoiY2ttb3pvMmYyMjlsdzJvdDRzc3R3ZWp1bSJ9.k4l8C8SfWsC8GDxRwdp4xQ';
+                var map = new mapboxgl.Map({
+                    container: 'map',
+                    style: 'mapbox://styles/jdah0001/ckn43upw24mwn18nz8ko60usa',
+                    center: [a, b],
+                    zoom: 12
+                });
+                var marker1 = new mapboxgl.Marker({ color: 'black' })
+                    .setLngLat([a, b])
+                    .addTo(map);
+            })
+        }
+
+
+
+    </script>
+
+
+
+
+
+    <hr style="border-top: 3px double;color:white;width:1505px;text-align:center">
+    <div class="link">
+        <div class="row">
+            <div id="zoom" class="col-md-4">
+                <div class="container farm">
+                    <div class="kfs">
+
+                        <h1>KEEP FARM SAFE</h1>
+                        <p>
+                            <a href="https://localhost:44309/Home/Home"><img style="border: 3px solid black;border-style: double;border-radius:8px" src="~/Image/farm.jpg" alt="farm" width="300" height="400" /></a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div id="zoom" class="col-md-4">
+                <div class="kcs">
+                    <h1>KEEP CATTLE SAFE</h1>
+                    <p>
+                        <a href="https://localhost:44309/Home/Home">
+                            <img style="border: 3px solid black;border-style: double;border-radius: 8px
+" src="~/Image/cattle.jpg" alt="cattle" width="300" height="400" />
+                        </a>
+                    </p>
+                </div>
+            </div>
+            <div id="zoom" class="col-md-4">
+                <div class="ins">
+                    <h1>INSURANCE</h1>
+                    <p>
+                        <a href="https://localhost:44309/Home/Home"><img style="border:3px solid black;border-style:double;border-radius:8px" src="~/Image/insurance.jpg" alt="insurance" width="300" height="400" /></a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <style>
+        .link {
+            position: relative;
+            margin-top: 100px;
+            font-family: 'Century Gothic';
+        }
+
+        .kcs {
+            margin-left: 150px;
+        }
+
+            .kcs h1 {
+                position: absolute;
+                top: 40px;
+                left: 190px;
+                border-style: double;
+                font-size: 30px;
+                font-weight: 900;
+            }
+
+        .kfs {
+            margin-left: 180px;
+        }
+
+            .kfs h1 {
+                position: absolute;
+                top: 40px;
+                left: 240px;
+                border-style: double;
+                font-size: 30px;
+                font-weight: 900;
+            }
+
+        .ins {
+            margin-left: 125px;
+        }
+
+            .ins h1 {
+                position: absolute;
+                top: 40px;
+                left: 210px;
+                border-style: double;
+                font-size: 30px;
+                font-weight: 900;
+            }
+
+        #zoom {
+            transition: transform .3s;
+            margin: 0 auto;
+        }
+
+            #zoom:hover {
+                transform: scale(1.10);
+            }
+    </style>
+
+</body>
 

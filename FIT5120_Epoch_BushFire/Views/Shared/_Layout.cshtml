@@ -11,20 +11,40 @@
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            position: page;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            height: 500px;
+        }
+    </style>
 </head>
 <body>
     <div class="navgation">
         <div class="container">
             <div class="row">
-                <ul class="nav navbar-nav">
-                    <li class="nav1">@Html.ActionLink("Home", "Home", "Home")</li>
-                    <li class="nav2">@Html.ActionLink("Map", "Map", "Home")</li>
-                    <li class="nav3">@Html.ActionLink("Explore", "Map", "Home")</li>
+                <ul class="nav navbar-nav" style="color:white">
+                    <li class="nav1" style="color:white">@Html.ActionLink("Home", "Home","Home")</li>
+                    <li class="nav2" style="color:white">@Html.ActionLink("Map", "Map", "Home")</li>
+                    <li class="nav3" style="color:white">@Html.ActionLink("Explore", "Map", "Home")</li>
                 </ul>
-                <button id="gbn" style="width: 200px;height: 50px;font-family:Century Gothic;background:transparent;border-style:double;float:right;margin-top:6%;color:white">Get Bushfire Notification</button>
+                <img src="~/Image/logo.png" style="height:200px;margin-top:50px;margin-left:70px"/>
+                <button id="gbn" style="width: 200px;height: 50px;font-family:Century Gothic;background:transparent;border-style:double;border-width:5px;float:right;margin-top:10%;color:white">Get Bushfire Notification</button>
             </div>
         </div>
-        <img src="~/Image/split.png" style="transform:rotate(180deg);width:1505px;position:absolute;margin-top:180px" />
+        <img src="~/Image/split.png" style="transform:rotate(180deg);width:100%;position:absolute;margin-top:250px" />
         <div id="myModal" class="modal">
             <div class="modal-content">
                 <div class="modal-header">
@@ -128,17 +148,15 @@
 
         <style>
             .navgation {
-                /* The image used */
-                background: url("/image/background.jpg");
-                width: 1505px;
-                min-height: 380px;
-                margin-left: 200px;
+                background: url("/image/main_background2.jpg");
+                width: 100%;
+                min-height: 600px;
                 background-position: center;
                 background-repeat: no-repeat;
-                /* Needed to position the navbar */
                 position: relative;
                 font-family: 'Century Gothic';
                 z-index: 1030;
+                background-attachment: fixed;
             }
 
             .navbar-nav {
@@ -163,9 +181,9 @@
                 position: relative;
                 border-style: solid;
             }
-            .navgation .container .row:hover {
-                transform: scale(1.10); 
-                transition-duration: 0.5s;
+            .nav li a{
+                margin-top:50px;
+                color:white;
             }
         </style>
     </div>
