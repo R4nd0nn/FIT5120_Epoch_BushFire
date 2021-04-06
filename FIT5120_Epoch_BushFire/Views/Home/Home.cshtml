@@ -186,504 +186,513 @@
 </style>
 <h2 style="color:white;font-size:36px;text-align:center;font-family:Stencil;margin-top:30px"> Fire Danger Rating</h2>
 <body style="background-color:black">
-    <div class="mainrating">
-        <div class="fire_danger_rating">
-            <ul class="chart-skills">
-                <li id="li1">
-                    <span id="span1">Low</span>
-                </li>
-                <li id="li2">
-                    <span id="span2">Medium</span>
-                </li>
-                <li id="li3">
-                    <span id="span3">High</span>
-                </li>
-                <li id="li4">
-                    <span id="span4">Very High</span>
-                </li>
-            </ul>
-            <p id="firedanger_00" style="text-align:center;font-family:'Arial Rounded MT';color:white">Danger Rating Scale</p>
-            <p id="firedanger_01" style="text-align:center;font-family:'Arial Rounded MT';color:white">@DateTime.Now.DayOfWeek : @DateTime.Now.ToString("MM-dd")</p>
-            <p id="firedanger_02" style="text-align:center;font-family:'Arial Rounded MT';color:white"></p>
+    <div class="container-fluid">
+        <div class="mainrating">
+            <div class="fire_danger_rating">
+                <ul class="chart-skills">
+                    <li id="li1">
+                        <span id="span1">Low</span>
+                    </li>
+                    <li id="li2">
+                        <span id="span2">Medium</span>
+                    </li>
+                    <li id="li3">
+                        <span id="span3">High</span>
+                    </li>
+                    <li id="li4">
+                        <span id="span4">Very High</span>
+                    </li>
+                </ul>
+                <p id="firedanger_00" style="text-align:center;font-family:'Arial Rounded MT';color:white">Danger Rating Scale</p>
+                <p id="firedanger_01" style="text-align:center;font-family:'Arial Rounded MT';color:white">@DateTime.Now.DayOfWeek : @DateTime.Now.ToString("MM-dd")</p>
+                <p id="firedanger_02" style="text-align:center;font-family:'Arial Rounded MT';color:white"></p>
+            </div>
         </div>
     </div>
-    <div class="searchfunction">
-        <div class="row" style="text-align:center">
-            <p style="margin-top:100px;font-family:Arial Rounded MT;color:white;font-size:20px">Check danger rating:</p>
-            <input type="text" id="search" placeholder="Input a suburb.." style="width:350px;">
-            <button onclick="newfunction();myfunction()">Submit</button>
-            <script>
-                function newfunction() {
-                    document.getElementById("li1").style.animationName = "nothing";
-                    document.getElementById("li2").style.animationName = "nothing";
-                    document.getElementById("li3").style.animationName = "nothing";
-                    document.getElementById("li4").style.animationName = "nothing";
-                    document.getElementById("li1_1").style.animationName = "nothing";
-                    document.getElementById("li2_1").style.animationName = "nothing";
-                    document.getElementById("li3_1").style.animationName = "nothing";
-                    document.getElementById("li4_1").style.animationName = "nothing";
-                    document.getElementById("li1_2").style.animationName = "nothing";
-                    document.getElementById("li2_2").style.animationName = "nothing";
-                    document.getElementById("li3_2").style.animationName = "nothing";
-                    document.getElementById("li4_2").style.animationName = "nothing";
-                    document.getElementById("li1_3").style.animationName = "nothing";
-                    document.getElementById("li2_3").style.animationName = "nothing";
-                    document.getElementById("li3_3").style.animationName = "nothing";
-                    document.getElementById("li4_3").style.animationName = "nothing";
-                    document.getElementById("li1_4").style.animationName = "nothing";
-                    document.getElementById("li2_4").style.animationName = "nothing";
-                    document.getElementById("li3_4").style.animationName = "nothing";
-                    document.getElementById("li4_4").style.animationName = "nothing";
-                    document.getElementById("li1_5").style.animationName = "nothing";
-                    document.getElementById("li2_5").style.animationName = "nothing";
-                    document.getElementById("li3_5").style.animationName = "nothing";
-                    document.getElementById("li4_5").style.animationName = "nothing";
-                    document.getElementById("li1_6").style.animationName = "nothing";
-                    document.getElementById("li2_6").style.animationName = "nothing";
-                    document.getElementById("li3_6").style.animationName = "nothing";
-                    document.getElementById("li4_6").style.animationName = "nothing";
-                    var location = document.getElementById('search').value;
-                    var jsonurl = 'https://fireprediction.ga/forecast?locality=' + location;
-                    var forecastdata_date = "";
-                    var forecastdata_longtitude = "";
-                    var forecastdata_latitude = "";
-                    var forecastdata_rating_0 = "";
-                    var forecastdata_rating_1 = "";
-                    var forecastdata_rating_2 = "";
-                    var forecastdata_rating_3 = "";
-                    var forecastdata_rating_4 = "";
-                    var forecastdata_rating_5 = "";
-                    var forecastdata_rating_6 = "";
-                    var forecastdata_address = "";
-                    $.getJSON(jsonurl, function (data) {
-                        forecastdata_latitude = data.latitude;
-                        forecastdata_longtitude = data.longitude;
-                        forecastdata_address = data.address;
-                        forecastdata_date = data.days[0].datetime;
-                        forecastdata_temp_0 = data.days[0].temp;
-                        forecastdata_temp_1 = data.days[1].temp;
-                        forecastdata_temp_2 = data.days[2].temp;
-                        forecastdata_temp_3 = data.days[3].temp;
-                        forecastdata_temp_4 = data.days[4].temp;
-                        forecastdata_temp_5 = data.days[5].temp;
-                        forecastdata_temp_6 = data.days[6].temp;
-                        forecastdata_rating_0 = data.days[0].FFDI_category;
-                        forecastdata_rating_1 = data.days[1].FFDI_category;
-                        forecastdata_rating_2 = data.days[2].FFDI_category;
-                        forecastdata_rating_3 = data.days[3].FFDI_category;
-                        forecastdata_rating_4 = data.days[4].FFDI_category;
-                        forecastdata_rating_5 = data.days[5].FFDI_category;
-                        forecastdata_rating_6 = data.days[6].FFDI_category;
-                        if (forecastdata_rating_0 === "low-moderate") {
-                            document.getElementById("li1").style.animationName = "rotate-one";
-                            document.getElementById("firedanger_00").innerHTML = "Fire Danger Rating: Low-Moderate";
-                            document.getElementById("firedanger_02").innerHTML = "Todays Average Temperature is " + forecastdata_temp_0 + "℃";
-                        }
-                        else if (forecastdata_rating_0 === "high") {
-                            document.getElementById("li1").style.animationName = "rotate-one";
-                            document.getElementById("firedanger_00").innerHTML = "Fire Danger Rating: High";
-                            document.getElementById("firedanger_02").innerHTML = "Todays Average Temperature is " + forecastdata_temp_0 + "℃";
-                        }
-                        else if (forecastdata_rating_0 === "very high") {
-                            document.getElementById("li1").style.animationName = "rotate-one";
-                            document.getElementById("li2").style.animationName = "rotate-two";
-                            document.getElementById("firedanger_00").innerHTML = "Fire Danger Rating: very high";
-                            document.getElementById("firedanger_02").innerHTML = "Todays Average Temperature is " + forecastdata_temp_0 + "℃";
-                        }
-                        else if (forecastdata_rating_0 === "severe") {
-                            document.getElementById("li1").style.animationName = "rotate-one";
-                            document.getElementById("li2").style.animationName = "rotate-two";
-                            document.getElementById("li3").style.animationName = "rotate-three";
-                            document.getElementById("firedanger_00").innerHTML = "Fire Danger Rating: severe";
-                            document.getElementById("firedanger_02").innerHTML = "Todays Average Temperature is " + forecastdata_temp_0 + "℃";
-                        }
-                        else if (forecastdata_rating_0 === "extreme") {
-                            document.getElementById("li1").style.animationName = "rotate-one";
-                            document.getElementById("li2").style.animationName = "rotate-two";
-                            document.getElementById("li3").style.animationName = "rotate-three";
-                            document.getElementById("li4").style.animationName = "rotate-four";
-                            document.getElementById("firedanger_00").innerHTML = "Fire Danger Rating: extreme";
-                            document.getElementById("firedanger_02").innerHTML = "Todays Average Temperature is " + forecastdata_temp_0 + "℃";
-                        }
+    <div class="container-fluid">
+        <div class="searchfunction">
+            <div class="row" style="text-align:center">
+                <p style="margin-top:100px;font-family:Arial Rounded MT;color:white;font-size:20px">Check danger rating:</p>
+                <input type="text" id="search" placeholder="Input a suburb name.." style="width:350px;">
+                <button onclick="newfunction();myfunction()">Submit</button>
+                <script>
+                    function newfunction() {
+                        document.getElementById("li1").style.animationName = "nothing";
+                        document.getElementById("li2").style.animationName = "nothing";
+                        document.getElementById("li3").style.animationName = "nothing";
+                        document.getElementById("li4").style.animationName = "nothing";
+                        document.getElementById("li1_1").style.animationName = "nothing";
+                        document.getElementById("li2_1").style.animationName = "nothing";
+                        document.getElementById("li3_1").style.animationName = "nothing";
+                        document.getElementById("li4_1").style.animationName = "nothing";
+                        document.getElementById("li1_2").style.animationName = "nothing";
+                        document.getElementById("li2_2").style.animationName = "nothing";
+                        document.getElementById("li3_2").style.animationName = "nothing";
+                        document.getElementById("li4_2").style.animationName = "nothing";
+                        document.getElementById("li1_3").style.animationName = "nothing";
+                        document.getElementById("li2_3").style.animationName = "nothing";
+                        document.getElementById("li3_3").style.animationName = "nothing";
+                        document.getElementById("li4_3").style.animationName = "nothing";
+                        document.getElementById("li1_4").style.animationName = "nothing";
+                        document.getElementById("li2_4").style.animationName = "nothing";
+                        document.getElementById("li3_4").style.animationName = "nothing";
+                        document.getElementById("li4_4").style.animationName = "nothing";
+                        document.getElementById("li1_5").style.animationName = "nothing";
+                        document.getElementById("li2_5").style.animationName = "nothing";
+                        document.getElementById("li3_5").style.animationName = "nothing";
+                        document.getElementById("li4_5").style.animationName = "nothing";
+                        document.getElementById("li1_6").style.animationName = "nothing";
+                        document.getElementById("li2_6").style.animationName = "nothing";
+                        document.getElementById("li3_6").style.animationName = "nothing";
+                        document.getElementById("li4_6").style.animationName = "nothing";
+                        var location = document.getElementById('search').value;
+                        var jsonurl = 'https://fireprediction.ga/forecast?locality=' + location;
+                        var forecastdata_date = "";
+                        var forecastdata_longtitude = "";
+                        var forecastdata_latitude = "";
+                        var forecastdata_rating_0 = "";
+                        var forecastdata_rating_1 = "";
+                        var forecastdata_rating_2 = "";
+                        var forecastdata_rating_3 = "";
+                        var forecastdata_rating_4 = "";
+                        var forecastdata_rating_5 = "";
+                        var forecastdata_rating_6 = "";
+                        var forecastdata_FFDI_0 = "";
+                        var forecastdata_FFDI_1 = "";
+                        var forecastdata_FFDI_2 = "";
+                        var forecastdata_FFDI_3 = "";
+                        var forecastdata_FFDI_4 = "";
+                        var forecastdata_FFDI_5 = "";
+                        var forecastdata_FFDI_6 = "";
+                        var forecastdata_address = "";
+                        $.getJSON(jsonurl, function (data) {
+                            forecastdata_latitude = data.latitude;
+                            forecastdata_longtitude = data.longitude;
+                            forecastdata_address = data.address;
+                            forecastdata_date = data.days[0].datetime;
+                            forecastdata_temp_0 = data.days[0].temp;
+                            forecastdata_temp_1 = data.days[1].temp;
+                            forecastdata_temp_2 = data.days[2].temp;
+                            forecastdata_temp_3 = data.days[3].temp;
+                            forecastdata_temp_4 = data.days[4].temp;
+                            forecastdata_temp_5 = data.days[5].temp;
+                            forecastdata_temp_6 = data.days[6].temp;
+                            var forecastdata_FFDI_0 = data.days[0].FFDI
+                            var forecastdata_FFDI_1 = data.days[1].FFDI
+                            var forecastdata_FFDI_2 = data.days[2].FFDI
+                            var forecastdata_FFDI_3 = data.days[3].FFDI
+                            var forecastdata_FFDI_4 = data.days[4].FFDI
+                            var forecastdata_FFDI_5 = data.days[5].FFDI
+                            var forecastdata_FFDI_6 = data.days[6].FFDI
+                            forecastdata_rating_0 = data.days[0].FFDI_category;
+                            forecastdata_rating_1 = data.days[1].FFDI_category;
+                            forecastdata_rating_2 = data.days[2].FFDI_category;
+                            forecastdata_rating_3 = data.days[3].FFDI_category;
+                            forecastdata_rating_4 = data.days[4].FFDI_category;
+                            forecastdata_rating_5 = data.days[5].FFDI_category;
+                            forecastdata_rating_6 = data.days[6].FFDI_category;
+                            if (forecastdata_rating_0 === "low-moderate") {
+                                document.getElementById("li1").style.animationName = "rotate-one";
+                                document.getElementById("firedanger_00").innerHTML = "Fire Danger Rating: Low-Moderate";
+                                document.getElementById("firedanger_02").innerHTML = "Todays Average Temperature is " + forecastdata_temp_0 + "℃";
+                            }
+                            else if (forecastdata_rating_0 === "high") {
+                                document.getElementById("li1").style.animationName = "rotate-one";
+                                document.getElementById("firedanger_00").innerHTML = "Fire Danger Rating: High";
+                                document.getElementById("firedanger_02").innerHTML = "Todays Average Temperature is " + forecastdata_temp_0 + "℃";
+                            }
+                            else if (forecastdata_rating_0 === "very high") {
+                                document.getElementById("li1").style.animationName = "rotate-one";
+                                document.getElementById("li2").style.animationName = "rotate-two";
+                                document.getElementById("firedanger_00").innerHTML = "Fire Danger Rating: very high";
+                                document.getElementById("firedanger_02").innerHTML = "Todays Average Temperature is " + forecastdata_temp_0 + "℃";
+                            }
+                            else if (forecastdata_rating_0 === "severe") {
+                                document.getElementById("li1").style.animationName = "rotate-one";
+                                document.getElementById("li2").style.animationName = "rotate-two";
+                                document.getElementById("li3").style.animationName = "rotate-three";
+                                document.getElementById("firedanger_00").innerHTML = "Fire Danger Rating: sever";
+                                document.getElementById("firedanger_02").innerHTML = "Todays Average Temperature is " + forecastdata_temp_0 + "℃";
+                            }
+                            else if (forecastdata_rating_0 === "extreme") {
+                                document.getElementById("li1").style.animationName = "rotate-one";
+                                document.getElementById("li2").style.animationName = "rotate-two";
+                                document.getElementById("li3").style.animationName = "rotate-three";
+                                document.getElementById("li4").style.animationName = "rotate-four";
+                                document.getElementById("firedanger_00").innerHTML = "Fire Danger Rating: extreme";
+                                document.getElementById("firedanger_02").innerHTML = "Todays Average Temperature is " + forecastdata_temp_0 + "℃";
+                            }
 
 
-                        if (forecastdata_rating_1 === "low-moderate") {
-                            document.getElementById("li1_1").style.animationName = "rotate-one";
-                            document.getElementById("firedanger_10").innerHTML = "Fire Danger Rating: Low-Moderate";
-                            document.getElementById("firedanger_12").innerHTML = "Average Temperature is " + forecastdata_temp_1 + "℃";
-                        }
-                        else if (forecastdata_rating_1 === "high") {
-                            document.getElementById("li1_1").style.animationName = "rotate-one";
-                            document.getElementById("firedanger_10").innerHTML = "Fire Danger Rating: high";
-                            document.getElementById("firedanger_12").innerHTML = "Average Temperature is " + forecastdata_temp_1 + "℃";
-                        }
-                        else if (forecastdata_rating_1 === "very high") {
-                            document.getElementById("li1_1").style.animationName = "rotate-one";
-                            document.getElementById("li2_1").style.animationName = "rotate-two";
-                            document.getElementById("firedanger_10").innerHTML = "Fire Danger Rating: very high";
-                            document.getElementById("firedanger_12").innerHTML = "Average Temperature is " + forecastdata_temp_1 + "℃";
-                        }
-                        else if (forecastdata_rating_1 === "severe") {
-                            document.getElementById("li1_1").style.animationName = "rotate-one";
-                            document.getElementById("li2_1").style.animationName = "rotate-two";
-                            document.getElementById("li3_1").style.animationName = "rotate-three";
-                            document.getElementById("firedanger_10").innerHTML = "Fire Danger Rating: severe";
-                            document.getElementById("firedanger_12").innerHTML = "Average Temperature is " + forecastdata_temp_1 + "℃";
-                        }
-                        else if (forecastdata_rating_1 === "extreme") {
-                            document.getElementById("li1_1").style.animationName = "rotate-one";
-                            document.getElementById("li2_1").style.animationName = "rotate-two";
-                            document.getElementById("li3_1").style.animationName = "rotate-three";
-                            document.getElementById("li4_1").style.animationName = "rotate-four";
-                            document.getElementById("firedanger_10").innerHTML = "Fire Danger Rating: extreme";
-                            document.getElementById("firedanger_12").innerHTML = "Average Temperature is " + forecastdata_temp_1 + "℃";
-                        }
+                            if (forecastdata_rating_1 === "low-moderate") {
+                                document.getElementById("li1_1").style.animationName = "rotate-one";
+                                document.getElementById("firedanger_10").innerHTML = "Fire Danger Rating: Low-Moderate";
+                                document.getElementById("firedanger_12").innerHTML = "Average Temperature is " + forecastdata_temp_1 + "℃";
+                            }
+                            else if (forecastdata_rating_1 === "high") {
+                                document.getElementById("li1_1").style.animationName = "rotate-one";
+                                document.getElementById("firedanger_10").innerHTML = "Fire Danger Rating: high";
+                                document.getElementById("firedanger_12").innerHTML = "Average Temperature is " + forecastdata_temp_1 + "℃";
+                            }
+                            else if (forecastdata_rating_1 === "very high") {
+                                document.getElementById("li1_1").style.animationName = "rotate-one";
+                                document.getElementById("li2_1").style.animationName = "rotate-two";
+                                document.getElementById("firedanger_10").innerHTML = "Fire Danger Rating: very high";
+                                document.getElementById("firedanger_12").innerHTML = "Average Temperature is " + forecastdata_temp_1 + "℃";
+                            }
+                            else if (forecastdata_rating_1 === "severe") {
+                                document.getElementById("li1_1").style.animationName = "rotate-one";
+                                document.getElementById("li2_1").style.animationName = "rotate-two";
+                                document.getElementById("li3_1").style.animationName = "rotate-three";
+                                document.getElementById("firedanger_10").innerHTML = "Fire Danger Rating: severe";
+                                document.getElementById("firedanger_12").innerHTML = "Average Temperature is " + forecastdata_temp_1 + "℃";
+                            }
+                            else if (forecastdata_rating_1 === "extreme") {
+                                document.getElementById("li1_1").style.animationName = "rotate-one";
+                                document.getElementById("li2_1").style.animationName = "rotate-two";
+                                document.getElementById("li3_1").style.animationName = "rotate-three";
+                                document.getElementById("li4_1").style.animationName = "rotate-four";
+                                document.getElementById("firedanger_10").innerHTML = "Fire Danger Rating: extreme";
+                                document.getElementById("firedanger_12").innerHTML = "Average Temperature is " + forecastdata_temp_1 + "℃";
+                            }
 
-                        if (forecastdata_rating_2 === "low-moderate") {
-                            document.getElementById("li1_2").style.animationName = "rotate-one";
-                            document.getElementById("firedanger_20").innerHTML = "Fire Danger Rating: Low-Moderate";
-                            document.getElementById("firedanger_22").innerHTML = "Average Temperature is " + forecastdata_temp_2 + "℃";
-                        }
-                        else if (forecastdata_rating_2 === "high") {
-                            document.getElementById("li1_2").style.animationName = "rotate-one";
-                            document.getElementById("firedanger_20").innerHTML = "Fire Danger Rating: high";
-                            document.getElementById("firedanger_22").innerHTML = "Average Temperature is " + forecastdata_temp_2 + "℃";
-                        }
-                        else if (forecastdata_rating_2 === "very high") {
-                            document.getElementById("li1_2").style.animationName = "rotate-one";
-                            document.getElementById("li2_2").style.animationName = "rotate-two";
-                            document.getElementById("firedanger_20").innerHTML = "Fire Danger Rating: very high";
-                            document.getElementById("firedanger_22").innerHTML = "Average Temperature is " + forecastdata_temp_2 + "℃";
-                        }
-                        else if (forecastdata_rating_2 === "severe") {
-                            document.getElementById("li1_2").style.animationName = "rotate-one";
-                            document.getElementById("li2_2").style.animationName = "rotate-two";
-                            document.getElementById("li3_2").style.animationName = "rotate-three";
-                            document.getElementById("firedanger_20").innerHTML = "Fire Danger Rating: severe";
-                            document.getElementById("firedanger_22").innerHTML = "Average Temperature is " + forecastdata_temp_2 + "℃";
-                        }
-                        else if (forecastdata_rating_2 === "extreme") {
-                            document.getElementById("li1_2").style.animationName = "rotate-one";
-                            document.getElementById("li2_2").style.animationName = "rotate-two";
-                            document.getElementById("li3_2").style.animationName = "rotate-three";
-                            document.getElementById("li4_2").style.animationName = "rotate-four";
-                            document.getElementById("firedanger_20").innerHTML = "Fire Danger Rating: extreme";
-                            document.getElementById("firedanger_22").innerHTML = "Average Temperature is " + forecastdata_temp_2 + "℃";
-                        }
+                            if (forecastdata_rating_2 === "low-moderate") {
+                                document.getElementById("li1_2").style.animationName = "rotate-one";
+                                document.getElementById("firedanger_20").innerHTML = "Fire Danger Rating: Low-Moderate";
+                                document.getElementById("firedanger_22").innerHTML = "Average Temperature is " + forecastdata_temp_2 + "℃";
+                            }
+                            else if (forecastdata_rating_2 === "high") {
+                                document.getElementById("li1_2").style.animationName = "rotate-one";
+                                document.getElementById("firedanger_20").innerHTML = "Fire Danger Rating: high";
+                                document.getElementById("firedanger_22").innerHTML = "Average Temperature is " + forecastdata_temp_2 + "℃";
+                            }
+                            else if (forecastdata_rating_2 === "very high") {
+                                document.getElementById("li1_2").style.animationName = "rotate-one";
+                                document.getElementById("li2_2").style.animationName = "rotate-two";
+                                document.getElementById("firedanger_20").innerHTML = "Fire Danger Rating: very high";
+                                document.getElementById("firedanger_22").innerHTML = "Average Temperature is " + forecastdata_temp_2 + "℃";
+                            }
+                            else if (forecastdata_rating_2 === "severe") {
+                                document.getElementById("li1_2").style.animationName = "rotate-one";
+                                document.getElementById("li2_2").style.animationName = "rotate-two";
+                                document.getElementById("li3_2").style.animationName = "rotate-three";
+                                document.getElementById("firedanger_20").innerHTML = "Fire Danger Rating: severe";
+                                document.getElementById("firedanger_22").innerHTML = "Average Temperature is " + forecastdata_temp_2 + "℃";
+                            }
+                            else if (forecastdata_rating_2 === "extreme") {
+                                document.getElementById("li1_2").style.animationName = "rotate-one";
+                                document.getElementById("li2_2").style.animationName = "rotate-two";
+                                document.getElementById("li3_2").style.animationName = "rotate-three";
+                                document.getElementById("li4_2").style.animationName = "rotate-four";
+                                document.getElementById("firedanger_20").innerHTML = "Fire Danger Rating: extreme";
+                                document.getElementById("firedanger_22").innerHTML = "Average Temperature is " + forecastdata_temp_2 + "℃";
+                            }
 
 
-                        if (forecastdata_rating_3 === "low-moderate") {
-                            document.getElementById("li1_3").style.animationName = "rotate-one";
-                            document.getElementById("firedanger_30").innerHTML = "Fire Danger Rating: Low-Moderate";
-                            document.getElementById("firedanger_32").innerHTML = "Average Temperature is " + forecastdata_temp_3 + "℃";
-                        }
-                        else if (forecastdata_rating_3 === "high") {
-                            document.getElementById("li1_3").style.animationName = "rotate-one";
-                            document.getElementById("firedanger_30").innerHTML = "Fire Danger Rating: high";
-                            document.getElementById("firedanger_32").innerHTML = "Average Temperature is " + forecastdata_temp_3 + "℃";
-                        }
-                        else if (forecastdata_rating_3 === "very high") {
-                            document.getElementById("li1_3").style.animationName = "rotate-one";
-                            document.getElementById("li2_3").style.animationName = "rotate-two";
-                            document.getElementById("firedanger_30").innerHTML = "Fire Danger Rating: very high";
-                            document.getElementById("firedanger_32").innerHTML = "Average Temperature is " + forecastdata_temp_3 + "℃";
-                        }
-                        else if (forecastdata_rating_3 === "severe") {
-                            document.getElementById("li1_3").style.animationName = "rotate-one";
-                            document.getElementById("li2_3").style.animationName = "rotate-two";
-                            document.getElementById("li3_3").style.animationName = "rotate-three";
-                            document.getElementById("firedanger_30").innerHTML = "Fire Danger Rating: severe";
-                            document.getElementById("firedanger_32").innerHTML = "Average Temperature is " + forecastdata_temp_3 + "℃";
-                        }
-                        else if (forecastdata_rating_3 === "extreme") {
-                            document.getElementById("li1_3").style.animationName = "rotate-one";
-                            document.getElementById("li2_3").style.animationName = "rotate-two";
-                            document.getElementById("li3_3").style.animationName = "rotate-three";
-                            document.getElementById("li4_3").style.animationName = "rotate-four";
-                            document.getElementById("firedanger_30").innerHTML = "Fire Danger Rating: extreme";
-                            document.getElementById("firedanger_32").innerHTML = "Average Temperature is " + forecastdata_temp_3 + "℃";
-                        }
+                            if (forecastdata_rating_3 === "low-moderate") {
+                                document.getElementById("li1_3").style.animationName = "rotate-one";
+                                document.getElementById("firedanger_30").innerHTML = "Fire Danger Rating: Low-Moderate";
+                                document.getElementById("firedanger_32").innerHTML = "Average Temperature is " + forecastdata_temp_3 + "℃";
+                            }
+                            else if (forecastdata_rating_3 === "high") {
+                                document.getElementById("li1_3").style.animationName = "rotate-one";
+                                document.getElementById("firedanger_30").innerHTML = "Fire Danger Rating: high";
+                                document.getElementById("firedanger_32").innerHTML = "Average Temperature is " + forecastdata_temp_3 + "℃";
+                            }
+                            else if (forecastdata_rating_3 === "very high") {
+                                document.getElementById("li1_3").style.animationName = "rotate-one";
+                                document.getElementById("li2_3").style.animationName = "rotate-two";
+                                document.getElementById("firedanger_30").innerHTML = "Fire Danger Rating: very high";
+                                document.getElementById("firedanger_32").innerHTML = "Average Temperature is " + forecastdata_temp_3 + "℃";
+                            }
+                            else if (forecastdata_rating_3 === "severe") {
+                                document.getElementById("li1_3").style.animationName = "rotate-one";
+                                document.getElementById("li2_3").style.animationName = "rotate-two";
+                                document.getElementById("li3_3").style.animationName = "rotate-three";
+                                document.getElementById("firedanger_30").innerHTML = "Fire Danger Rating: severe";
+                                document.getElementById("firedanger_32").innerHTML = "Average Temperature is " + forecastdata_temp_3 + "℃";
+                            }
+                            else if (forecastdata_rating_3 === "extreme") {
+                                document.getElementById("li1_3").style.animationName = "rotate-one";
+                                document.getElementById("li2_3").style.animationName = "rotate-two";
+                                document.getElementById("li3_3").style.animationName = "rotate-three";
+                                document.getElementById("li4_3").style.animationName = "rotate-four";
+                                document.getElementById("firedanger_30").innerHTML = "Fire Danger Rating: extreme";
+                                document.getElementById("firedanger_32").innerHTML = "Average Temperature is " + forecastdata_temp_3 + "℃";
+                            }
 
-                        if (forecastdata_rating_4 === "low-moderate") {
-                            document.getElementById("li1_4").style.animationName = "rotate-one";
-                            document.getElementById("firedanger_40").innerHTML = "Fire Danger Rating: Low-moderate";
-                            document.getElementById("firedanger_42").innerHTML = "Average Temperature is " + forecastdata_temp_4 + "℃";
-                        }
-                        else if (forecastdata_rating_4 === "high") {
-                            document.getElementById("li1_4").style.animationName = "rotate-one";
-                            document.getElementById("firedanger_40").innerHTML = "Fire Danger Rating: high";
-                            document.getElementById("firedanger_42").innerHTML = "Average Temperature is " + forecastdata_temp_4 + "℃";
-                        }
-                        else if (forecastdata_rating_4 === "very high") {
-                            document.getElementById("li1_4").style.animationName = "rotate-one";
-                            document.getElementById("li2_4").style.animationName = "rotate-two";
-                            document.getElementById("firedanger_40").innerHTML = "Fire Danger Rating: very high";
-                            document.getElementById("firedanger_42").innerHTML = "Average Temperature is " + forecastdata_temp_4 + "℃";
-                        }
-                        else if (forecastdata_rating_4 === "severe") {
-                            document.getElementById("li1_4").style.animationName = "rotate-one";
-                            document.getElementById("li2_4").style.animationName = "rotate-two";
-                            document.getElementById("li3_4").style.animationName = "rotate-three";
-                            document.getElementById("firedanger_40").innerHTML = "Fire Danger Rating: severe";
-                            document.getElementById("firedanger_42").innerHTML = "Average Temperature is " + forecastdata_temp_4 + "℃";
-                        }
-                        else if (forecastdata_rating_4 === "extreme") {
-                            document.getElementById("li1_4").style.animationName = "rotate-one";
-                            document.getElementById("li2_4").style.animationName = "rotate-two";
-                            document.getElementById("li3_4").style.animationName = "rotate-three";
-                            document.getElementById("li4_4").style.animationName = "rotate-four";
-                            document.getElementById("firedanger_40").innerHTML = "Fire Danger Rating: exrteme";
-                            document.getElementById("firedanger_42").innerHTML = "Average Temperature is " + forecastdata_temp_4 + "℃";
-                        }
+                            if (forecastdata_rating_4 === "low-moderate") {
+                                document.getElementById("li1_4").style.animationName = "rotate-one";
+                                document.getElementById("firedanger_40").innerHTML = "Fire Danger Rating: Low-moderate";
+                                document.getElementById("firedanger_42").innerHTML = "Average Temperature is " + forecastdata_temp_4 + "℃";
+                            }
+                            else if (forecastdata_rating_4 === "high") {
+                                document.getElementById("li1_4").style.animationName = "rotate-one";
+                                document.getElementById("firedanger_40").innerHTML = "Fire Danger Rating: high";
+                                document.getElementById("firedanger_42").innerHTML = "Average Temperature is " + forecastdata_temp_4 + "℃";
+                            }
+                            else if (forecastdata_rating_4 === "very high") {
+                                document.getElementById("li1_4").style.animationName = "rotate-one";
+                                document.getElementById("li2_4").style.animationName = "rotate-two";
+                                document.getElementById("firedanger_40").innerHTML = "Fire Danger Rating: very high";
+                                document.getElementById("firedanger_42").innerHTML = "Average Temperature is " + forecastdata_temp_4 + "℃";
+                            }
+                            else if (forecastdata_rating_4 === "severe") {
+                                document.getElementById("li1_4").style.animationName = "rotate-one";
+                                document.getElementById("li2_4").style.animationName = "rotate-two";
+                                document.getElementById("li3_4").style.animationName = "rotate-three";
+                                document.getElementById("firedanger_40").innerHTML = "Fire Danger Rating: severe";
+                                document.getElementById("firedanger_42").innerHTML = "Average Temperature is " + forecastdata_temp_4 + "℃";
+                            }
+                            else if (forecastdata_rating_4 === "extreme") {
+                                document.getElementById("li1_4").style.animationName = "rotate-one";
+                                document.getElementById("li2_4").style.animationName = "rotate-two";
+                                document.getElementById("li3_4").style.animationName = "rotate-three";
+                                document.getElementById("li4_4").style.animationName = "rotate-four";
+                                document.getElementById("firedanger_40").innerHTML = "Fire Danger Rating: exrteme";
+                                document.getElementById("firedanger_42").innerHTML = "Average Temperature is " + forecastdata_temp_4 + "℃";
+                            }
 
-                        if (forecastdata_rating_5 === "low-moderate") {
-                            document.getElementById("li1_5").style.animationName = "rotate-one";
-                            document.getElementById("firedanger_50").innerHTML = "Fire Danger Rating: Low-moderate";
-                            document.getElementById("firedanger_52").innerHTML = "Average Temperature is " + forecastdata_temp_5 + "℃";
-                        }
-                        else if (forecastdata_rating_5 === "high") {
-                            document.getElementById("li1_5").style.animationName = "rotate-one";
-                            document.getElementById("firedanger_50").innerHTML = "Fire Danger Rating: high";
-                            document.getElementById("firedanger_52").innerHTML = "Average Temperature is " + forecastdata_temp_5 + "℃";
-                        }
-                        else if (forecastdata_rating_5 === "very high") {
-                            document.getElementById("li1_5").style.animationName = "rotate-one";
-                            document.getElementById("li2_5").style.animationName = "rotate-two";
-                            document.getElementById("firedanger_50").innerHTML = "Fire Danger Rating: very high";
-                            document.getElementById("firedanger_52").innerHTML = "Average Temperature is " + forecastdata_temp_5 + "℃";
-                        }
-                        else if (forecastdata_rating_5 === "severe") {
-                            document.getElementById("li1_5").style.animationName = "rotate-one";
-                            document.getElementById("li2_5").style.animationName = "rotate-two";
-                            document.getElementById("li3_5").style.animationName = "rotate-three";
-                            document.getElementById("firedanger_50").innerHTML = "Fire Danger Rating:severe";
-                            document.getElementById("firedanger_52").innerHTML = "Average Temperature is " + forecastdata_temp_5 + "℃";
-                        }
-                        else if (forecastdata_rating_5 === "extreme") {
-                            document.getElementById("li1_5").style.animationName = "rotate-one";
-                            document.getElementById("li2_5").style.animationName = "rotate-two";
-                            document.getElementById("li3_5").style.animationName = "rotate-three";
-                            document.getElementById("li4_5").style.animationName = "rotate-four";
-                            document.getElementById("firedanger_50").innerHTML = "Fire Danger Rating: extreme";
-                            document.getElementById("firedanger_52").innerHTML = "Average Temperature is " + forecastdata_temp_5 + "℃";
-                        }
+                            if (forecastdata_rating_5 === "low-moderate") {
+                                document.getElementById("li1_5").style.animationName = "rotate-one";
+                                document.getElementById("firedanger_50").innerHTML = "Fire Danger Rating: Low-moderate";
+                                document.getElementById("firedanger_52").innerHTML = "Average Temperature is " + forecastdata_temp_5 + "℃";
+                            }
+                            else if (forecastdata_rating_5 === "high") {
+                                document.getElementById("li1_5").style.animationName = "rotate-one";
+                                document.getElementById("firedanger_50").innerHTML = "Fire Danger Rating: high";
+                                document.getElementById("firedanger_52").innerHTML = "Average Temperature is " + forecastdata_temp_5 + "℃";
+                            }
+                            else if (forecastdata_rating_5 === "very high") {
+                                document.getElementById("li1_5").style.animationName = "rotate-one";
+                                document.getElementById("li2_5").style.animationName = "rotate-two";
+                                document.getElementById("firedanger_50").innerHTML = "Fire Danger Rating: very high";
+                                document.getElementById("firedanger_52").innerHTML = "Average Temperature is " + forecastdata_temp_5 + "℃";
+                            }
+                            else if (forecastdata_rating_5 === "severe") {
+                                document.getElementById("li1_5").style.animationName = "rotate-one";
+                                document.getElementById("li2_5").style.animationName = "rotate-two";
+                                document.getElementById("li3_5").style.animationName = "rotate-three";
+                                document.getElementById("firedanger_50").innerHTML = "Fire Danger Rating:severe";
+                                document.getElementById("firedanger_52").innerHTML = "Average Temperature is " + forecastdata_temp_5 + "℃";
+                            }
+                            else if (forecastdata_rating_5 === "extreme") {
+                                document.getElementById("li1_5").style.animationName = "rotate-one";
+                                document.getElementById("li2_5").style.animationName = "rotate-two";
+                                document.getElementById("li3_5").style.animationName = "rotate-three";
+                                document.getElementById("li4_5").style.animationName = "rotate-four";
+                                document.getElementById("firedanger_50").innerHTML = "Fire Danger Rating: extreme";
+                                document.getElementById("firedanger_52").innerHTML = "Average Temperature is " + forecastdata_temp_5 + "℃";
+                            }
 
-                        if (forecastdata_rating_6 === "low-moderate") {
-                            document.getElementById("li1_6").style.animationName = "rotate-one";
-                            document.getElementById("firedanger_60").innerHTML = "Fire Danger Rating: Low-moderate";
-                            document.getElementById("firedanger_62").innerHTML = "Average Temperature is " + forecastdata_temp_6 + "℃";
-                        }
-                        else if (forecastdata_rating_6 === "high") {
-                            document.getElementById("li1_6").style.animationName = "rotate-one";
-                            document.getElementById("firedanger_60").innerHTML = "Fire Danger Rating: high";
-                            document.getElementById("firedanger_62").innerHTML = "Average Temperature is " + forecastdata_temp_6 + "℃";
-                        }
-                        else if (forecastdata_rating_6 === "very high") {
-                            document.getElementById("li1_6").style.animationName = "rotate-one";
-                            document.getElementById("li2_6").style.animationName = "rotate-two";
-                            document.getElementById("firedanger_60").innerHTML = "Fire Danger Rating: very high";
-                            document.getElementById("firedanger_62").innerHTML = "Average Temperature is " + forecastdata_temp_6 + "℃";
-                        }
-                        else if (forecastdata_rating_6 === "severe") {
-                            document.getElementById("li1_6").style.animationName = "rotate-one";
-                            document.getElementById("li2_6").style.animationName = "rotate-two";
-                            document.getElementById("li3_6").style.animationName = "rotate-three";
-                            document.getElementById("firedanger_60").innerHTML = "Fire Danger Rating: severe";
-                            document.getElementById("firedanger_62").innerHTML = "Average Temperature is " + forecastdata_temp_6 + "℃";
-                        }
-                        else if (forecastdata_rating_6 === "extreme") {
-                            document.getElementById("li1_6").style.animationName = "rotate-one";
-                            document.getElementById("li2_6").style.animationName = "rotate-two";
-                            document.getElementById("li3_6").style.animationName = "rotate-three";
-                            document.getElementById("li4_6").style.animationName = "rotate-four";
-                            document.getElementById("firedanger_60").innerHTML = "Fire Danger Rating: extreme";
-                            document.getElementById("firedanger_62").innerHTML = "Average Temperature is " + forecastdata_temp_6 + "℃";
-                        }
+                            if (forecastdata_rating_6 === "low-moderate") {
+                                document.getElementById("li1_6").style.animationName = "rotate-one";
+                                document.getElementById("firedanger_60").innerHTML = "Fire Danger Rating: Low-moderate";
+                                document.getElementById("firedanger_62").innerHTML = "Average Temperature is " + forecastdata_temp_6 + "℃";
+                            }
+                            else if (forecastdata_rating_6 === "high") {
+                                document.getElementById("li1_6").style.animationName = "rotate-one";
+                                document.getElementById("firedanger_60").innerHTML = "Fire Danger Rating: high";
+                                document.getElementById("firedanger_62").innerHTML = "Average Temperature is " + forecastdata_temp_6 + "℃";
+                            }
+                            else if (forecastdata_rating_6 === "very high") {
+                                document.getElementById("li1_6").style.animationName = "rotate-one";
+                                document.getElementById("li2_6").style.animationName = "rotate-two";
+                                document.getElementById("firedanger_60").innerHTML = "Fire Danger Rating: very high";
+                                document.getElementById("firedanger_62").innerHTML = "Average Temperature is " + forecastdata_temp_6 + "℃";
+                            }
+                            else if (forecastdata_rating_6 === "severe") {
+                                document.getElementById("li1_6").style.animationName = "rotate-one";
+                                document.getElementById("li2_6").style.animationName = "rotate-two";
+                                document.getElementById("li3_6").style.animationName = "rotate-three";
+                                document.getElementById("firedanger_60").innerHTML = "Fire Danger Rating: severe";
+                                document.getElementById("firedanger_62").innerHTML = "Average Temperature is " + forecastdata_temp_6 + "℃";
+                            }
+                            else if (forecastdata_rating_6 === "extreme") {
+                                document.getElementById("li1_6").style.animationName = "rotate-one";
+                                document.getElementById("li2_6").style.animationName = "rotate-two";
+                                document.getElementById("li3_6").style.animationName = "rotate-three";
+                                document.getElementById("li4_6").style.animationName = "rotate-four";
+                                document.getElementById("firedanger_60").innerHTML = "Fire Danger Rating: extreme";
+                                document.getElementById("firedanger_62").innerHTML = "Average Temperature is " + forecastdata_temp_6 + "℃";
+                            }
 
-                        var weatherurl = "https://api.tomorrow.io/v4/timelines?location=" + forecastdata_latitude + "," + forecastdata_longtitude + "&fields=temperature&timesteps=1d&units=metric&apikey=zMAXh4NpzYZZGYKIXA0zTNrFeZCM1Lce";
-                        $.getJSON(weatherurl, function (weather) {
-                            weather.data.timelines[0].intervals[0].values.temperature;
+                            var weatherurl = "https://api.tomorrow.io/v4/timelines?location=" + forecastdata_latitude + "," + forecastdata_longtitude + "&fields=temperature&timesteps=1d&units=metric&apikey=zMAXh4NpzYZZGYKIXA0zTNrFeZCM1Lce";
+                            $.getJSON(weatherurl, function (weather) {
+                                weather.data.timelines[0].intervals[0].values.temperature;
+                            })
                         })
-                    })
+                    }
+                </script>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="subrating">
+                <div class="sub1">
+                    <div class="col-md-2">
+                        <div class="fire_danger_rating">
+                            <ul class="chart-skills">
+                                <li id="li1_1">
+                                    <span id="span1"></span>
+                                </li>
+                                <li id="li2_1">
+                                    <span id="span2"></span>
+                                </li>
+                                <li id="li3_1">
+                                    <span id="span3"></span>
+                                </li>
+                                <li id="li4_1">
+                                    <span id="span4"></span>
+                                </li>
+                            </ul>
+                            <p id="firedanger_10" style="text-align:center;margin-top:10px;font-family:'Arial Rounded MT';color:white"></p>
+                            <p id="firedanger_11" style="text-align:center;margin-top:20px;font-family:'Arial Rounded MT';color:white">@DateTime.Now.AddDays(1).DayOfWeek : @DateTime.Now.AddDays(1).ToString("MM-dd")</p>
+                            <p id="firedanger_12" style="text-align:center;font-family:'Arial Rounded MT';color:white"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="sub2">
+                    <div class="col-md-2">
+                        <div class="fire_danger_rating">
+                            <ul class="chart-skills">
+                                <li id="li1_2">
+                                    <span id="span1"></span>
+                                </li>
+                                <li id="li2_2">
+                                    <span id="span2"></span>
+                                </li>
+                                <li id="li3_2">
+                                    <span id="span3"></span>
+                                </li>
+                                <li id="li4_2">
+                                    <span id="span4"></span>
+                                </li>
+                            </ul>
+                            <p id="firedanger_20" style="text-align:center;margin-top:10px;font-family:'Arial Rounded MT';color:white"></p>
+                            <p id="firedanger_21" style="text-align:center;margin-top:20px;font-family:'Arial Rounded MT';color:white">@DateTime.Now.AddDays(2).DayOfWeek : @DateTime.Now.AddDays(2).ToString("MM-dd")</p>
+                            <p id="firedanger_22" style="text-align:center;font-family:'Arial Rounded MT';color:white"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="sub3">
+                    <div class="col-md-2">
+                        <div class="fire_danger_rating">
+                            <ul class="chart-skills">
+                                <li id="li1_3">
+                                    <span id="span1"></span>
+                                </li>
+                                <li id="li2_3">
+                                    <span id="span2"></span>
+                                </li>
+                                <li id="li3_3">
+                                    <span id="span3"></span>
+                                </li>
+                                <li id="li4_3">
+                                    <span id="span4"></span>
+                                </li>
+                            </ul>
+                        </div>
+                        <p id="firedanger_30" style="text-align:center;margin-top:10px;font-family:'Arial Rounded MT';color:white"></p>
+                        <p id="firedanger_30" style="text-align:center;margin-top:20px;font-family:'Arial Rounded MT';color:white">@DateTime.Now.AddDays(3).DayOfWeek : @DateTime.Now.AddDays(3).ToString("MM-dd")</p>
+                        <p id="firedanger_32" style="text-align:center;font-family:'Arial Rounded MT';color:white"></p>
+                    </div>
+                </div>
+                <div class="sub4">
+                    <div class="col-md-2">
+                        <div class="fire_danger_rating">
+                            <ul class="chart-skills">
+                                <li id="li1_4">
+                                    <span id="span1"></span>
+                                </li>
+                                <li id="li2_4">
+                                    <span id="span2"></span>
+                                </li>
+                                <li id="li3_4">
+                                    <span id="span3"></span>
+                                </li>
+                                <li id="li4_4">
+                                    <span id="span4"></span>
+                                </li>
+                            </ul>
+                            <p id="firedanger_40" style="text-align:center;margin-top:10px;font-family:'Arial Rounded MT';color:white"></p>
+                            <p id="firedanger_41" style="text-align:center;margin-top:20px;font-family:'Arial Rounded MT';color:white">@DateTime.Now.AddDays(4).DayOfWeek : @DateTime.Now.AddDays(4).ToString("MM-dd")</p>
+                            <p id="firedanger_42" style="text-align:center;font-family:'Arial Rounded MT';color:white"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="sub5">
+                    <div class="col-md-2">
+                        <div class="fire_danger_rating">
+                            <ul class="chart-skills">
+                                <li id="li1_5">
+                                    <span id="span1"></span>
+                                </li>
+                                <li id="li2_5">
+                                    <span id="span2"></span>
+                                </li>
+                                <li id="li3_5">
+                                    <span id="span3"></span>
+                                </li>
+                                <li id="li4_5">
+                                    <span id="span4"></span>
+                                </li>
+                            </ul>
+                            <p id="firedanger_50" style="text-align:center;margin-top:10px;font-family:'Arial Rounded MT';color:white"></p>
+                            <p id="firedanger_51" style="text-align:center;margin-top:20px;font-family:'Arial Rounded MT';color:white">@DateTime.Now.AddDays(5).DayOfWeek : @DateTime.Now.AddDays(5).ToString("MM-dd")</p>
+                            <p id="firedanger_52" style="text-align:center;font-family:'Arial Rounded MT';color:white"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="sub6">
+                    <div class="col-md-2">
+                        <div class="fire_danger_rating">
+                            <ul class="chart-skills">
+                                <li id="li1_6">
+                                    <span id="span1"></span>
+                                </li>
+                                <li id="li2_6">
+                                    <span id="span2"></span>
+                                </li>
+                                <li id="li3_6">
+                                    <span id="span3"></span>
+                                </li>
+                                <li id="li4_6">
+                                    <span id="span4"></span>
+                                </li>
+                            </ul>
+                            <p id="firedanger_60" style="text-align:center;margin-top:10px;font-family:'Arial Rounded MT';color:white"></p>
+                            <p id="firedanger_61" style="text-align:center;margin-top:20px;font-family:'Arial Rounded MT';color:white">@DateTime.Now.AddDays(6).DayOfWeek : @DateTime.Now.AddDays(6).ToString("MM-dd")</p>
+                            <p id="firedanger_62" style="text-align:center;font-family:'Arial Rounded MT';color:white"></p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <style>
+                .subrating .chart-skills {
+                    position: relative;
+                    width: 200px;
+                    height: 100px;
+                    overflow: hidden;
                 }
-            </script>
-        </div>
-    </div>
-    <div class="row">
-        <div class="subrating">
-            <div class="sub1">
-                <div class="col-md-2">
-                    <div class="fire_danger_rating">
-                        <ul class="chart-skills">
-                            <li id="li1_1">
-                                <span id="span1"></span>
-                            </li>
-                            <li id="li2_1">
-                                <span id="span2"></span>
-                            </li>
-                            <li id="li3_1">
-                                <span id="span3"></span>
-                            </li>
-                            <li id="li4_1">
-                                <span id="span4"></span>
-                            </li>
-                        </ul>
-                        <p id="firedanger_10" style="text-align:center;margin-top:10px;font-family:'Arial Rounded MT';color:white"></p>
-                        <p id="firedanger_11" style="text-align:center;margin-top:20px;font-family:'Arial Rounded MT';color:white">@DateTime.Now.AddDays(1).DayOfWeek : @DateTime.Now.AddDays(1).ToString("MM-dd")</p>
-                        <p id="firedanger_12" style="text-align:center;font-family:'Arial Rounded MT';color:white"></p>
-                    </div>
-                </div>
-            </div>
-            <div class="sub2">
-                <div class="col-md-2">
-                    <div class="fire_danger_rating">
-                        <ul class="chart-skills">
-                            <li id="li1_2">
-                                <span id="span1"></span>
-                            </li>
-                            <li id="li2_2">
-                                <span id="span2"></span>
-                            </li>
-                            <li id="li3_2">
-                                <span id="span3"></span>
-                            </li>
-                            <li id="li4_2">
-                                <span id="span4"></span>
-                            </li>
-                        </ul>
-                        <p id="firedanger_20" style="text-align:center;margin-top:10px;font-family:'Arial Rounded MT';color:white"></p>
-                        <p id="firedanger_21" style="text-align:center;margin-top:20px;font-family:'Arial Rounded MT';color:white">@DateTime.Now.AddDays(2).DayOfWeek : @DateTime.Now.AddDays(2).ToString("MM-dd")</p>
-                        <p id="firedanger_22" style="text-align:center;font-family:'Arial Rounded MT';color:white"></p>
-                    </div>
-                </div>
-            </div>
-            <div class="sub3">
-                <div class="col-md-2">
-                    <div class="fire_danger_rating">
-                        <ul class="chart-skills">
-                            <li id="li1_3">
-                                <span id="span1"></span>
-                            </li>
-                            <li id="li2_3">
-                                <span id="span2"></span>
-                            </li>
-                            <li id="li3_3">
-                                <span id="span3"></span>
-                            </li>
-                            <li id="li4_3">
-                                <span id="span4"></span>
-                            </li>
-                        </ul>
-                    </div>
-                    <p id="firedanger_30" style="text-align:center;margin-top:10px;font-family:'Arial Rounded MT';color:white"></p>
-                    <p id="firedanger_30" style="text-align:center;margin-top:20px;font-family:'Arial Rounded MT';color:white">@DateTime.Now.AddDays(3).DayOfWeek : @DateTime.Now.AddDays(3).ToString("MM-dd")</p>
-                    <p id="firedanger_32" style="text-align:center;font-family:'Arial Rounded MT';color:white"></p>
-                </div>
-            </div>
-            <div class="sub4">
-                <div class="col-md-2">
-                    <div class="fire_danger_rating">
-                        <ul class="chart-skills">
-                            <li id="li1_4">
-                                <span id="span1"></span>
-                            </li>
-                            <li id="li2_4">
-                                <span id="span2"></span>
-                            </li>
-                            <li id="li3_4">
-                                <span id="span3"></span>
-                            </li>
-                            <li id="li4_4">
-                                <span id="span4"></span>
-                            </li>
-                        </ul>
-                        <p id="firedanger_40" style="text-align:center;margin-top:10px;font-family:'Arial Rounded MT';color:white"></p>
-                        <p id="firedanger_41" style="text-align:center;margin-top:20px;font-family:'Arial Rounded MT';color:white">@DateTime.Now.AddDays(4).DayOfWeek : @DateTime.Now.AddDays(4).ToString("MM-dd")</p>
-                        <p id="firedanger_42" style="text-align:center;font-family:'Arial Rounded MT';color:white"></p>
-                    </div>
-                </div>
-            </div>
-            <div class="sub5">
-                <div class="col-md-2">
-                    <div class="fire_danger_rating">
-                        <ul class="chart-skills">
-                            <li id="li1_5">
-                                <span id="span1"></span>
-                            </li>
-                            <li id="li2_5">
-                                <span id="span2"></span>
-                            </li>
-                            <li id="li3_5">
-                                <span id="span3"></span>
-                            </li>
-                            <li id="li4_5">
-                                <span id="span4"></span>
-                            </li>
-                        </ul>
-                        <p id="firedanger_50" style="text-align:center;margin-top:10px;font-family:'Arial Rounded MT';color:white"></p>
-                        <p id="firedanger_51" style="text-align:center;margin-top:20px;font-family:'Arial Rounded MT';color:white">@DateTime.Now.AddDays(5).DayOfWeek : @DateTime.Now.AddDays(5).ToString("MM-dd")</p>
-                        <p id="firedanger_52" style="text-align:center;font-family:'Arial Rounded MT';color:white"></p>
-                    </div>
-                </div>
-            </div>
-            <div class="sub6">
-                <div class="col-md-2">
-                    <div class="fire_danger_rating">
-                        <ul class="chart-skills">
-                            <li id="li1_6">
-                                <span id="span1"></span>
-                            </li>
-                            <li id="li2_6">
-                                <span id="span2"></span>
-                            </li>
-                            <li id="li3_6">
-                                <span id="span3"></span>
-                            </li>
-                            <li id="li4_6">
-                                <span id="span4"></span>
-                            </li>
-                        </ul>
-                        <p id="firedanger_60" style="text-align:center;margin-top:10px;font-family:'Arial Rounded MT';color:white"></p>
-                        <p id="firedanger_61" style="text-align:center;margin-top:20px;font-family:'Arial Rounded MT';color:white">@DateTime.Now.AddDays(6).DayOfWeek : @DateTime.Now.AddDays(6).ToString("MM-dd")</p>
-                        <p id="firedanger_62" style="text-align:center;font-family:'Arial Rounded MT';color:white"></p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-        <style>
-            .subrating .chart-skills {
-                position: relative;
-                width: 200px;
-                height: 100px;
-                overflow: hidden;
-            }
-        </style>
-    </div>
-
-
-    <div class="row" style="opacity:0.8;margin-left:10%" ;>
-        <div class="description">
-            <img src="~/Image/split.png" style="width:1700px;position:absolute;margin-top:20px;min-height:100px;" />
-            <img src="~/Image/split.png" style="transform:rotate(180deg);width:1700px;position:absolute;margin-top:250px;min-height:100px" />
-            <img src="~/Image/background.jpg" style="width:1550px;height:300px;margin-top:50px;" />
-        </div>
-    </div>
-    <p style="color:white;font-size:36px;text-align:center;font-family:Stencil;margin-top:10px">Description</p>
-    <div class="row" style="margin-left:10%">
-        <div class="col-md-6" style="margin-top:50px">
-            <p1 style="color: white; font-size: 20px; font-family:cursive;text-align:justify" )">Australia is one of the most fire-prone countries in the world due to its weather and land conditions. Apart from having a dry condition in summer, the temperature in Australia is on the  rise. This provides the ideal conditions for a bushfire to occur. Farmers living near the bushlands and forests are the ones who suffer the most from wildfires.Their significant assets are crops and their livestock,which gets affected by occurrences of bushfire. It is reported that from the recent bushfires of 2019-2020, 14% of agricultural land was burned. Also,the loss of livestock such as sheep and cattle are estimated to be more than 25000, consisting of 2% of all in Australia.Some of these losses are related  to the lack  of awareness  and preparedness to protect themselves during a bushfire.</p1>
-        </div>
-        <div class="col-md-6" style="opacity:0.8" ;>
-            <img src="~/Image/split.png" style="width:750px;position:absolute;margin-top:20px;min-height:100px;" />
-            <img src="~/Image/split.png" style="transform:rotate(180deg);width:750px;position:absolute;margin-top:250px;min-height:100px" />
-            <img src="~/Image/bushfirebackground2.jpg" style="width:650px;height:300px;margin-top:50px;" />
+            </style>
         </div>
     </div>
 
-    <hr style="border-top: 3px double;color:white;width:1505px;text-align:center">
+    <div class="container-fluid">
+        <div class="row" style="opacity:0.8;width:80%;margin-left:10% ";>
+            <div class="description">
+                <img src="~/Image/split.png" style="width:80%;position:absolute;margin-top:20px;min-height:100px;" />
+                <img src="~/Image/split.png" style="transform:rotate(180deg);width:80%;position:absolute;margin-top:250px;min-height:100px" />
+                <img src="~/Image/background.jpg" style="width:100%;height:300px;margin-top:50px;text-align:center" />
+            </div>
+        </div>
+    </div>
     <h2 style="color:white;font-size:36px;text-align:center;font-family:Stencil"> Fire-Prone Area</h2>
-    <div class="container-fluid" style="justify-content: right; width:1525px">
+
+    <div class="container-fluid" style="justify-content: right; width:80%">
         <div id="map" style="justify-content: right;"></div>
     </div>
     <script>
@@ -751,98 +760,65 @@
 
 
 
-    <hr style="border-top: 3px double;color:white;width:1505px;text-align:center">
-    <div class="link">
-        <div class="row">
-            <div id="zoom" class="col-md-4">
-                <div class="container farm">
-                    <div class="kfs">
+    <hr style="border-top: 3px double;color:white;width:80%;text-align:center">
+    <div class="container-fluid">
+        <div class="link">
+            <div class="row">
+                <div class="col-md-6" style="text-align:center">
+                        <div class="kfs">
 
-                        <h1>KEEP FARM SAFE</h1>
-                        <p>
-                            <a href="https://localhost:44309/Home/Home"><img style="border: 3px solid black;border-style: double;border-radius:8px" src="~/Image/farm.jpg" alt="farm" width="300" height="400" /></a>
+                            <h1 style="text-align:center">KEEP FARM SAFE</h1>
+                            <p>
+                                <img style="border: 3px solid black;border-style: double;border-radius:8px;border-color:white" src="~/Image/farm.jpg" alt="farm" width="300" height="400" />
+                            </p>
+                        </div>
+                </div>
+                <div class="col-md-6" style="text-align:center">
+                    <div class="ins">
+                        <h1 style="text-align:center">INSURANCE</h1>
+                        <p >
+                            <img style="border:3px solid black;border-style:double;border-radius:8px;border-color:white" src="~/Image/insurance.jpg" alt="insurance" width="300" height="400" />
                         </p>
                     </div>
                 </div>
-            </div>
-            <div id="zoom" class="col-md-4">
-                <div class="ins">
-                    <h1>INSURANCE</h1>
-                    <p>
-                        <a href="https://localhost:44309/Home/Home"><img style="border:3px solid black;border-style:double;border-radius:8px" src="~/Image/insurance.jpg" alt="insurance" width="300" height="400" /></a>
-                    </p>
-                </div>
-            </div>
-            <div id="zoom" class="col-md-3">
-                <div class="kcs">
-                    <h1>KEEP CATTLE SAFE</h1>
-                    <p>
-                        <a href="https://localhost:44309/Home/Home">
-                            <img style="border: 3px solid black;border-style: double;border-radius: 8px
-" src="~/Image/cattle.jpg" alt="cattle" width="300" height="400" />
-                        </a>
-                    </p>
-                </div>
-            </div>
 
+            </div>
         </div>
     </div>
-
 
 
     <style>
         .link {
             position: relative;
-            margin-top: 100px;
             font-family: 'Century Gothic';
         }
 
-        .kcs {
-            margin-left: 70px;
-        }
-
-            .kcs h1 {
-                margin-left: 20px;
-                position: absolute;
-                top: 40px;
-                border-style: double;
-                font-size: 30px;
-                font-weight: 900;
-            }
 
         .kfs {
-            margin-left: 280px;
+            justify-content: right;
         }
 
             .kfs h1 {
-                position: absolute;
-                top: 40px;
-                left: 340px;
+                margin-left:37%;
+                width: 27%;
+                position: relative;
+                top: 80px;
                 border-style: double;
                 font-size: 30px;
                 font-weight: 900;
             }
 
         .ins {
-            margin-left: 200px;
         }
 
             .ins h1 {
-                position: absolute;
-                top: 40px;
-                left: 280px;
+                margin-left: 37%;
+                width: 27%;
+                position: relative;
+                top: 80px;
                 border-style: double;
                 font-size: 30px;
                 font-weight: 900;
-            }
-
-        #zoom {
-            transition: transform .3s;
-            margin: 0 auto;
-        }
-
-            #zoom:hover {
-                transform: scale(1.05);
             }
     </style>
 

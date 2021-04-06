@@ -40,13 +40,15 @@ namespace FIT5120_Epoch_BushFire.Controllers
                     String subject = "FIT5120MA28Team";
                     String guideline_url = "https://agriculture.vic.gov.au/farm-management/emergency-management/bushfires";
                     String safety_tips_url = "https://www.wikihow.com/Prepare-for-a-Forest-Fire";
-                    String contents = "Dear " + fname +
-                        " Thanks for registering on our website. We will send you notification for Bushfire \n" +
-                        "For you location : " + adress + " Bushfire predictions are as follows: \n" +
-                        "\n \n For guidelines to protect your farms please click on the following link \n" +
-                        "<a href=" + guideline_url + "> bushfire managemnt </a>" +
-                        "\n To check steps to keep your properties safe during bushfire click on the following link \n" +
-                        "<a href=" + safety_tips_url + "> safety tips </a>";
+                    String home_url = "https://fit5120ma28.ml/";
+                    String contents = "Dear " + fname + "<br>" +
+                         " Thanks for registering on our website. We will send you notification for Bushfire <br>" +
+                         "For you location : " + adress + " check Fire Danger Rating here  <br>" +
+                         "<a href=" + home_url + "> fire danger rating </a>" +
+                         "<br><br> For guidelines to protect your farms please click on the following link <br>" +
+                         "<a href=" + guideline_url + "> bushfire management </a>" +
+                         "<br> To check steps to keep your properties safe during bushfire click on the following link <br>" +
+                         "<a href=" + safety_tips_url + "> safety tips </a>";
                     Email es = new Email();
                     es.Send(toEmail, subject, contents);
                 }  
