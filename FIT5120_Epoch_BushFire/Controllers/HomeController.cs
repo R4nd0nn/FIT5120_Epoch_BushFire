@@ -16,7 +16,7 @@ namespace test.Controllers
             return View();
         }
 
-        public ActionResult Map()
+        public ActionResult AboutUs()
         {
             return View();
         }

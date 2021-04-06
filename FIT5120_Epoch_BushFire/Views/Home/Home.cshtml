@@ -133,13 +133,13 @@
         transform: rotate(-180deg);
         animation-delay: 1.2s;
     }
-    @@keyframes nothing{
 
+    @@keyframes nothing {
     }
+
     @@keyframes rotate-one {
         100% {
             transform: rotate(21.6deg);
-
         }
     }
 
@@ -150,7 +150,6 @@
 
         100% {
             transform: rotate(79.2deg);
-
         }
     }
 
@@ -161,7 +160,6 @@
 
         100% {
             transform: rotate(140.4deg);
-
         }
     }
 
@@ -172,7 +170,6 @@
 
         100% {
             transform: rotate(180deg);
-
         }
     }
 
@@ -187,6 +184,7 @@
         }
     }
 </style>
+<h2 style="color:white;font-size:36px;text-align:center;font-family:Stencil;margin-top:30px"> Fire Danger Rating</h2>
 <body style="background-color:black">
     <div class="mainrating">
         <div class="fire_danger_rating">
@@ -204,15 +202,15 @@
                     <span id="span4">Very High</span>
                 </li>
             </ul>
-            <p id="firedanger_00" style="text-align:center;font-family:'Arial Rounded MT';color:white">Fire Danger Rating</p>
+            <p id="firedanger_00" style="text-align:center;font-family:'Arial Rounded MT';color:white">Danger Rating Scale</p>
             <p id="firedanger_01" style="text-align:center;font-family:'Arial Rounded MT';color:white">@DateTime.Now.DayOfWeek : @DateTime.Now.ToString("MM-dd")</p>
             <p id="firedanger_02" style="text-align:center;font-family:'Arial Rounded MT';color:white"></p>
         </div>
     </div>
     <div class="searchfunction">
-        <div class="row">
-            <p style="margin-top:100px;margin-left:41%;font-family:Arial Rounded MT;color:white;font-size:20px">You can check danger rating here:</p>
-            <input type="text" id="search" placeholder="Input a suburb.." style="margin-left:41%;width:220px">
+        <div class="row" style="text-align:center">
+            <p style="margin-top:100px;font-family:Arial Rounded MT;color:white;font-size:20px">Check danger rating:</p>
+            <input type="text" id="search" placeholder="Input a suburb.." style="width:350px;">
             <button onclick="newfunction();myfunction()">Submit</button>
             <script>
                 function newfunction() {
@@ -674,7 +672,7 @@
     <p style="color:white;font-size:36px;text-align:center;font-family:Stencil;margin-top:10px">Description</p>
     <div class="row" style="margin-left:10%">
         <div class="col-md-6" style="margin-top:50px">
-            <p1 style="color: white; font-size: 20px; font-family:cursive")">Australia  is  one  of  the  most  fire-prone countries  in  the  worlddue  toits weather  and  land conditions. Apart from having a dry conditionin summer, the temperature in Australia is on the  rise.  This  providesthe  idealconditions  for a bushfire  to  occur.Farmers living  near  the bushlands and forests arethe ones who suffer the most from wildfires.Their significantassets are  crops  and their  livestock,which  gets  affected  by occurrences  of  bushfire. It  is  reported that from the recent bushfires of 2019-2020, 14% of agricultural land was burned. Also,the loss of livestock such as sheep and cattle areestimated to be more than 25000, consisting of 2%of  all in  Australia.Some  of these  lossesare  related  to  the  lack  of awareness  and preparedness to protect themselves during a bushfire.</p1>
+            <p1 style="color: white; font-size: 20px; font-family:cursive;text-align:justify" )">Australia is one of the most fire-prone countries in the world due to its weather and land conditions. Apart from having a dry condition in summer, the temperature in Australia is on the  rise. This provides the ideal conditions for a bushfire to occur. Farmers living near the bushlands and forests are the ones who suffer the most from wildfires.Their significant assets are crops and their livestock,which gets affected by occurrences of bushfire. It is reported that from the recent bushfires of 2019-2020, 14% of agricultural land was burned. Also,the loss of livestock such as sheep and cattle are estimated to be more than 25000, consisting of 2% of all in Australia.Some of these losses are related  to the lack  of awareness  and preparedness to protect themselves during a bushfire.</p1>
         </div>
         <div class="col-md-6" style="opacity:0.8" ;>
             <img src="~/Image/split.png" style="width:750px;position:absolute;margin-top:20px;min-height:100px;" />
@@ -684,7 +682,7 @@
     </div>
 
     <hr style="border-top: 3px double;color:white;width:1505px;text-align:center">
-    <h2 style="color:white;font-size:36px;text-align:center;font-family:Stencil"> Fire-Prone Area Map Of Your Suburb </h2>
+    <h2 style="color:white;font-size:36px;text-align:center;font-family:Stencil"> Fire-Prone Area</h2>
     <div class="container-fluid" style="justify-content: right; width:1525px">
         <div id="map" style="justify-content: right;"></div>
     </div>
@@ -705,9 +703,11 @@
             var jsonurl = 'https://fireprediction.ga/forecast?locality=' + location;
             var forecastdata_longtitude = "";
             var forecastdata_latitude = "";
+            var forecastdata_FFDI = "";
             $.getJSON(jsonurl, function (data) {
                 forecastdata_latitude = data.latitude;
                 forecastdata_longtitude = data.longitude;
+                forecastdata_FFDI = data.days[0].FFDI_category;
                 b = parseFloat(forecastdata_latitude);
                 a = parseFloat(forecastdata_longtitude);
 
@@ -718,8 +718,12 @@
                     center: [a, b],
                     zoom: 12
                 });
+
+                var text = forecastdata_FFDI;
+
                 var marker1 = new mapboxgl.Marker({ color: 'black' })
                     .setLngLat([a, b])
+                    .setPopup(new mapboxgl.Popup().setHTML("<h2>" + text + "</h2>"))
                     .addTo(map);
                 mapboxgl.accessToken = 'pk.eyJ1IjoiamRhaDAwMDEiLCJhIjoiY2ttb3pvMmYyMjlsdzJvdDRzc3R3ZWp1bSJ9.k4l8C8SfWsC8GDxRwdp4xQ';
                 var map = new mapboxgl.Map({
@@ -728,9 +732,14 @@
                     center: [a, b],
                     zoom: 12
                 });
+
+                var text = forecastdata_FFDI;
+
                 var marker1 = new mapboxgl.Marker({ color: 'black' })
                     .setLngLat([a, b])
+                    .setPopup(new mapboxgl.Popup().setHTML("<h2>" + text + "</h2>"))
                     .addTo(map);
+
             })
         }
 
@@ -789,11 +798,11 @@
         }
 
         .kcs {
-            margin-left:70px;
+            margin-left: 70px;
         }
 
             .kcs h1 {
-                margin-left:20px;
+                margin-left: 20px;
                 position: absolute;
                 top: 40px;
                 border-style: double;
@@ -803,7 +812,6 @@
 
         .kfs {
             margin-left: 280px;
-
         }
 
             .kfs h1 {
@@ -817,7 +825,6 @@
 
         .ins {
             margin-left: 200px;
-
         }
 
             .ins h1 {
@@ -833,9 +840,10 @@
             transition: transform .3s;
             margin: 0 auto;
         }
-        #zoom:hover{
-            transform:scale(1.05);
-        }
+
+            #zoom:hover {
+                transform: scale(1.05);
+            }
     </style>
 
 </body>
