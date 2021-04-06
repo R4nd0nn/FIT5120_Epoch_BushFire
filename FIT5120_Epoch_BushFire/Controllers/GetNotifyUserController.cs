@@ -14,17 +14,17 @@ namespace FIT5120_Epoch_BushFire.Controllers
     public class GetNotifyUserController : Controller
     {
         // GET: GetNotifyUser
-        private GetNotifyUser_MDContainer db = new GetNotifyUser_MDContainer();
+        private Azure_NotifyUser_MD db = new Azure_NotifyUser_MD();
         public ActionResult Home()
         {
             return View();
         }
 
+
         [HttpPost]
         public ActionResult Update(string fname, string lname, string adress, string eadress)
         {
-
-            GetNotifyUser getNotifyUser = new GetNotifyUser();
+            GetNotifyUserSet getNotifyUser = new GetNotifyUserSet();
             getNotifyUser.FirstName = fname;
             getNotifyUser.LastName = lname;
             getNotifyUser.Address = adress;
@@ -38,13 +38,18 @@ namespace FIT5120_Epoch_BushFire.Controllers
                     db.SaveChanges();
                     String toEmail = eadress;
                     String subject = "FIT5120MA28Team";
+                    String guideline_url = "https://agriculture.vic.gov.au/farm-management/emergency-management/bushfires";
+                    String safety_tips_url = "https://www.wikihow.com/Prepare-for-a-Forest-Fire";
                     String contents = "Dear " + fname +
-                        " Thanks for registering on our website. We will send your notification for Bushfire";
+                        " Thanks for registering on our website. We will send you notification for Bushfire \n" +
+                        "For you location : " + adress + " Bushfire predictions are as follows: \n" +
+                        "\n \n For guidelines to protect your farms please click on the following link \n" +
+                        "<a href=" + guideline_url + "> bushfire managemnt </a>" +
+                        "\n To check steps to keep your properties safe during bushfire click on the following link \n" +
+                        "<a href=" + safety_tips_url + "> safety tips </a>";
                     Email es = new Email();
                     es.Send(toEmail, subject, contents);
-
-                }
-                
+                }  
             }
             catch (DbEntityValidationException ex)
             {
@@ -60,13 +65,6 @@ namespace FIT5120_Epoch_BushFire.Controllers
             return RedirectToAction("Home", "Home"); 
         }
 
-        [HttpPost]
-        public ActionResult indicator()
-        {
-
-
-            return RedirectToAction("Home", "Home");
-        }
 
     }
     }

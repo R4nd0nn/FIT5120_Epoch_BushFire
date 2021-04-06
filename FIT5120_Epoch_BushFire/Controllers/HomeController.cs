@@ -10,7 +10,6 @@ namespace test.Controllers
 {
     public class HomeController : Controller
     {
-        private GetNotifyUser_MDContainer db = new GetNotifyUser_MDContainer();
         public ActionResult Home()
         {
 
