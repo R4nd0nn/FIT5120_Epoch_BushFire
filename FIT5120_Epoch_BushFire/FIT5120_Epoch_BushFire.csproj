@@ -212,6 +212,8 @@
     <Content Include="Image\insurance.jpg" />
     <Content Include="Image\logo.jpg" />
     <Content Include="Image\logo.png" />
+    <Content Include="Image\logo1.png.PNG" />
+    <Content Include="Image\logo2.png.PNG" />
     <Content Include="Image\main_background.jpg" />
     <Content Include="Image\main_background2.jpg" />
     <Content Include="Image\main_background3.jpg" />
