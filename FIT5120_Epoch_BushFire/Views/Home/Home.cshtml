@@ -684,15 +684,15 @@
     <div class="container-fluid">
         <div class="row" style="opacity:0.8;width:80%;margin-left:10% ";>
             <div class="description">
-                <img src="~/Image/split.png" style="width:80%;position:absolute;margin-top:20px;min-height:100px;" />
-                <img src="~/Image/split.png" style="transform:rotate(180deg);width:80%;position:absolute;margin-top:250px;min-height:100px" />
-                <img src="~/Image/background.jpg" style="width:100%;height:300px;margin-top:50px;text-align:center" />
+                <img src="~/Image/split.png" style="width:82%;position:absolute;margin-top:20px;min-height:100px;" />
+                <img src="~/Image/split.png" style="transform:rotate(180deg);width:82%;position:absolute;margin-top:350px;min-height:100px" />
+                <img src="~/Image/bck1.jpg" style="width:100%;height:350px;margin-top:50px;text-align:center" />
             </div>
         </div>
     </div>
-    <h2 style="color:white;font-size:36px;text-align:center;font-family:Stencil"> Fire-Prone Area</h2>
+    <h2 style="color:white;font-size:36px;text-align:center;font-family:Stencil;margin-top:80px;"> Fire-Prone Area</h2>
 
-    <div class="container-fluid" style="justify-content: right; width:80%">
+    <div class="container-fluid" style="justify-content: right; width:80%;margin-top:50px;">
         <div id="map" style="justify-content: right;"></div>
     </div>
     <script>
@@ -705,6 +705,7 @@
         });
         var marker1 = new mapboxgl.Marker({ color: 'black' })
             .setLngLat([145.5139, -37.6561])
+            .setPopup(new mapboxgl.Popup().setHTML("<h6>" + "Search your location to see the severity" + "</h6>"))
             .addTo(map);
 
         function myfunction() {
@@ -734,6 +735,7 @@
                     .setLngLat([a, b])
                     .setPopup(new mapboxgl.Popup().setHTML("<h2>" + text + "</h2>"))
                     .addTo(map);
+
                 mapboxgl.accessToken = 'pk.eyJ1IjoiamRhaDAwMDEiLCJhIjoiY2ttb3pvMmYyMjlsdzJvdDRzc3R3ZWp1bSJ9.k4l8C8SfWsC8GDxRwdp4xQ';
                 var map = new mapboxgl.Map({
                     container: 'map',
@@ -746,7 +748,7 @@
 
                 var marker1 = new mapboxgl.Marker({ color: 'black' })
                     .setLngLat([a, b])
-                    .setPopup(new mapboxgl.Popup().setHTML("<h2>" + text + "</h2>"))
+                    .setPopup(new mapboxgl.Popup().setHTML("<h6>" + "Today - you are safe " + "<br>"+"<br>"+"Severity:" + text + "</h6>"))
                     .addTo(map);
 
             })
@@ -755,6 +757,42 @@
 
 
     </script>
+
+    <div class="container-fluid" style="margin-top:10vw;">
+
+        <style>
+            .parallax {
+                /* The image used */
+                background-image: url("/Image/crop-farmer.jpg");
+                
+                /* Set a specific height */
+                min-height: 600px;
+                /* Create the parallax scrolling effect */
+                background-attachment: fixed;
+                background-position: top;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+        </style>
+
+        <div class="parallax" style="height:700px;width:100%;">
+            
+      
+            <a style="width:100%;height:700px;display:block" href="https://google.com">
+                <div class="container-fluid">
+                    <div style="margin-top:10vw;margin-left:45%;color:white;text-align:center;font-family:'Times New Roman';font-size:50px;">
+                        Guidelines to safe crop-farms.
+                        <marquee style="scroll-behavior:smooth;behavior:initial;"> Save your farms from the bushfires </marquee>
+
+                    </div>
+                </div>
+
+            </a>
+
+        </div>
+
+ 
+    </div>
 
 </body>
 
