@@ -202,13 +202,20 @@
     <Content Include="Content\Site.css" />
     <Content Include="Image\australia.jpg" />
     <Content Include="Image\background.jpg" />
+    <Content Include="Image\bck.jpg" />
+    <Content Include="Image\bck1.jpg" />
+    <Content Include="Image\bushfire.jpg" />
     <Content Include="Image\bushfirebackground1.jpg" />
     <Content Include="Image\bushfirebackground2.jpg" />
     <Content Include="Image\cattle.jpg" />
+    <Content Include="Image\crop-farmer.jpg" />
+    <Content Include="Image\crops-left-after-fire-data.jpg" />
     <Content Include="Image\farm.jpg" />
+    <Content Include="Image\farmers-hands-going-through-crops-wheat-field-sunset.jpg" />
     <Content Include="Image\farmland_background.jpg" />
     <Content Include="Image\gold_semicircle.png" />
     <Content Include="Image\grey_semicircle.png" />
+    <Content Include="Image\hero-agriculture-grain-1280x510.jpg" />
     <Content Include="Image\insurance.jpg" />
     <Content Include="Image\logo.jpg" />
     <Content Include="Image\logo.png" />
@@ -217,10 +224,13 @@
     <Content Include="Image\main_background.jpg" />
     <Content Include="Image\main_background2.jpg" />
     <Content Include="Image\main_background3.jpg" />
+    <Content Include="Image\money-canolaswath-108751255-Thinkstock.jpg" />
     <Content Include="Image\nitify.png" />
     <Content Include="Image\search-512.png" />
     <Content Include="Image\split.png" />
+    <Content Include="Image\W07_2919_Paddock_Fire.png" />
     <Content Include="Image\weather.jpg" />
+    <Content Include="Image\WheatFire_Adobestock_E1.jpg" />
     <Content Include="Models\GetNotifyUser_MD.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>GetNotifyUser_MD.Context.cs</LastGenOutput>
