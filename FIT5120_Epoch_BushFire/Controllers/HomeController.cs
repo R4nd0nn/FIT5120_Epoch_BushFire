@@ -16,7 +16,7 @@ namespace test.Controllers
             return View();
         }
 
-        public ActionResult AboutUs()
+        public ActionResult About_Us()
         {
             return View();
         }

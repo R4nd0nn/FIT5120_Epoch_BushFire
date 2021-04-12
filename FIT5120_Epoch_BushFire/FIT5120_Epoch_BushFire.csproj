@@ -208,8 +208,6 @@
     <Content Include="Image\bushfirebackground1.jpg" />
     <Content Include="Image\bushfirebackground2.jpg" />
     <Content Include="Image\cattle.jpg" />
-    <Content Include="Image\crop-farmer.jpg" />
-    <Content Include="Image\crops-left-after-fire-data.jpg" />
     <Content Include="Image\farm.jpg" />
     <Content Include="Image\farmers-hands-going-through-crops-wheat-field-sunset.jpg" />
     <Content Include="Image\farmland_background.jpg" />
@@ -217,6 +215,9 @@
     <Content Include="Image\grey_semicircle.png" />
     <Content Include="Image\hero-agriculture-grain-1280x510.jpg" />
     <Content Include="Image\insurance.jpg" />
+    <Content Include="Image\Jeetu.png" />
+    <Content Include="Image\Jing.png" />
+    <Content Include="Image\KP.png" />
     <Content Include="Image\logo.jpg" />
     <Content Include="Image\logo.png" />
     <Content Include="Image\logo1.png.PNG" />
@@ -227,6 +228,7 @@
     <Content Include="Image\money-canolaswath-108751255-Thinkstock.jpg" />
     <Content Include="Image\nitify.png" />
     <Content Include="Image\search-512.png" />
+    <Content Include="Image\Shijin.png" />
     <Content Include="Image\split.png" />
     <Content Include="Image\W07_2919_Paddock_Fire.png" />
     <Content Include="Image\weather.jpg" />
@@ -276,6 +278,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Home.cshtml" />
     <Content Include="Views\Home\Map.cshtml" />
+    <Content Include="Views\Home\About_Us.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Indicator\" />
