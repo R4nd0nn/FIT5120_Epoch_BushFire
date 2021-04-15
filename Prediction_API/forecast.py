@@ -84,7 +84,8 @@ def find_last_precipitation(obs):
     """
     days_since_last_precipitation = 0
     for day in sorted(obs['days'], reverse=True, key= lambda  d: d['datetime']):
-        if day['precip'] == 0:
+        precip= day['precip'] if day['precip'] is not None else 0
+        if precip == 0:
             days_since_last_precipitation += 1
         else:
             break
@@ -138,7 +139,7 @@ def get_fire_danger_forecast(locality):
         else:
             A = 0
 
-        R = day['precip'] # precipitation in mm
+        R = day['precip'] if day['precip'] is not None else 0# precipitation in mm
         V = day['windspeed'] # windspeed in km/h
         T = day['tempmax'] # maximum temperature in degree C
         RH = day['humidity']
