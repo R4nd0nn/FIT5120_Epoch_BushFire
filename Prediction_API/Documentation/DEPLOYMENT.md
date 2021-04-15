@@ -21,10 +21,21 @@ virtualenv env -p python3
 . env/bin/activate
 pip3 install -r requirements.txt
 ```
+
 ### 1.4 Installing NGINX server
 ```
 sudo apt-get install nginx
 ```
+### 1.5 Download dataset files to local machine
+Make sure that you have enough access to the project. Setup Google cloud configuration first using command:
+```
+gcloud init
+```
+Once its done, download the data file using the command:
+```
+gsutil cp gs://hello-167512.appspot.com/soil_moisture_data.pkl <path-to-repository>/FIT5120_Epoch_BushFire/Prediction_API/data/
+```
+
 ## 2 Adjust the firewall settings
 ```
 sudo ufw enable

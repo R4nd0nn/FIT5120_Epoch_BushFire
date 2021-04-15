@@ -5,10 +5,9 @@ import pickle
 import math
 from urllib import parse
 import logging
+from random import choice
 
 BASE_URL = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/"
-#KEY = "85RUM6YVQND6VQ73AZ2D282U8"
-KEY = "DWVCZAHTPJQWNGLTNDHSTD2FV"
 SOIL_MOISTURE_DEFICITS = None
 LOCALITY = None
 
@@ -18,6 +17,9 @@ def load_data():
     """
     with open("data/soil_moisture_VIC.pkl", "rb") as f:
         data = pickle.load(f)
+
+    with open("keys.json", "r") as f:
+        global KEYS = json.load(f)
 
     # easy accisible global variables
     global SOIL_MOISTURE_DEFICITS
@@ -35,7 +37,7 @@ def get_forecast(locality):
     quoted_locality = parse.quote(locality)
     forecast_url = BASE_URL + '{locality},VIC/'.format(locality=quoted_locality) # forecast url
     params = {
-        'key': KEY,
+        'key': choice(KEYS),
         'include': 'fcst',
         'unitGroup': 'metric'
     }
@@ -60,7 +62,7 @@ def get_historical_weather(locality):
     quoted_locality = parse.quote(locality)
     historical_url = BASE_URL + '{locality},VIC/last7days'.format(locality=quoted_locality)
     params = {
-        'key': KEY,
+        'key': choice(KEYS),
         'include': 'obs',
         'unitGroup': 'metric'
     }
