@@ -1,0 +1,134 @@
+﻿
+@{
+    ViewBag.Title = "Analytics";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+
+<div class="analyticsTitleSection">
+
+    <div class="container body-content">
+        <h1><b id="title"> Who are refugees? </b></h1>
+        <h4 id="titleContent" style="line-height:1.8;">
+            Refugees are regular people who, through no fault of their own, have been forced to leave their homes in search of safety.
+        </h4>
+    </div>
+
+</div>
+
+
+<div id="analyticsSection">
+    <div class="row">
+        <div class="column" style="padding:20px;width:100%;height:100%;margin:auto;">
+            <div class="dropdown" style="float:right; padding-right:10%;">
+                <button id="year" class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    Year
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li><a id="2015_16">2015 – 16</a></li>
+                    <li><a id="2016_17">2016 – 17</a></li>
+                    <li><a id="2017_18">2017 – 18</a></li>
+                    <li><a id="2018_19">2018 – 19</a></li>
+                    <li><a id="2019_20">2019 – 20</a></li>
+                    @*<li role="separator" class="divider"></li>
+                        <li><a href="#">Separated link</a></li>*@
+                </ul>
+            </div>
+
+            <div>
+                <div class="chart-wrapper" style="width:100%;display:inline-block">
+                    <canvas id="pieChart"></canvas>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="column" style="text-align:center;margin:auto;margin-right:20px;">
+
+            <h2><b id="comeFrom">Where do they come from?</b> </h2>
+            <p id="comeFromContent" class="textContent customPadding">
+                s According to the Australian Government Department of Home Affairs refugees statistics from 2016 to 2019, the top 9 refugee-importing countries are Iraq, Syria, Myanmar, Afghanistan, Democratic Republic of Congo, Ethiopia, Eritrea, Iran, Central African Republic accounting for 76% of the total refugee population.
+            </p>
+        </div>
+    </div>
+
+
+
+    <div class="row">
+
+        <div class="column" style="text-align:center;margin: auto; ">
+
+            <h2><b id="menAndWomen">Men And Women</b></h2>
+            <p class="textContent customPadding" id="menAndWomenContent">
+                According to the Australian Government Department of Home Affairs refugees statistics from 2016 to 2019, the highest male to female population that has come to Australia is from Iraq.
+            </p>
+
+        </div>
+
+        <div class="column" style="padding:20px;width:100%;height:100%;margin:auto;">
+
+            <div>
+                <div class="dropdown" style="float:left; padding-right:10%;">
+                    <button id="year1" class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        Year
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li><a id="mf2015_16">2015 – 16</a></li>
+                        <li><a id="mf2016_17">2016 – 17</a></li>
+                        <li><a id="mf2017_18">2017 – 18</a></li>
+                        <li><a id="mf2018_19">2018 – 19</a></li>
+                        <li><a id="mf2019_20">2019 – 20</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                    </ul>
+                </div>
+                <div class="chart-wrapper" style="width:100%;display:inline-block;padding:5%;">
+                    <canvas id="barChart"></canvas>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+
+
+<div style="text-align: center;
+        background-color: #CBA783;
+        padding: 2% 3% 3% 4%;
+        color: white">
+    <div class="container body-content">
+        <h2 id="weBelieve">We Believe</h2>
+        <h4 id="weBelieveContent" style="line-height: 1.8;">Through sports, we can help refugees overcome language barrier and help them make new friends and find a sense of belonging and self worth here in Australia</h4>
+    </div>
+
+</div>
+
+
+<div>
+
+    <div style="width:100%;height:30%;margin:auto;text-align:center;" id="segueSportsAnalytics">
+        <div class="card" style="display:inline-block; text-align:center; width:200px; height:25vh; margin:20px;">
+            <div>
+                <h3><b id="findSport">Find Sport</b></h3>
+            </div>
+            <div style="overflow:hidden;">
+                <img src="~/Images/Symbols/sport (1).png" style="object-fit:scale-down; padding:5%;" />
+            </div>
+            <div>
+                <span id="details">Click to see more details</span>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<script src="~/Scripts/analyticsScript.js"></script>

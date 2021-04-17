@@ -16,7 +16,17 @@ namespace test.Controllers
             return View();
         }
 
-        public ActionResult About_Us()
+        public ActionResult About()
+        {
+            return View();
+        }
+
+        public ActionResult Analytics()
+        {
+            return View();
+        }
+
+        public ActionResult Map()
         {
             return View();
         }

@@ -4,84 +4,243 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<head>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css" rel="stylesheet">
+</head>
 
-    <body>
-        <div class="mapfunction">
-            <div class="container">
-                <div class="row">
-                    <div class="map">
-                        <button class="collapsible" style="width:1730px;margin-top:50px;">Map</button>
-                        <div class="content">
-                            <p>
-                                <div id='map' style='width: 2000px; height:1000px'></div>
-                                <script>
-                                    mapboxgl.accessToken = 'pk.eyJ1IjoicjRuZDBubiIsImEiOiJja2VraTMxYWUwMDAyMnBvNHV3Zms1dDg4In0.jWJGHKKIF0cGc3NrQcIoSg';
-                                    var map = new mapboxgl.Map({
-                                        container: 'map', // container ID
-                                        style: 'mapbox://styles/r4nd0nn/ckmly5z8e4xlj17o4j5oy4zoz', // style URL
-                                        center: [-74.5, 40], // starting position [lng, lat]
-                                        zoom: 9 // starting zoom
-                                    });
-                                </script>
-                            </p>
-                        </div>
+<style>
+    @@keyframes nothing {
+    }
+
+    @@keyframes rotate-one {
+        100% {
+            transform: rotate(21.6deg);
+        }
+    }
+
+    @@keyframes rotate-two {
+        0% {
+            transform: rotate(21.6deg);
+        }
+
+        100% {
+            transform: rotate(79.2deg);
+        }
+    }
+
+    @@keyframes rotate-three {
+        0% {
+            transform: rotate(79.2deg);
+        }
+
+        100% {
+            transform: rotate(140.4deg);
+        }
+    }
+
+    @@keyframes rotate-four {
+        0% {
+            transform: rotate(140.4deg);
+        }
+
+        100% {
+            transform: rotate(180deg);
+        }
+    }
+
+
+    @@keyframes fade-in {
+        0%, 90% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+</style>
+
+<body>
+
+    <div class="mapTitleSection">
+
+        <div class="container body-content">
+            <h1 id="Title"> Fire Danger Rating </h1>
+            <div class="container-fluid">
+                <div class="mainrating">
+                    <div class="fire_danger_rating">
+                        <ul class="chart-skills">
+                            <li id="li1">
+                                <span id="span1">Low</span>
+                            </li>
+                            <li id="li2">
+                                <span id="span2">Medium</span>
+                            </li>
+                            <li id="li3">
+                                <span id="span3">High</span>
+                            </li>
+                            <li id="li4">
+                                <span id="span4">Very High</span>
+                            </li>
+                        </ul>
+                        <p id="firedanger_00" style="font-size:large;text-align:center;font-family:'Arial Rounded MT';color:white;padding-top:5%;"> Check Bush Fire Danger at your location </p>
+                        <p id="firedanger_01" style="text-align:justify;font-family:'Arial Rounded MT';color:white;padding-top:3px;padding-left:18%">
+                            <span style="color:red"> Very High </span> &nbsp;&nbsp; Your region is severely prone to bush fire. <br>
+                            <span style="color:orange"> High </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hazardous proximity to a severely prone region. <br>
+                            <span style="color:yellow"> Medium </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Check air quality index before you go outside <br>
+                            <span style="color:green"> Low </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dont worry! you are safe.
+                        </p>
+                        <p id="firedanger_02" style="text-align:center;font-family:'Arial Rounded MT';color:white">
+                        </p>
+
                     </div>
                 </div>
-                <script>
-                    var coll = document.getElementsByClassName("collapsible");
-                    var i;
-
-                    for (i = 0; i < coll.length; i++) {
-                        coll[i].addEventListener("click", function () {
-                            this.classList.toggle("active");
-                            var content = this.nextElementSibling;
-                            if (content.style.maxHeight) {
-                                content.style.maxHeight = null;
-                            } else {
-                                content.style.maxHeight = content.scrollHeight + "px";
-                            }
-                        });
-                    }
-                </script>
             </div>
         </div>
-        <style>
-            body{
-                background-color:black;
-            }
-            .collapsible {
-                left: -280px;
-                position: relative;
-                background: url(/image/cattle.jpg) no-repeat;
-                color: white;
-                cursor: pointer;
-                padding: 18px;
-                width: 100%;
-                border: none;
-                text-align: left;
-                outline: none;
-                font-size: 15px;
-            }
-
-                .active, .collapsible:hover {
-                    background-color: #555;
-                }
-
-                .collapsible:after {
-                    content: '\002B';
-                    color: white;
-                    font-weight: bold;
-                    float: right;
-                    margin-left: 5px;
-                }
+    </div>
 
 
-            .content {
-                padding: 0 18px;
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.2s ease-out;
-                background-color: #f1f1f1;
-            }
-        </style>
-    </body>
+    <div class="ratingSection">
+        <div class="row" style="align-content:center">
+            <div class="column-search" style="align-content:center">
+                <div class="searchfunction">
+                    <h3 class="textContent" id="" style="text-align:center">Check danger rating:</h3>
+                    <input id="search" class="form-control" placeholder="Enter Suburb Name" style="float:left;padding:10px;position:absolute;left:38%;margin-left:auto;margin-right:auto;width:fit-content()">
+                    <div id="button-div" style=" float:left;height: 30%;width:auto; position:absolute;left:57%">
+                        <button class="btn btn-primary btn-lg" onclick="newfunction();myfunction()" style="margin-left:auto; margin-right: auto;width:auto">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="subrating">
+            <div class="row" style="
+                 padding-top: 2%;
+                 position: relative;
+                 margin-top: 2%;">
+                <div class="column-week">
+                    <div class="row-week1">
+                        <div class="sub1">
+                            <div class="fire_danger_rating">
+                                <ul class="chart-skills">
+                                    <li id="li1_1">
+                                        <span id="span1"></span>
+                                    </li>
+                                    <li id="li2_1">
+                                        <span id="span2"></span>
+                                    </li>
+                                    <li id="li3_1">
+                                        <span id="span3"></span>
+                                    </li>
+                                    <li id="li4_1">
+                                        <span id="span4"></span>
+                                    </li>
+                                </ul>
+                                <p id="firedanger_10" style="color: #4a4233; text-align: center; margin-top: 10px; font-family: 'Arial Rounded MT'"></p>
+                                <p id="firedanger_11" style="color: #4a4233; text-align: center; margin-top: 20px; font-family: 'Arial Rounded MT'">@DateTime.Now.AddDays(1).DayOfWeek : @DateTime.Now.AddDays(1).ToString("MM-dd")</p>
+                                <p id="firedanger_12" style="color: #4a4233; text-align: center; font-family: 'Arial Rounded MT';"></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row-week2">
+                        <div class="sub2">
+                            <div class="fire_danger_rating">
+                                <ul class="chart-skills">
+                                    <li id="li1_2">
+                                        <span id="span1"></span>
+                                    </li>
+                                    <li id="li2_2">
+                                        <span id="span2"></span>
+                                    </li>
+                                    <li id="li3_2">
+                                        <span id="span3"></span>
+                                    </li>
+                                    <li id="li4_2">
+                                        <span id="span4"></span>
+                                    </li>
+                                </ul>
+                                <p id="firedanger_20" style="color: #4a4233; text-align: center; margin-top: 10px; font-family: 'Arial Rounded MT'"></p>
+                                <p id="firedanger_21" style="color: #4a4233; text-align: center; margin-top: 20px; font-family: 'Arial Rounded MT'">@DateTime.Now.AddDays(2).DayOfWeek : @DateTime.Now.AddDays(2).ToString("MM-dd")</p>
+                                <p id="firedanger_22" style="color: #4a4233; text-align: center; font-family: 'Arial Rounded MT'"></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row-week3">
+                        <div class="sub3">
+                            <div class="fire_danger_rating">
+                                <ul class="chart-skills">
+                                    <li id="li1_3">
+                                        <span id="span1"></span>
+                                    </li>
+                                    <li id="li2_3">
+                                        <span id="span2"></span>
+                                    </li>
+                                    <li id="li3_3">
+                                        <span id="span3"></span>
+                                    </li>
+                                    <li id="li4_3">
+                                        <span id="span4"></span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <p id="firedanger_30" style="color: #4a4233; text-align: center; margin-top: 10px; font-family: 'Arial Rounded MT'"></p>
+                            <p id="firedanger_30" style="color: #4a4233; text-align: center; margin-top: 20px; font-family: 'Arial Rounded MT'">@DateTime.Now.AddDays(3).DayOfWeek : @DateTime.Now.AddDays(3).ToString("MM-dd")</p>
+                            <p id="firedanger_32" style="color: #4a4233; text-align: center; font-family: 'Arial Rounded MT'"></p>
+                        </div>
+                    </div>
+                    <div class="row-week4">
+                        <div class="sub4">
+                            <div class="fire_danger_rating">
+                                <ul class="chart-skills">
+                                    <li id="li1_4">
+                                        <span id="span1"></span>
+                                    </li>
+                                    <li id="li2_4">
+                                        <span id="span2"></span>
+                                    </li>
+                                    <li id="li3_4">
+                                        <span id="span3"></span>
+                                    </li>
+                                    <li id="li4_4">
+                                        <span id="span4"></span>
+                                    </li>
+                                </ul>
+                                <p id="firedanger_40" style="color: #4a4233; text-align: center; margin-top: 10px; font-family: 'Arial Rounded MT'"></p>
+                                <p id="firedanger_41" style="color: #4a4233; text-align: center; margin-top: 20px; font-family: 'Arial Rounded MT'">@DateTime.Now.AddDays(4).DayOfWeek : @DateTime.Now.AddDays(4).ToString("MM-dd")</p>
+                                <p id="firedanger_42" style="color: #4a4233; text-align: center; font-family: 'Arial Rounded MT'"></p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="column-map">
+        <div class="heatMapTitle">
+            <h1> Fire Prone Area Map </h1>
+        </div>
+    </div>
+    
+
+    <div id="map" style="width:100%; height: 500px;"></div>
+
+    <div class="map_legend">
+        <h4 style="color: #4a4233;padding:5px;">
+            DANGER &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SAFE
+        </h4>
+        <img class="color_legend" src="~/Image/gradient-legend_009.png">
+    </div>
+
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js"></script>
+    <script src="~/Scripts/Map.js"></script>
+
+</body>
