@@ -1,27 +1,17 @@
-﻿@model FIT5120_Epoch_BushFire.Models.GetNotifyUser
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>MA28 Epoch - Staying safe in Bushes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1,user-scalable=no">
+    <title>@ViewBag.Title - Fire Safe Farms</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-    <link rel='icon' src="~/image/logo.png">
-    <script src='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
-    <link href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
-    <link href="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css" rel="stylesheet">
-    <script src="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js"></script>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-        }
 
+<<<<<<< HEAD
         #map {
             position: page;
             top: 0;
@@ -89,150 +79,121 @@
                                 <input style="text-align:center" id="submit" type="submit" value="Submit" />
                             </form>
                         }
+=======
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary" id="Topnav">
+        <a class="navbar-brand" id="projectLogo" href="@Url.Action("Home", "Home")">
+            <p style="opacity:0;"> Fire Safe Farms</p>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" style="width:auto;padding:25px" href="@Url.Action("Home", "Home")">
+                        Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" style="width:auto;padding:25px"> Safety from Bushfire </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="@Url.Action("Map", "Home")"> Check Fire Danger </a>
+                        <a class="dropdown-item" href="@Url.Action("Analytics", "Home")"> Protect Farm lands </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="@Url.Action("Home", "Home")"> Emergency Contacts </a>
+>>>>>>> a883754 (New Layout UI)
                     </div>
-                    <div class="modal-footer">
-                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="width:auto;padding:25px" href="@Url.Action("About", "Home")">About</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <script src="~/Scripts/Home.js"></script>
+
+
+
+
+    @*<div class="navbar navbar-inverse navbar-fixed-top" style="background-color:#f2f2f2; border-color: white; box-shadow:0px 0px 3px 0px">
+                            <div class="container">
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                </div>
+                                <div class="navbar-collapse collapse">
+                                    <ul class="nav navbar-nav">
+
+                                        <li>@Html.ActionLink("Compare", "About", "Home", new { @style = "color:black;" })</li>
+                                        <li>@Html.ActionLink("Why Sports ?", "About", "Home", new { @style = "color:black;" })</li>
+                                        <li>@Html.ActionLink("About Us", "Contact", "Home", new { @style = "color:black;" })</li>
+                                        <div class="btn-group" style="padding:8.25px 6px 6px 4.5px;">
+                                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border:none;background-color:#f2f2f2; ">
+                                                <b style="color:black;font-weight:normal;">Language</b>
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <li style="color:black;"><a href="#">English</a></li>
+                                                <li style="color:black;"><a href="#">Chinese</a></li>
+                                            </ul>
+                                        </div>
+                                    </ul>
+          <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+          <a class="navbar-brand" href="@Url.Action("Home", "Home")"> Fire Safe Farms </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="@Url.Action("Home", "Home")">Home
+                  <span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="@Url.Action("Home", "Home")">Features</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="@Url.Action("Home", "Home")">About</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="#">Action</a>
+                  <a class="dropdown-item" href="#">Another action</a>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">Separated link</a>
                 </div>
-            </div>
-            <script>
-                var modal = document.getElementById("myModal");
-                var btn = document.getElementById("gbn");
-                var span = document.getElementsByClassName("close")[0];
-                btn.onclick = function () {
-                    modal.style.display = "block";
-                }
-                span.onclick = function () {
-                    modal.style.display = "none";
-                }
-                window.onclick = function (event) {
-                    if (event.target == modal) {
-                        modal.style.display = "none";
-                    }
-                }
-            </script>
-            <style>
-                #submit {
-                    width: 80px;
-                }
+              </li>
+            </ul>
+          </div>
+        </nav>
 
-                .modal-body input {
-                    width: 240px;
-                    border: none;
-                    border-bottom: 2px solid black;
-                }
+                                    @Html.Partial("_LoginPartial")
+                                </div>
+                            </div>
+                        </div>*@
+    <div>
 
-                label {
-                    width: 240px;
-                    display: inline-block;
-                }
+        @RenderBody()
+        <hr />
+        <footer class="container body-content">
+            <p>&copy; @DateTime.Now.Year - MA 28 Epoch </p>
+        </footer>
+    </div>
 
-                .modal {
-                    padding-top: 100px;
-                    padding-left: 20%;
-                    width: 50%;
-                    height: 100%;
-                }
-
-                .modal-content {
-                    position: relative;
-                    background-color: #fefefe;
-                    margin: auto;
-                    padding: 0;
-                    border: 1px solid #888;
-                }
-
-                #getfirenotify {
-                    text-align: left;
-                }
-
-                .close {
-                    color: black;
-                    float: right;
-                    font-size: 28px;
-                    font-weight: bold;
-                }
-
-                    .close:hover,
-                    .close:focus {
-                        color: #000;
-                        text-decoration: none;
-                        cursor: pointer;
-                    }
-
-                .modal-footer {
-                    padding: 2px 16px;
-                }
-            </style>
-
-            <style>
-                .navgation {
-                    background: url("/image/main_background2.jpg");
-                    background-position: top;
-                    position: relative;
-                    width: 100%;
-                    min-height: 700px;
-                    max-height: 700px;
-                    background-repeat: no-repeat;
-                    font-family: 'Century Gothic';
-                    background-attachment: fixed;
-                }
-
-                .navbar-nav {
-                    margin-top: 70px;
-                    font-size: 30px;
-                }
-
-                .nav1 {
-                    margin-left: 5px;
-                }
-
-                .nav2 {
-                    margin-left: 20px;
-                }
-
-                .nav3 {
-                    margin-left: 35px;
-                }
-
-                .nav4 {
-                    font-size: 20px;
-                    position: relative;
-                    border-style: solid;
-                }
-
-                .nav li a {
-                    margin-top: 50px;
-                    color: white;
-                }
-
-                    .nav li a:hover {
-                        background-color: black;
-                    }
-            </style>
-
-        </div>
-        <script>
-
-
-        </script>
-
-        <div class="body-content">
-            @RenderBody()
-            <footer>
-                <hr />
-                <p>@DateTime.Now.Year - FIT5120 MA28 - Epoch</p>
-            </footer>
-            <style>
-                footer {
-                    margin-top: 100px;
-                    color: white;
-                    text-align: center;
-                }
-            </style>
-        </div>
-        @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/bootstrap")
-        @RenderSection("scripts", required: false)
-    </body>
-
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
 </html>
