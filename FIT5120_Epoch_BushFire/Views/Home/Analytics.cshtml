@@ -4,131 +4,131 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
-
-<div class="analyticsTitleSection">
+<div class="safetyTitleSection">
 
     <div class="container body-content">
-        <h1><b id="title"> Who are refugees? </b></h1>
-        <h4 id="titleContent" style="line-height:1.8;">
-            Refugees are regular people who, through no fault of their own, have been forced to leave their homes in search of safety.
-        </h4>
+        <h1 id="Title"> SAFETY PLAN </h1>
     </div>
-
 </div>
 
+<div class="row" style="margin-top:3%;padding-top:2%">
+    <div class="farm" id="farm">
+        <div class="model" id="model"></div>
+    </div>
+</div>
 
-<div id="analyticsSection">
+<div class="nav-option" style="text-align:center">
     <div class="row">
-        <div class="column" style="padding:20px;width:100%;height:100%;margin:auto;">
-            <div class="dropdown" style="float:right; padding-right:10%;">
-                <button id="year" class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                    Year
-                    <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                    <li><a id="2015_16">2015 – 16</a></li>
-                    <li><a id="2016_17">2016 – 17</a></li>
-                    <li><a id="2017_18">2017 – 18</a></li>
-                    <li><a id="2018_19">2018 – 19</a></li>
-                    <li><a id="2019_20">2019 – 20</a></li>
-                    @*<li role="separator" class="divider"></li>
-                        <li><a href="#">Separated link</a></li>*@
-                </ul>
-            </div>
+        <div class="column-last" style="        background-color: #3e290c;
+        color: #dedbd5;
+        padding: 20px;">
+            <div class="circle-box" id="fire_nav">
+                <div class="card-fireDanger" id="segueStats" style="margin:20px;position:relative">
 
-            <div>
-                <div class="chart-wrapper" style="width:100%;display:inline-block">
-                    <canvas id="pieChart"></canvas>
+                </div>
+                <div style="text-align:center;">
+                    <h3><b id="refugeeStats" style="padding:10px;"> FIRE DANGER RATING </b></h3>
                 </div>
             </div>
 
-        </div>
-
-        <div class="column" style="text-align:center;margin:auto;margin-right:20px;">
-
-            <h2><b id="comeFrom">Where do they come from?</b> </h2>
-            <p id="comeFromContent" class="textContent customPadding">
-                s According to the Australian Government Department of Home Affairs refugees statistics from 2016 to 2019, the top 9 refugee-importing countries are Iraq, Syria, Myanmar, Afghanistan, Democratic Republic of Congo, Ethiopia, Eritrea, Iran, Central African Republic accounting for 76% of the total refugee population.
-            </p>
-        </div>
-    </div>
-
-
-
-    <div class="row">
-
-        <div class="column" style="text-align:center;margin: auto; ">
-
-            <h2><b id="menAndWomen">Men And Women</b></h2>
-            <p class="textContent customPadding" id="menAndWomenContent">
-                According to the Australian Government Department of Home Affairs refugees statistics from 2016 to 2019, the highest male to female population that has come to Australia is from Iraq.
-            </p>
-
-        </div>
-
-        <div class="column" style="padding:20px;width:100%;height:100%;margin:auto;">
-
-            <div>
-                <div class="dropdown" style="float:left; padding-right:10%;">
-                    <button id="year1" class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                        Year
-                        <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                        <li><a id="mf2015_16">2015 – 16</a></li>
-                        <li><a id="mf2016_17">2016 – 17</a></li>
-                        <li><a id="mf2017_18">2017 – 18</a></li>
-                        <li><a id="mf2018_19">2018 – 19</a></li>
-                        <li><a id="mf2019_20">2019 – 20</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
-                    </ul>
+            <div class="circle-box" id="safety_nav">
+                <div class="card-plan" id="segueSports" style="margin:20px;position:relative">
                 </div>
-                <div class="chart-wrapper" style="width:100%;display:inline-block;padding:5%;">
-                    <canvas id="barChart"></canvas>
+                <div style="text-align:center;">
+                    <h3><b id="findSports" style="padding: 10px;"> SAFETY PLAN </b></h3>
                 </div>
             </div>
 
+            <div class="circle-box" id="emergency_nav">
+                <div class="card-ec" id="segueEmergency" style="margin:20px;position:relative">
+
+                </div>
+                <div style="text-align:center;">
+                    <h3><b id="emergency" style="padding: 10px;"> EMERGENCY CONTACT </b></h3>
+                </div>
+            </div>
+
+
+
+
         </div>
     </div>
-
-
 </div>
+<script type="module">
+
+    import * as THREE from 'https://127.0.0.1:8000/build/three.module.js';
+    import { RoomEnvironment } from 'https://127.0.0.1:8000/examples/jsm/environments/RoomEnvironment.js';
+    import { OrbitControls } from 'https://127.0.0.1:8000/examples/jsm/controls/OrbitControls.js';
+    import { GLTFLoader } from 'https://127.0.0.1:8000/examples/jsm/loaders/GLTFLoader.js';
+    import { MeshoptDecoder } from 'https://127.0.0.1:8000/examples/jsm/libs/meshopt_decoder.module.js';
+
+    let camera, scene, renderer;
+
+    init();
+    render();
+
+    function init() {
+        const container = document.getElementById('model')
+
+        renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.toneMapping = THREE.ACESFilmicToneMapping;
+        renderer.toneMappingExposure = 1;
+        renderer.outputEncoding = THREE.sRGBEncoding;
+        container.appendChild(renderer.domElement);
+
+        camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 1500);
+        camera.position.set(200, 150, -50);
+
+        const environment = new RoomEnvironment();
+        const pmremGenerator = new THREE.PMREMGenerator(renderer);
+
+        scene = new THREE.Scene();
+        scene.background = new THREE.Color(0xf1e7c9);
+        scene.environment = pmremGenerator.fromScene(environment).texture;
 
 
-<div style="text-align: center;
-        background-color: #CBA783;
-        padding: 2% 3% 3% 4%;
-        color: white">
-    <div class="container body-content">
-        <h2 id="weBelieve">We Believe</h2>
-        <h4 id="weBelieveContent" style="line-height: 1.8;">Through sports, we can help refugees overcome language barrier and help them make new friends and find a sense of belonging and self worth here in Australia</h4>
-    </div>
+        const loader = new GLTFLoader().setPath('https://127.0.0.1:8000/examples/models/gltf/');
 
-</div>
+        loader.setMeshoptDecoder(MeshoptDecoder);
+        loader.load('scene.gltf', function (gltf) {
+            scene.add(gltf.scene);
 
+            render();
 
-<div>
+        });
 
-    <div style="width:100%;height:30%;margin:auto;text-align:center;" id="segueSportsAnalytics">
-        <div class="card" style="display:inline-block; text-align:center; width:200px; height:25vh; margin:20px;">
-            <div>
-                <h3><b id="findSport">Find Sport</b></h3>
-            </div>
-            <div style="overflow:hidden;">
-                <img src="~/Images/Symbols/sport (1).png" style="object-fit:scale-down; padding:5%;" />
-            </div>
-            <div>
-                <span id="details">Click to see more details</span>
-            </div>
-        </div>
+        const controls = new OrbitControls(camera, renderer.domElement);
+        controls.addEventListener('change', render);
+        controls.minDistance = 200;
+        controls.maxDistance = 200;
+        controls.target.set(0, 0, 0);
+        controls.update();
 
-    </div>
+        window.addEventListener('resize', onWindowResize, false);
 
-</div>
+    }
 
+    function onWindowResize() {
 
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
 
-<script src="~/Scripts/analyticsScript.js"></script>
+        renderer.setSize(window.innerWidth, window.innerHeight);
+
+        render();
+
+    }
+
+    //
+
+    function render() {
+
+        renderer.render(scene, camera);
+
+    }
+
+</script>
+
+<script src="~/Scripts/Analytics.js"></script>

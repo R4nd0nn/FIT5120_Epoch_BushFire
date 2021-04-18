@@ -5,6 +5,7 @@
 body {
     padding-top: 00px;
     padding-bottom: 20px;
+    overflow-x:hidden;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -78,7 +79,7 @@ textarea {
     text-align: center;
     padding-top: 1.6%;
     padding-bottom: 2.5%;
-    background-color: #2b2720;
+    background-color: #3e290c;
     /*4BB25B CBA783 #9A5F0B */
     color: #dedbd5;
 }
@@ -104,11 +105,11 @@ textarea {
     float:left;
     display: flex;
     height: 100%;
-    width: 25%;
+    width: 20%;
     color: #4a4233;
     box-sizing: border-box;
     opacity:0.85;
-    padding-left: 5%;
+    padding-left: 3%;
     overflow: hidden;
 }
 
@@ -116,11 +117,11 @@ textarea {
     float: left;
     display: flex;
     height: 100%;
-    width: 25%;
+    width: 20%;
     color: #4a4233;
     box-sizing: border-box;
     opacity: 0.85;
-    padding-left: 5%;
+    padding-left: 3%;
     overflow: hidden;
 }
 
@@ -128,33 +129,35 @@ textarea {
     float: left;
     display: flex;
     height: 100%;
-    width: 25%;
+    width: 20%;
     color: #4a4233;
     box-sizing: border-box;
     opacity: 0.85;
-    padding-left: 5%;
+    padding-left: 3%;
     overflow: hidden;
 }
 
 .row-week4 {
+    float:left;
     display: flex;
     height: 100%;
-    width: 25%;
+    width: 20%;
     color: #4a4233;
     box-sizing: border-box;
     opacity: 0.85;
-    padding-left: 5%;
+    padding-left: 3%;
     overflow: hidden;
 }
 
 .row-week5 {
+    float:left;
     display: flex;
     height: 100%;
-    width: 25%;
+    width: 20%;
     color: #4a4233;
     box-sizing: border-box;
     opacity: 0.85;
-    padding-left: 5%;
+    padding-left: 3%;
     overflow: hidden;
 }
 
@@ -204,7 +207,7 @@ textarea {
 .column-week {
     /*float:left; */
     overflow: hidden;
-    max-width: 80%; /* 16.3 */
+    width: 100%; /* 16.3 */
     height: 20%;
     flex: 1;
     border:solid;
@@ -254,6 +257,13 @@ textarea {
     color: #dedbd5;
 }
 
+.safetyTitleSection {
+    text-align: center;
+    background-color: #3e290c;
+    padding: 4% 4% 1% 4%;
+    color: #dedbd5;
+}
+
 .heatMapTitle {
     text-align: center;
     background-color: #3e290c;
@@ -268,7 +278,7 @@ textarea {
     background-color: #2b2720;
     padding: 1% 4% 1% 4%;
     color: #dedbd5;
-    width: auto;
+    width: 100%;
     height: 6%;
     margin-top:5%;
 }
@@ -595,4 +605,28 @@ textarea {
     display: flex;
     display: none;
     overflow: hidden;
+}
+
+.row-about {
+    flex:1;
+    width:100%;
+    height: 260px;
+    margin-top:5%;
+
+}
+.column-logo {
+    float: left;
+    width: 20%;
+    height: 260px;
+    background-image: url("../Image/logo.png");
+    background-position:center;
+    background-size: 80% 90%;
+    background-repeat: no-repeat;
+    padding: 1%;
+}
+
+.project-description{
+    float:left;
+    width: 80%;
+    padding: 3%;
 }

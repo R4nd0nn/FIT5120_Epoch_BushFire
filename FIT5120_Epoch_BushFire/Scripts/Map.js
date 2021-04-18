@@ -20,6 +20,10 @@ function newfunction() {
     document.getElementById("li2_4").style.animationName = "nothing";
     document.getElementById("li3_4").style.animationName = "nothing";
     document.getElementById("li4_4").style.animationName = "nothing";
+    document.getElementById("li1_5").style.animationName = "nothing";
+    document.getElementById("li2_5").style.animationName = "nothing";
+    document.getElementById("li3_5").style.animationName = "nothing";
+    document.getElementById("li4_5").style.animationName = "nothing";
 
     var location = document.getElementById('search').value;
     var jsonurl = 'https://fireprediction.ga/forecast?locality=' + location;
@@ -253,6 +257,37 @@ function newfunction() {
             /*document.getElementById("firedanger_42").innerHTML = "Average Temperature is " + forecastdata_temp_4 + "℃";
             */
         }
+        if (forecastdata_rating_5 === "low-moderate") {
+            document.getElementById("li1_5").style.animationName = "rotate-one";
+            document.getElementById("firedanger_50").innerHTML = "Severity: Low-moderate";
+            //document.getElementById("firedanger_52").innerHTML = "Average Temperature is " + forecastdata_temp_5 + "℃";
+        }
+        else if (forecastdata_rating_5 === "high") {
+            document.getElementById("li1_5").style.animationName = "rotate-one";
+            document.getElementById("firedanger_50").innerHTML = "Seevrity: high";
+            //document.getElementById("firedanger_52").innerHTML = "Average Temperature is " + forecastdata_temp_5 + "℃";
+        }
+        else if (forecastdata_rating_5 === "very high") {
+            document.getElementById("li1_5").style.animationName = "rotate-one";
+            document.getElementById("li2_5").style.animationName = "rotate-two";
+            document.getElementById("firedanger_50").innerHTML = "Seevrity: very high";
+            //document.getElementById("firedanger_52").innerHTML = "Average Temperature is " + forecastdata_temp_5 + "℃";
+        }
+        else if (forecastdata_rating_5 === "severe") {
+            document.getElementById("li1_5").style.animationName = "rotate-one";
+            document.getElementById("li2_5").style.animationName = "rotate-two";
+            document.getElementById("li3_5").style.animationName = "rotate-three";
+            document.getElementById("firedanger_50").innerHTML = "Severity:severe";
+            //document.getElementById("firedanger_52").innerHTML = "Average Temperature is " + forecastdata_temp_5 + "℃";
+        }
+        else if (forecastdata_rating_5 === "extreme") {
+            document.getElementById("li1_5").style.animationName = "rotate-one";
+            document.getElementById("li2_5").style.animationName = "rotate-two";
+            document.getElementById("li3_5").style.animationName = "rotate-three";
+            document.getElementById("li4_5").style.animationName = "rotate-four";
+            document.getElementById("firedanger_50").innerHTML = "Severity: extreme";
+            //document.getElementById("firedanger_52").innerHTML = "Average Temperature is " + forecastdata_temp_5 + "℃";
+        }
 
         var weatherurl = "https://api.tomorrow.io/v4/timelines?location=" + forecastdata_latitude + "," + forecastdata_longtitude + "&fields=temperature&timesteps=1d&units=metric&apikey=zMAXh4NpzYZZGYKIXA0zTNrFeZCM1Lce";
         $.getJSON(weatherurl, function (weather) {
@@ -325,4 +360,27 @@ for (i = 0; i < coll.length; i++) {
             content.style.display = "block";
         }
     });
+}
+
+var fire_nav = document.getElementById('fire_nav');
+if (fire_nav) {
+    fire_nav.addEventListener("click", function () {
+        window.location.href = '/Home/Map';
+    });
+}
+
+var safety_nav = document.getElementById('safety_nav');
+if (safety_nav) {
+    safety_nav.addEventListener("click", function () {
+        window.location.href = '/Home/Analytics';
+    });
+
+}
+
+var emergency_nav = document.getElementById('emergency_nav');
+if (emergency_nav) {
+    emergency_nav.addEventListener("click", function () {
+        window.location.href = '/Home/Home';
+    });
+
 }
