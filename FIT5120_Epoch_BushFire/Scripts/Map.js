@@ -183,65 +183,75 @@ function newfunction() {
         if (forecastdata_rating_3 === "low-moderate") {
             document.getElementById("li1_3").style.animationName = "rotate-one";
             document.getElementById("firedanger_30").innerHTML = "Severity: Low-Moderate";
-            document.getElementById("firedanger_32").innerHTML = "Average Temperature is " + forecastdata_temp_3 + "℃";
+            /*document.getElementById("firedanger_32").innerHTML = "Average Temperature is " + forecastdata_temp_3 + "℃";
+            */
         }
         else if (forecastdata_rating_3 === "high") {
             document.getElementById("li1_3").style.animationName = "rotate-one";
-            document.getElementById("firedanger_30").innerHTML = "Fire Danger Rating: high";
-            document.getElementById("firedanger_32").innerHTML = "Average Temperature is " + forecastdata_temp_3 + "℃";
+            document.getElementById("firedanger_30").innerHTML = "Severity: high";
+            /* document.getElementById("firedanger_32").innerHTML = "Average Temperature is " + forecastdata_temp_3 + "℃";
+            */
         }
         else if (forecastdata_rating_3 === "very high") {
             document.getElementById("li1_3").style.animationName = "rotate-one";
             document.getElementById("li2_3").style.animationName = "rotate-two";
-            document.getElementById("firedanger_30").innerHTML = "Fire Danger Rating: very high";
-            document.getElementById("firedanger_32").innerHTML = "Average Temperature is " + forecastdata_temp_3 + "℃";
+            document.getElementById("firedanger_30").innerHTML = "Severity: very high";
+            /*document.getElementById("firedanger_32").innerHTML = "Average Temperature is " + forecastdata_temp_3 + "℃";
+            */
         }
         else if (forecastdata_rating_3 === "severe") {
             document.getElementById("li1_3").style.animationName = "rotate-one";
             document.getElementById("li2_3").style.animationName = "rotate-two";
             document.getElementById("li3_3").style.animationName = "rotate-three";
-            document.getElementById("firedanger_30").innerHTML = "Fire Danger Rating: severe";
-            document.getElementById("firedanger_32").innerHTML = "Average Temperature is " + forecastdata_temp_3 + "℃";
+            document.getElementById("firedanger_30").innerHTML = "Severity: severe";
+            /* document.getElementById("firedanger_32").innerHTML = "Average Temperature is " + forecastdata_temp_3 + "℃";
+            */
         }
         else if (forecastdata_rating_3 === "extreme") {
             document.getElementById("li1_3").style.animationName = "rotate-one";
             document.getElementById("li2_3").style.animationName = "rotate-two";
             document.getElementById("li3_3").style.animationName = "rotate-three";
             document.getElementById("li4_3").style.animationName = "rotate-four";
-            document.getElementById("firedanger_30").innerHTML = "Fire Danger Rating: extreme";
-            document.getElementById("firedanger_32").innerHTML = "Average Temperature is " + forecastdata_temp_3 + "℃";
+            document.getElementById("firedanger_30").innerHTML = "Severity: extreme";
+            /*document.getElementById("firedanger_32").innerHTML = "Average Temperature is " + forecastdata_temp_3 + "℃";
+            */
         }
 
         if (forecastdata_rating_4 === "low-moderate") {
             document.getElementById("li1_4").style.animationName = "rotate-one";
-            document.getElementById("firedanger_40").innerHTML = "Fire Danger Rating: Low-moderate";
-            document.getElementById("firedanger_42").innerHTML = "Average Temperature is " + forecastdata_temp_4 + "℃";
+            document.getElementById("firedanger_40").innerHTML = "Severity: Low-moderate";
+            /*document.getElementById("firedanger_42").innerHTML = "Average Temperature is " + forecastdata_temp_4 + "℃";
+            */
         }
         else if (forecastdata_rating_4 === "high") {
             document.getElementById("li1_4").style.animationName = "rotate-one";
-            document.getElementById("firedanger_40").innerHTML = "Fire Danger Rating: high";
-            document.getElementById("firedanger_42").innerHTML = "Average Temperature is " + forecastdata_temp_4 + "℃";
+            document.getElementById("firedanger_40").innerHTML = "Severity: high";
+            /* document.getElementById("firedanger_42").innerHTML = "Average Temperature is " + forecastdata_temp_4 + "℃";
+            */
         }
         else if (forecastdata_rating_4 === "very high") {
             document.getElementById("li1_4").style.animationName = "rotate-one";
             document.getElementById("li2_4").style.animationName = "rotate-two";
-            document.getElementById("firedanger_40").innerHTML = "Fire Danger Rating: very high";
-            document.getElementById("firedanger_42").innerHTML = "Average Temperature is " + forecastdata_temp_4 + "℃";
+            document.getElementById("firedanger_40").innerHTML = "Severity: very high";
+            /* document.getElementById("firedanger_42").innerHTML = "Average Temperature is " + forecastdata_temp_4 + "℃";
+            */
         }
         else if (forecastdata_rating_4 === "severe") {
             document.getElementById("li1_4").style.animationName = "rotate-one";
             document.getElementById("li2_4").style.animationName = "rotate-two";
             document.getElementById("li3_4").style.animationName = "rotate-three";
-            document.getElementById("firedanger_40").innerHTML = "Fire Danger Rating: severe";
-            document.getElementById("firedanger_42").innerHTML = "Average Temperature is " + forecastdata_temp_4 + "℃";
+            document.getElementById("firedanger_40").innerHTML = "Severity: severe";
+            /* document.getElementById("firedanger_42").innerHTML = "Average Temperature is " + forecastdata_temp_4 + "℃";
+            */
         }
         else if (forecastdata_rating_4 === "extreme") {
             document.getElementById("li1_4").style.animationName = "rotate-one";
             document.getElementById("li2_4").style.animationName = "rotate-two";
             document.getElementById("li3_4").style.animationName = "rotate-three";
             document.getElementById("li4_4").style.animationName = "rotate-four";
-            document.getElementById("firedanger_40").innerHTML = "Fire Danger Rating: exrteme";
-            document.getElementById("firedanger_42").innerHTML = "Average Temperature is " + forecastdata_temp_4 + "℃";
+            document.getElementById("firedanger_40").innerHTML = "Severity: exrteme";
+            /*document.getElementById("firedanger_42").innerHTML = "Average Temperature is " + forecastdata_temp_4 + "℃";
+            */
         }
 
         var weatherurl = "https://api.tomorrow.io/v4/timelines?location=" + forecastdata_latitude + "," + forecastdata_longtitude + "&fields=temperature&timesteps=1d&units=metric&apikey=zMAXh4NpzYZZGYKIXA0zTNrFeZCM1Lce";
@@ -251,10 +261,10 @@ function newfunction() {
     })
 }
 
-mapboxgl.accessToken = 'pk.eyJ1Ijoia3BhdDAwMTYiLCJhIjoiY2tubHJhbDRnMGF6ZTJwbzlubnVmN3JoOCJ9.c89OVzQvOtNZEN6NFw4lfQ'
+mapboxgl.accessToken = 'pk.eyJ1IjoiamRhaDAwMDEiLCJhIjoiY2ttb3pvMmYyMjlsdzJvdDRzc3R3ZWp1bSJ9.k4l8C8SfWsC8GDxRwdp4xQ'
 var map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v11',
+    style: 'mapbox://styles/jdah0001/ckn43upw24mwn18nz8ko60usa',
     center: [145.5139, -37.6561],
     zoom: 12
 });
@@ -262,3 +272,57 @@ var marker1 = new mapboxgl.Marker({ color: 'black' })
     .setLngLat([145.5139, -37.6561])
     .setPopup(new mapboxgl.Popup().setHTML("<h6>" + "Search your location to see the severity" + "</h6>"))
     .addTo(map);
+function myfunction() {
+    var location = document.getElementById('search').value;
+    var jsonurl = 'https://fireprediction.ga/forecast?locality=' + location;
+    var forecastdata_longtitude = "";
+    var forecastdata_latitude = "";
+    var forecastdata_FFDI = "";
+    $.getJSON(jsonurl, function (data) {
+        forecastdata_latitude = data.latitude;
+        forecastdata_longtitude = data.longitude;
+        forecastdata_FFDI = data.days[0].FFDI_category;
+        b = parseFloat(forecastdata_latitude);
+        a = parseFloat(forecastdata_longtitude);
+        mapboxgl.accessToken = 'pk.eyJ1IjoiamRhaDAwMDEiLCJhIjoiY2ttb3pvMmYyMjlsdzJvdDRzc3R3ZWp1bSJ9.k4l8C8SfWsC8GDxRwdp4xQ'
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/jdah0001/ckn43upw24mwn18nz8ko60usa',
+            center: [a, b],
+            zoom: 12
+        });
+        var text = forecastdata_FFDI;
+        var marker1 = new mapboxgl.Marker({ color: 'black' })
+            .setLngLat([a, b])
+            .setPopup(new mapboxgl.Popup().setHTML("<h2>" + text + "</h2>"))
+            .addTo(map);
+        mapboxgl.accessToken = 'pk.eyJ1IjoiamRhaDAwMDEiLCJhIjoiY2ttb3pvMmYyMjlsdzJvdDRzc3R3ZWp1bSJ9.k4l8C8SfWsC8GDxRwdp4xQ';
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/jdah0001/ckn43upw24mwn18nz8ko60usa',
+            center: [a, b],
+            zoom: 12
+        });
+        var text = forecastdata_FFDI;
+        var marker1 = new mapboxgl.Marker({ color: 'black' })
+            .setLngLat([a, b])
+            .setPopup(new mapboxgl.Popup().setHTML("<h2>" + text + "</h2>"))
+            .setPopup(new mapboxgl.Popup().setHTML("<h6>" + "Today - you are safe " + "<br>" + "<br>" + "Severity:" + text + "</h6>"))
+            .addTo(map);
+    })
+}
+
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function () {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.display === "block") {
+            content.style.display = "none";
+        } else {
+            content.style.display = "block";
+        }
+    });
+}
