@@ -57,6 +57,9 @@
     <Reference Include="FluentScheduler, Version=5.3.0.0, Culture=neutral, PublicKeyToken=b76503528a14ebd1, processorArchitecture=MSIL">
       <HintPath>..\packages\FluentScheduler.5.3.0\lib\net40\FluentScheduler.dll</HintPath>
     </Reference>
+    <Reference Include="HttpAuthModule, Version=2.2.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HttpAuthModule.2.2.2.0\lib\net45\HttpAuthModule.dll</HintPath>
+    </Reference>
     <Reference Include="IronPython, Version=2.7.11.0, Culture=neutral, PublicKeyToken=7f709c5b713576e1, processorArchitecture=MSIL">
       <HintPath>..\packages\IronPython.2.7.11\lib\net45\IronPython.dll</HintPath>
     </Reference>
@@ -207,9 +210,8 @@
     <Content Include="Image\australia.jpg" />
     <Content Include="Image\bushfire.jpg" />
     <Content Include="Image\cattle.jpg" />
-    <Content Include="Image\dan-meter.png" />
+    <Content Include="Image\Chin.JPG" />
     <Content Include="Image\danger-meter.png" />
-    <Content Include="Image\e-call-2.png" />
     <Content Include="Image\emergency-con.png" />
     <Content Include="Image\farm.jpg" />
     <Content Include="Image\farmers-hands-going-through-crops-wheat-field-sunset.jpg" />
@@ -217,18 +219,16 @@
     <Content Include="Image\gradient-legend_009.png" />
     <Content Include="Image\hero-agriculture-grain-1280x510.jpg" />
     <Content Include="Image\img-hm-fire.jpg" />
-    <Content Include="Image\Jeetu.png" />
-    <Content Include="Image\Jing.png" />
+    <Content Include="Image\Jeetu.JPG" />
+    <Content Include="Image\Jing.JPG" />
     <Content Include="Image\KP.png" />
     <Content Include="Image\logo.png" />
     <Content Include="Image\map-demo.JPG" />
     <Content Include="Image\money-canolaswath-108751255-Thinkstock.jpg" />
     <Content Include="Image\nitify.png" />
-    <Content Include="Image\plan5.png" />
     <Content Include="Image\safety-icon.png" />
     <Content Include="Image\search-512.png" />
-    <Content Include="Image\Shijin.png" />
-    <Content Include="Image\split.png" />
+    <Content Include="Image\Shijin.JPG" />
     <Content Include="Image\WheatFire_Adobestock_E1.jpg" />
     <Content Include="Models\GetNotifyUser_MD.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -255,6 +255,7 @@
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
     <None Include="Properties\PublishProfiles\BushFIreFarm - Web Deploy.pubxml" />
+    <Content Include="Scripts\Analytics.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
