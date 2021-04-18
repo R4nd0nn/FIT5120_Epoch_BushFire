@@ -256,14 +256,24 @@ textarea {
 
 .heatMapTitle {
     text-align: center;
-    background-color: #2b2720;
+    background-color: #3e290c;
     padding: 1% 4% 1% 4%;
     color: #dedbd5;
     width: auto;
     height: 8%;
 }
 
-.card-fireDanger {
+.forecast_title {
+    text-align: center;
+    background-color: #2b2720;
+    padding: 1% 4% 1% 4%;
+    color: #dedbd5;
+    width: auto;
+    height: 6%;
+    margin-top:5%;
+}
+
+    .card-fireDanger {
     box-shadow: 0px 0px 5px 1px;
     background-color: #f1e7c9;
     width: 200px;
@@ -339,7 +349,7 @@ textarea {
     margin: 0 auto;
 }
 
-    .container .content {
+    .container .content1 {
         position: absolute;
         border-right: 3px solid;
         top: 0;
@@ -381,35 +391,40 @@ textarea {
     opacity: 0.9;
     box-shadow: 0px 0px 5px 4px;
     color: #4a4233;
-    border: solid;
+    border-left: solid;
+    border-right: solid;
 }
 
 .row-week2:hover {
     opacity: 0.9;
     box-shadow: 0px 0px 5px 4px;
     color: #4a4233;
-    border: solid;
+    border-left: solid;
+    border-right: solid;
 }
 
 .row-week3:hover {
     opacity: 0.9;
     box-shadow: 0px 0px 5px 4px;
     color: #4a4233;
-    border: solid;
+    border-left: solid;
+    border-right: solid;
 }
 
 .row-week4:hover {
     opacity: 0.9;
     box-shadow: 0px 0px 5px 4px;
     color: #4a4233;
-    border: solid;
+    border-left: solid;
+    border-right: solid;
 }
 
 .row-week5:hover {
     opacity: 0.9;
     box-shadow: 0px 0px 5px 4px;
     color: #4a4233;
-    border: solid;
+    border-left: solid;
+    border-right: solid;
 }
 
 .row-week6:hover {
@@ -560,3 +575,24 @@ textarea {
     overflow: hidden;
 }
 
+.collapsible {
+    background-color: #3e290c;
+    color: #dedbd5;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: center;
+    outline: none;
+    font-size: large;
+}
+
+    .active, .collapsible:hover {
+        background-color: #555;
+    }
+
+.content {
+    display: flex;
+    display: none;
+    overflow: hidden;
+}
