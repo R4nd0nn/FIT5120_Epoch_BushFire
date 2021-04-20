@@ -13,7 +13,41 @@
 
 <div class="row" style="margin-top:3%;padding-top:2%">
     <div class="farm" id="farm">
-        <div class="model" id="model"></div>
+        <div class="model" id="model">
+            <div class="annotation" id="machine">
+                <p>
+                <strong>Machinary: </strong> 
+                Machinary placed near crops can be dangerous! 
+                <a>Learn more</a></p>  
+            </div>
+            <div class="annotation" id="crops">
+                <p><strong>Crops:</strong>
+                Maintain your crops in summers
+                <a>Learn more</a></p>
+            </div>
+            <div class="annotation" id="tree">
+                <p>
+                    <strong>Trees:</strong>
+                    Plant trees aay from your farm
+                    <a>Learn more</a>
+                </p>
+            </div>
+            <div class="annotation" id="house">
+                <p>
+                    <strong>House:</strong>
+                    Build a house on a plane
+                    <a>Learn more</a>
+                </p>
+            </div>
+            <div class="annotation" id="hay">
+                <p>
+                    <strong>Haysack:</strong>
+                    Keep your hay safe
+                    <a>Learn more</a>
+                </p>
+            </div>
+            <canvas id="number" width="64" height="64"></canvas>
+        </div>
     </div>
 </div>
 
@@ -47,29 +81,88 @@
                     <h3><b id="emergency" style="padding: 10px;"> EMERGENCY CONTACT </b></h3>
                 </div>
             </div>
-
-
-
-
         </div>
     </div>
 </div>
+
+<style type="text/css">
+    canvas {
+        width: 100%;
+        height: 100px;
+        display: block;
+    }
+
+    .annotation {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        margin-left: 5px;
+        margin-top: 5px;
+        padding: 0.5em;
+        width: 200px;
+        color: #fff;
+        background: rgba(0, 0, 0, 0.8);
+        border-radius: .5em;
+        font-size: 10px;
+        line-height: 1.2;
+        transition: opacity .5s;
+    }
+        #number {
+        position: absolute;
+        z-index: -1;
+    }
+</style>
+
 <script type="module">
 
-    import * as THREE from 'https://127.0.0.1:8000/build/three.module.js';
-    import { RoomEnvironment } from 'https://127.0.0.1:8000/examples/jsm/environments/RoomEnvironment.js';
-    import { OrbitControls } from 'https://127.0.0.1:8000/examples/jsm/controls/OrbitControls.js';
-    import { GLTFLoader } from 'https://127.0.0.1:8000/examples/jsm/loaders/GLTFLoader.js';
-    import { MeshoptDecoder } from 'https://127.0.0.1:8000/examples/jsm/libs/meshopt_decoder.module.js';
+    import * as THREE from 'https://threejs.org/build/three.module.js';
+    import { RoomEnvironment } from 'https://threejs.org/examples/jsm/environments/RoomEnvironment.js';
+    import { OrbitControls } from 'https://threejs.org/examples/jsm/controls/OrbitControls.js';
+    import { GLTFLoader } from 'https://threejs.org/examples/jsm/loaders/GLTFLoader.js';
+    import { MeshoptDecoder } from 'https://threejs.org/examples/jsm/libs/meshopt_decoder.module.js';
 
     let camera, scene, renderer;
+    let windmill, crop, house, tree, hay, machine;
+    var raycaster, mouse;
+    const annot_machine = document.getElementById("machine");
+    const annot_crop = document.getElementById("crops");
+    const annot_hay = document.getElementById("hay");
+    const annot_house = document.getElementById("house");
+    const annot_tree = document.getElementById("tree");
+
 
     init();
     render();
 
     function init() {
         const container = document.getElementById('model')
+        
+        const canvas = document.getElementById("number");
+        const ctx = canvas.getContext("2d");
+        const x = 32;
+        const y = 32;
+        const radius = 30;
+        const startAngle = 0;
+        const endAngle = 180;
 
+        ctx.fillStyle = "rgb(0, 0, 0)";
+        ctx.beginPath();
+        ctx.arc(x, y, radius, startAngle, endAngle);
+        ctx.fill();
+
+        ctx.strokeStyle = "rgb(255, 255, 255)";
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.arc(x, y, radius, startAngle, endAngle);
+        ctx.stroke();
+
+        ctx.fillStyle = "rgb(255, 255, 255)";
+        ctx.font = "45px calibri-light";
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillText("+", x, y);
+        
         renderer = new THREE.WebGLRenderer({ antialias: true });
         renderer.setPixelRatio(window.devicePixelRatio);
         renderer.setSize(window.innerWidth, window.innerHeight);
@@ -78,37 +171,93 @@
         renderer.outputEncoding = THREE.sRGBEncoding;
         container.appendChild(renderer.domElement);
 
-        camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 1500);
-        camera.position.set(200, 150, -50);
+        camera = new THREE.PerspectiveCamera(65, window.innerWidth / window.innerHeight, 0.1, 1500);
+        camera.position.set(300, 100, 100);
 
         const environment = new RoomEnvironment();
         const pmremGenerator = new THREE.PMREMGenerator(renderer);
 
         scene = new THREE.Scene();
-        scene.background = new THREE.Color(0xf1e7c9);
+        scene.background = new THREE.Color("#87CEFA");
         scene.environment = pmremGenerator.fromScene(environment).texture;
 
+        raycaster = new THREE.Raycaster();
+        mouse = new THREE.Vector2();
 
-        const loader = new GLTFLoader().setPath('https://127.0.0.1:8000/examples/models/gltf/');
+        const loader = new GLTFLoader().setPath('/3dmodel/');
 
         loader.setMeshoptDecoder(MeshoptDecoder);
         loader.load('scene.gltf', function (gltf) {
             scene.add(gltf.scene);
-
             render();
 
         });
+        
+        const numberTexture = new THREE.CanvasTexture(
+            document.querySelector('#number')
+        );
+
+        const spriteMaterial = new THREE.SpriteMaterial({
+            map: numberTexture,
+            alphaTest: 0.7,
+            transparent: true,
+            depthTest: false,
+            depthWrite: false,
+        });
+
+        windmill = new THREE.Sprite(spriteMaterial);
+        windmill.position.set(-25, 40, -68);
+        windmill.scale.set(8, 8, 1);
+        windmill.material.opacity = 0.9;
+        scene.add(windmill);
+        
+
+        crop = new THREE.Sprite(spriteMaterial);
+        crop.position.set(38, 10, 61);
+        crop.scale.set(8, 8, 1);
+        crop.material.opacity = 0.9;
+        scene.add(crop);
+
+        house = new THREE.Sprite(spriteMaterial);
+        house.position.set(-30, 35, 0);
+        house.scale.set(8, 8, 1);
+        house.material.opacity = 0.9;
+        scene.add(house);
+
+        tree = new THREE.Sprite(spriteMaterial);
+        tree.position.set(-25, 20, 35);
+        tree.scale.set(8, 8, 1);
+        tree.material.opacity = 0.9;
+        scene.add(tree);
+
+        hay = new THREE.Sprite(spriteMaterial);
+        hay.position.set(-20, 10, -30);
+        hay.scale.set(8, 8, 1);
+        hay.material.opacity = 0.9;
+        scene.add(hay);
+
+        machine = new THREE.Sprite(spriteMaterial);
+        machine.position.set(15, 14, -70);
+        machine.scale.set(8, 8, 1);
+        machine.material.opacity = 0.9;
+        scene.add(machine);
+        
 
         const controls = new OrbitControls(camera, renderer.domElement);
         controls.addEventListener('change', render);
-        controls.minDistance = 200;
-        controls.maxDistance = 200;
+        controls.enableZoom = false;
+        controls.minDistance = 20;
+        controls.maxDistance = 250;
         controls.target.set(0, 0, 0);
         controls.update();
 
         window.addEventListener('resize', onWindowResize, false);
+        renderer.domElement.addEventListener('click', onClick, false);
+        renderer.domElement.addEventListener('mouseover', onHover, false);
 
     }
+
+
 
     function onWindowResize() {
 
@@ -118,14 +267,84 @@
         renderer.setSize(window.innerWidth, window.innerHeight);
 
         render();
+        
+
+    }
+    function onHover() {
+        mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+        mouse.y = - (event.clientY / window.innerHeight) * 2 + 1;
+
+        raycaster.setFromCamera(mouse, camera);
+        //console.log(scene.children)
+
+        var intersects = raycaster.intersectObjects(scene.children.slice(0, 6), true);
+
+        if (intersects.length > 0) {
+            console.log('Intersection:', intersects[0].object);
+        }
+    }
+
+    function onClick() {
+
+        event.preventDefault();
+
+        mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+        mouse.y = - (event.clientY / window.innerHeight) * 2 + 1;
+
+        raycaster.setFromCamera(mouse, camera);
+        console.log(scene.children)
+
+        var intersects = raycaster.intersectObjects(scene.children.slice(0,6), true);
+
+        if (intersects.length > 0) {
+            console.log('Intersection:', intersects[0].object);
+        
+        }
 
     }
 
-    //
+    function updateAnnotationOpacity() {
+        var mesh = scene[6];
+        const meshDistance = camera.position.distanceTo(mesh.position);
+        const spriteDistance = camera.position.distanceTo(windmill.position);
+        spriteBehindObject = spriteDistance > meshDistance;
+        sprite.material.opacity = spriteBehindObject ? 0.25 : 0.9;
+
+        // Do you want a number that changes size according to its position?
+        // Comment out the following line and the `::before` pseudo-element.
+        sprite.material.opacity = 0;
+    }
+
+    function updateScreenPosition(annotation, vector) {
+        const canvas = renderer.domElement;
+
+        vector.project(camera);
+
+        vector.x = Math.round((0.5 + vector.x / 2) * (canvas.width / window.devicePixelRatio));
+        vector.y = Math.round((0.5 - vector.y / 2) * (canvas.height / window.devicePixelRatio));
+        console.log(annotation)
+        annotation.style.top = `${vector.y}px`;
+        annotation.style.left = `${vector.x}px`;
+        //annotation.style.opacity = spriteBehindObject ? 0.25 : 1;
+    }
 
     function render() {
 
         renderer.render(scene, camera);
+        var machine_vector = new THREE.Vector3(20, -52, -70)
+        updateScreenPosition(annot_machine, machine_vector);
+
+        var crop_vector = new THREE.Vector3(38, -55, 115)
+        updateScreenPosition(annot_crop, crop_vector);
+
+        var house_vector = new THREE.Vector3(-30, -35, 10)
+        updateScreenPosition(annot_house, house_vector);
+
+        var tree_vector = new THREE.Vector3(-25, -50, 120)
+        updateScreenPosition(annot_tree, tree_vector);
+
+        var hay_vector = new THREE.Vector3(-20, -90, -25)
+        updateScreenPosition(annot_hay, hay_vector);
 
     }
 
