@@ -4,12 +4,15 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
 <div class="safetyTitleSection" style="padding:0.1%;">
 
     <div class="container body-content" >
         <h1 id="Title"> SAFETY PLAN </h1>
     </div>
 </div>
+
+<!-- div to define canvas object to render-->
 
 <div class="row" style="margin-top:0%;padding-top:0%">
     <div class="farm" id="farm">
@@ -129,6 +132,8 @@
     </div>
 </div>
 
+
+<!--defining style for annotation and canvas-->
 <style type="text/css">
     canvas {
         width: 100%;
@@ -156,7 +161,7 @@
         z-index: -1;
     }
 </style>
-
+<!--Three js module -->
 <script type="module">
 
     import * as THREE from 'https://threejs.org/build/three.module.js';
@@ -165,6 +170,7 @@
     import { GLTFLoader } from 'https://threejs.org/examples/jsm/loaders/GLTFLoader.js';
     import { MeshoptDecoder } from 'https://threejs.org/examples/jsm/libs/meshopt_decoder.module.js';
 
+    // store element id in constant
     let camera, scene, renderer, controls;
     let windmill, crop, house, tree, hay, machine;
     const annot_machine = document.getElementById("machine");
@@ -179,6 +185,8 @@
     init();
     animate();
 
+    // main function//
+
     function init() {
         const container = document.getElementById('model')
         
@@ -190,7 +198,7 @@
         const startAngle = 0;
         const endAngle = 180;
 
-        ctx.fillStyle = "red";
+        ctx.fillStyle = "red";    // sprite texture
         ctx.beginPath();
         ctx.arc(x, y, radius, startAngle, endAngle);
         ctx.fill();
@@ -234,7 +242,8 @@
             render();
 
         });
-        
+
+        //select canvas from tag id
         const numberTexture = new THREE.CanvasTexture(
             document.querySelector('#number')
         );
@@ -247,6 +256,7 @@
             depthWrite: false,
         });
 
+        // defining sprite locations
         windmill = new THREE.Sprite(spriteMaterial);
         windmill.position.set(-25, 40, -68);
         windmill.scale.set(8, 8, 1);
@@ -287,7 +297,7 @@
 
        
 
-
+        // orbital controls or camera controls 
 
 
         const controls = new OrbitControls(camera, renderer.domElement);
@@ -302,7 +312,7 @@
         
     }
 
-
+    // functions 
     function onWindowResize() {
 
         camera.aspect = window.innerWidth / window.innerHeight;
@@ -312,6 +322,7 @@
         render();
     }
 
+    
     function animate() {
         requestAnimationFrame(animate);
         controls.update();
@@ -333,6 +344,7 @@
         
     }
 
+    // render function  making vector and positioning on screen
     function render() {
 
         renderer.render(scene, camera);
