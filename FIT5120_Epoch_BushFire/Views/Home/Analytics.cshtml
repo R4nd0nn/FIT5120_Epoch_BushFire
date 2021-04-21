@@ -294,6 +294,17 @@
         machine.material.opacity = 0.9;
         scene.add(machine);   
 
+        var vector = new THREE.Vector3(-150,-50, 200)
+        var canvas1 = renderer.domElement;
+
+        vector.project(camera);
+
+        vector.x = (0.5 + vector.x / 2) * (canvas1.width / window.devicePixelRatio);
+        vector.y = (0.5 - vector.y / 2) * (canvas1.height / window.devicePixelRatio);
+        
+        popup.style.top = `${vector.y}px`;
+        popup.style.left = `${vector.x}px`
+
 
        
 
@@ -325,7 +336,6 @@
     
     function animate() {
         requestAnimationFrame(animate);
-        controls.update();
         render();
     }
 
@@ -364,13 +374,7 @@
         updateScreenPosition(annot_hay, hay_vector);
 
         var windmill_vector = new THREE.Vector3(-20, -25, -65)
-        updateScreenPosition(annot_windmill, windmill_vector);
-
-        var popup_vector = new THREE.Vector3(-100,60,-250)
-        updateScreenPosition(popup, popup_vector);
-
-
-        
+        updateScreenPosition(annot_windmill, windmill_vector);       
 
     }
 
