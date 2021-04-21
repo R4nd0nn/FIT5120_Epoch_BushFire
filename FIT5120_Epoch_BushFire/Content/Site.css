@@ -114,14 +114,14 @@ textarea {
 
 #importanceSection {
     width: 100%;
-    height: 60vh;
+    /*height: 60vh;*/
     text-align: center;
-    padding-top: 6.6%;
+    padding-top: 5%;
     padding-bottom: 2.5%;
     background-color: #3e290c;
     /*4BB25B CBA783 #9A5F0B */
     color: #dedbd5;
-    overflow:hidden
+    overflow: hidden
 }
 
 #socialAtrributeImage {
@@ -235,6 +235,7 @@ textarea {
     width: 100%;
     flex: 1;
     padding: 10px;
+    margin-left:1%;
 }
 
 .column-search {
@@ -550,35 +551,37 @@ textarea {
 }
 
     .chart-skills li:nth-child(1) {
-        z-index: 4;
+        z-index: 6;
         animation-name: rotate-one;
         border-color: green;
-        border-style:dashed;
     }
 
     .chart-skills li:nth-child(2) {
-        z-index: 3;
+        z-index: 5;
         border-color: yellow;
         animation-name: rotate-two;
         animation-delay: .4s;
-        border-style: groove;
     }
 
     .chart-skills li:nth-child(3) {
-        z-index: 2;
+        z-index: 4;
         border-color: darkorange;
         animation-name: rotate-three;
         animation-delay: .8s;
-        border-style:ridge;
     }
 
     .chart-skills li:nth-child(4) {
-        z-index: 1;
-        border-color: firebrick;
+        z-index: 3;
+        border-color: saddlebrown;
         animation-name: rotate-four;
         animation-delay: 1.2s;
-        border-style: groove;
-        border-top: none;
+    }
+
+    .chart-skills li:nth-child(5) {
+        z-index: 2;
+        border-color: firebrick;
+        animation-name: rotate-five;
+        animation-delay: 1.5s;
     }
 
 .chart-skills span {
@@ -614,9 +617,17 @@ textarea {
 .chart-skills li:nth-child(4) span {
     top: 10px;
     left: 10px;
+    color: saddlebrown;
+    transform: rotate(-160deg);
+    animation-delay: 1.2s;
+}
+
+.chart-skills li:nth-child(5) span {
+    top: 5px;
+    left: 10px;
     color: firebrick;
     transform: rotate(-180deg);
-    animation-delay: 1.2s;
+    animation-delay: 1.5s;
 }
 
 .subrating .chart-skills {
@@ -709,4 +720,19 @@ textarea {
 
 .active {
     background-color: #717171;
+}
+
+.plan-table {
+    padding: 3%;
+    margin: 5%;
+}
+
+.plan-row {
+    padding : 3%;
+    align-content: center;
+}
+
+.plan-column {
+    padding : 2%;
+    text-align: justify;
 }

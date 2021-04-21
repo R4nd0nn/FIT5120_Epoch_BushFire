@@ -7,82 +7,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <link rel="icon" href="~/Image/logo.png">
 
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
+
+</head>
+<body>
 <<<<<<< HEAD
-        #map {
-            position: page;
-            top: 0;
-            bottom: 0;
-            width: 100%;
-            height: 500px;
-        }
-    </style>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-    <link type="text/css" rel="stylesheet" href="main.css">
-    <style>
-        body {
-            background-color: #bfe3dd;
-            color: #000;
-        }
-
-        a {
-            color: #2983ff;
-        }
-    </style>
-</head>
-<body>
-    <div class="container-fluid">
-        <div class="navgation">
-            <div class="container">
-                <div class="row" style="width:100%;justify-content:center">
-                    <ul class="nav navbar-nav">
-                        <li class="nav1" style="color:white">@Html.ActionLink("Home", "Home", "Home")</li>
-                        <li class="nav3" style="color:white">@Html.ActionLink("About Us", "About_Us", "Home")</li>
-                    </ul>
-                    <a href="https://fit5120ma28.ml">
-                        <img src="~/Image/logo2.png.PNG" style="height:200px;margin-top:50px;margin-left:15%" />
-                    </a>
-                    <button id="gbn" style="width: 200px;height: 50px;font-family:Century Gothic;background:transparent;border-style:double;border-width:5px;float:right;margin-top:10%;color:white">Get Bushfire Notification</button>
-                </div>
-
-                <!--<div class="container-fluid;" style="text-align:center;font-family:'Times New Roman';font-size:50px;color:white;opacity:80%;width:100%;">
-                Bushfire
-                <marquee style="scroll-behavior:smooth;behavior:initial;"> burining the crops and farmers xxxxx.</marquee>
-                <marquee style="scroll-behavior:smooth;behavior:initial;"> <img src="~/Image/logo.png" /></marquee>
-
-            </div>-->
-            </div>
-            <div id="myModal" class="modal">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <span class="close">&times;</span>
-                        <h2>Get your Bushfire Notification <img src="~/Image/nitify.png" width="50" height="50" /></h2>
-                    </div>
-                    <div class="modal-body">
-                        <h1>Your Information</h1>
-                        @using (Html.BeginForm("Update", "GetNotifyUser"))
-                        {
-                            @Html.AntiForgeryToken()
-                            <form action="Create" method="POST" style="align-self:center">
-                                <label for="fname">Your First Name:</label>
-                                <input type="text" id="Fname" name="Fname"><br><br>
-                                <label for="lname">Your Last Name:</label>
-                                <input type="text" id="lname" name="lname"><br><br>
-                                <label for="adress">Your Address:</label>
-                                <input type="text" id="adress" name="adress"><br><br>
-                                <label for="eadress">Your Email Address:</label>
-                                <input type="text" id="eadress" name="eadress"><br><br>
-                                <input style="text-align:center" id="submit" type="submit" value="Submit" />
-                            </form>
-                        }
-=======
-
-</head>
-<body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary" id="Topnav">
         <a class="navbar-brand" id="projectLogo" href="@Url.Action("Home", "Home")">
             <p style="opacity:0;"> Fire Safe Farms</p>
@@ -106,12 +39,101 @@
                         <a class="dropdown-item" href="@Url.Action("Analytics", "Home")"> Protect Farm lands </a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="@Url.Action("Home", "Home")"> Emergency Contacts </a>
->>>>>>> a883754 (New Layout UI)
                     </div>
                 </li>
             </ul>
+=======
+    @*<div class="navigationbar" id="Topnav">
+            <nav class="navigationWrapper" style="width:100%">
+                <ul class="navigation" style="text-align:left">
+                    <li class="parent"> @Html.ActionLink("Home", "Home", "Home")</li>
+                    <li class="parent">@Html.ActionLink("Protect Farm lands", "Analytics", "Home")</li>
+                    <li class="parent"> @Html.ActionLink("Check Fire Danger", "Map", "Home")</li>
+                </ul>
+                <img src="~/Image/logo.png" style="height:5%;width:5%;margin-right:48%" />
+            </nav>
+>>>>>>> adc3f54 (Iteration 2 final)
         </div>
-    </nav>
+        <style>
+            .navigationbar {
+                font-family: "Roboto", sans-serif;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                border-bottom: 0;
+                background-color: #3e290c;
+                position: sticky;
+            }
+
+            .navigationWrapper {
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 20px;
+                background-color: #3e290c;
+                overflow: hidden;
+                width: 600px;
+            }
+
+                .navigationWrapper .navigation {
+                    text-align: center;
+                    display: flex;
+                    list-style-type: none;
+                    border-bottom: 0;
+                }
+
+                    .navigationWrapper .navigation li {
+                        opacity: 1;
+                        list-style-type: none;
+                        color: black;
+                        text-decoration: none;
+                        transition: all 0.3s ease-in-out;
+                        font-family: American Typewriter, serif;
+                    }
+
+                    .navigationWrapper .navigation .parent {
+                        font-size: 22px;
+                        padding: 20px 40px;
+                        cursor: pointer;
+                    }
+
+                        .navigationWrapper .navigation .parent:hover {
+                            transform: scale(1.1);
+                        }
+        </style> *@
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary" id="Topnav" style="height:92px;">
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" style="width:auto;height:89px;padding:30px" href="@Url.Action("Home", "Home")">
+                            Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" style="width:auto;padding:30px;height:89px;"> Safety from Bushfire </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="@Url.Action("Map", "Home")"> Check Fire Danger </a>
+                            <a class="dropdown-item" href="@Url.Action("Analytics", "Home")"> Protect Farm lands </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="@Url.Action("Home", "Home")"> Emergency Contacts </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <a class="navbar-brand" style="margin-right:45%" id="projectLogo" href="@Url.Action("Home", "Home")">
+                <p style="opacity:0;"> Fire Safe Farms</p>
+            </a>
+        </nav>
 
     <script src="~/Scripts/Home.js"></script>
 

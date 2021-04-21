@@ -4,26 +4,33 @@ function newfunction() {
     document.getElementById("li2").style.animationName = "nothing";
     document.getElementById("li3").style.animationName = "nothing";
     document.getElementById("li4").style.animationName = "nothing";
+    document.getElementById("li5").style.animationName = "nothing";
+    //document.getElementById("li5").style.animationName = "nothing";
     document.getElementById("li1_1").style.animationName = "nothing";
     document.getElementById("li2_1").style.animationName = "nothing";
     document.getElementById("li3_1").style.animationName = "nothing";
     document.getElementById("li4_1").style.animationName = "nothing";
+    document.getElementById("li5_1").style.animationName = "nothing";
     document.getElementById("li1_2").style.animationName = "nothing";
     document.getElementById("li2_2").style.animationName = "nothing";
     document.getElementById("li3_2").style.animationName = "nothing";
     document.getElementById("li4_2").style.animationName = "nothing";
+    document.getElementById("li5_2").style.animationName = "nothing";
     document.getElementById("li1_3").style.animationName = "nothing";
     document.getElementById("li2_3").style.animationName = "nothing";
     document.getElementById("li3_3").style.animationName = "nothing";
     document.getElementById("li4_3").style.animationName = "nothing";
+    document.getElementById("li5_3").style.animationName = "nothing";
     document.getElementById("li1_4").style.animationName = "nothing";
     document.getElementById("li2_4").style.animationName = "nothing";
     document.getElementById("li3_4").style.animationName = "nothing";
     document.getElementById("li4_4").style.animationName = "nothing";
+    document.getElementById("li5_4").style.animationName = "nothing";
     document.getElementById("li1_5").style.animationName = "nothing";
     document.getElementById("li2_5").style.animationName = "nothing";
     document.getElementById("li3_5").style.animationName = "nothing";
     document.getElementById("li4_5").style.animationName = "nothing";
+    document.getElementById("li5_5").style.animationName = "nothing";
 
     var location = document.getElementById('search').value;
     var jsonurl = 'https://fireprediction.ga/forecast?locality=' + location;
@@ -74,19 +81,24 @@ function newfunction() {
         if (forecastdata_rating_0 === "low-moderate") {
             document.getElementById("li1").style.animationName = "rotate-one";
             document.getElementById("firedanger_00").innerHTML = "Severity: Low-Moderate";
+            document.getElementById("li1").style.borderTopStyle = "solid";
             /* document.getElementById("firedanger_02").innerHTML = "Todays Average Temperature is " + forecastdata_temp_0 + "℃";
             */
         }
         else if (forecastdata_rating_0 === "high") {
             document.getElementById("li1").style.animationName = "rotate-one";
+            document.getElementById("li2").style.animationName = "rotate-two";
             document.getElementById("firedanger_00").innerHTML = "Severity: High";
+            document.getElementById("li2").style.borderTopStyle = "solid";
             /* document.getElementById("firedanger_02").innerHTML = "Todays Average Temperature is " + forecastdata_temp_0 + "℃";
             */
         }
         else if (forecastdata_rating_0 === "very high") {
             document.getElementById("li1").style.animationName = "rotate-one";
             document.getElementById("li2").style.animationName = "rotate-two";
+            document.getElementById("li3").style.animationName = "rotate-three";
             document.getElementById("firedanger_00").innerHTML = "Severity: very high";
+            document.getElementById("li3").style.borderTopStyle = "solid";
             /*document.getElementById("firedanger_02").innerHTML = "Todays Average Temperature is " + forecastdata_temp_0 + "℃";
             */
         }
@@ -94,37 +106,45 @@ function newfunction() {
             document.getElementById("li1").style.animationName = "rotate-one";
             document.getElementById("li2").style.animationName = "rotate-two";
             document.getElementById("li3").style.animationName = "rotate-three";
+            document.getElementById("li4").style.animationName = "rotate-four";
             document.getElementById("firedanger_00").innerHTML = "Severity: severe";
+            document.getElementById("li4").style.borderTopStyle = "solid";
             /* document.getElementById("firedanger_02").innerHTML = "Todays Average Temperature is " + forecastdata_temp_0 + "℃";
             */
         }
-        else if (forecastdata_rating_0 === "extreme") {
+        else if ((forecastdata_rating_0 === "extreme") || (forecastdata_rating_0 === "catastrophic (code red)")) {
             document.getElementById("li1").style.animationName = "rotate-one";
             document.getElementById("li2").style.animationName = "rotate-two";
             document.getElementById("li3").style.animationName = "rotate-three";
             document.getElementById("li4").style.animationName = "rotate-four";
+            document.getElementById("li5").style.animationName = "rotate-five";
             document.getElementById("firedanger_00").innerHTML = "Severity: extreme";
+            document.getElementById("li5").style.borderTopStyle = "solid";
             /* document.getElementById("firedanger_02").innerHTML = "Todays Average Temperature is " + forecastdata_temp_0 + "℃";
             */
         }
 
-
         if (forecastdata_rating_1 === "low-moderate") {
             document.getElementById("li1_1").style.animationName = "rotate-one";
             document.getElementById("firedanger_10").innerHTML = "Severity: Low-Moderate";
+            document.getElementById("li1_1").style.borderTopStyle = "solid";
             /* document.getElementById("firedanger_12").innerHTML = "Average Temperature is " + forecastdata_temp_1 + "℃";
             */
         }
         else if (forecastdata_rating_1 === "high") {
             document.getElementById("li1_1").style.animationName = "rotate-one";
+            document.getElementById("li2_1").style.animationName = "rotate-two";
             document.getElementById("firedanger_10").innerHTML = "Severity: high";
+            document.getElementById("li2_1").style.borderTopStyle = "solid";
             /*document.getElementById("firedanger_12").innerHTML = "Average Temperature is " + forecastdata_temp_1 + "℃";
             */
         }
         else if (forecastdata_rating_1 === "very high") {
             document.getElementById("li1_1").style.animationName = "rotate-one";
             document.getElementById("li2_1").style.animationName = "rotate-two";
+            document.getElementById("li3_1").style.animationName = "rotate-three";
             document.getElementById("firedanger_10").innerHTML = "Severity: very high";
+            document.getElementById("li3_1").style.borderTopStyle = "solid";
             /* document.getElementById("firedanger_12").innerHTML = "Average Temperature is " + forecastdata_temp_1 + "℃";
             */
         }
@@ -132,16 +152,20 @@ function newfunction() {
             document.getElementById("li1_1").style.animationName = "rotate-one";
             document.getElementById("li2_1").style.animationName = "rotate-two";
             document.getElementById("li3_1").style.animationName = "rotate-three";
+            document.getElementById("li4_1").style.animationName = "rotate-four";
             document.getElementById("firedanger_10").innerHTML = "Severity: severe";
+            document.getElementById("li4_1").style.borderTopStyle = "solid";
             /* document.getElementById("firedanger_12").innerHTML = "Average Temperature is " + forecastdata_temp_1 + "℃";
             */
         }
-        else if (forecastdata_rating_1 === "extreme") {
+        else if ((forecastdata_rating_1 === "extreme") || (forecastdata_rating_1 === "catastrophic (code red)")) {
             document.getElementById("li1_1").style.animationName = "rotate-one";
             document.getElementById("li2_1").style.animationName = "rotate-two";
             document.getElementById("li3_1").style.animationName = "rotate-three";
             document.getElementById("li4_1").style.animationName = "rotate-four";
+            document.getElementById("li5_1").style.animationName = "rotate-five";
             document.getElementById("firedanger_10").innerHTML = "Severity: extreme";
+            document.getElementById("li5_1").style.borderTopStyle = "solid";
             /*document.getElementById("firedanger_12").innerHTML = "Average Temperature is " + forecastdata_temp_1 + "℃";
             */
         }
@@ -149,19 +173,24 @@ function newfunction() {
         if (forecastdata_rating_2 === "low-moderate") {
             document.getElementById("li1_2").style.animationName = "rotate-one";
             document.getElementById("firedanger_20").innerHTML = "Severity: Low-Moderate";
+            document.getElementById("li1_2").style.borderTopStyle = "solid";
             /* document.getElementById("firedanger_22").innerHTML = "Average Temperature is " + forecastdata_temp_2 + "℃";
             */
         }
         else if (forecastdata_rating_2 === "high") {
             document.getElementById("li1_2").style.animationName = "rotate-one";
+            document.getElementById("li2_2").style.animationName = "rotate-two";
             document.getElementById("firedanger_20").innerHTML = "Severity: high";
+            document.getElementById("li2_2").style.borderTopStyle = "solid";
             /*document.getElementById("firedanger_22").innerHTML = "Average Temperature is " + forecastdata_temp_2 + "℃";
             */
         }
         else if (forecastdata_rating_2 === "very high") {
             document.getElementById("li1_2").style.animationName = "rotate-one";
             document.getElementById("li2_2").style.animationName = "rotate-two";
+            document.getElementById("li3_2").style.animationName = "rotate-three";
             document.getElementById("firedanger_20").innerHTML = "Severity: very high";
+            document.getElementById("li3_2").style.borderTopStyle = "solid";
             /* document.getElementById("firedanger_22").innerHTML = "Average Temperature is " + forecastdata_temp_2 + "℃";
             */
         }
@@ -169,16 +198,20 @@ function newfunction() {
             document.getElementById("li1_2").style.animationName = "rotate-one";
             document.getElementById("li2_2").style.animationName = "rotate-two";
             document.getElementById("li3_2").style.animationName = "rotate-three";
+            document.getElementById("li4_2").style.animationName = "rotate-four";
             document.getElementById("firedanger_20").innerHTML = "Severity: severe";
+            document.getElementById("li4_2").style.borderTopStyle = "solid";
             /* document.getElementById("firedanger_22").innerHTML = "Average Temperature is " + forecastdata_temp_2 + "℃";
             */
         }
-        else if (forecastdata_rating_2 === "extreme") {
+        else if ((forecastdata_rating_2 === "extreme") || (forecastdata_rating_2 === "catastrophic (code red)")) {
             document.getElementById("li1_2").style.animationName = "rotate-one";
             document.getElementById("li2_2").style.animationName = "rotate-two";
             document.getElementById("li3_2").style.animationName = "rotate-three";
             document.getElementById("li4_2").style.animationName = "rotate-four";
+            document.getElementById("li5_2").style.animationName = "rotate-five";
             document.getElementById("firedanger_20").innerHTML = "Severity: extreme";
+            document.getElementById("li5_2").style.borderTopStyle = "solid";
             /* document.getElementById("firedanger_22").innerHTML = "Average Temperature is " + forecastdata_temp_2 + "℃";
             */
         }
@@ -187,19 +220,24 @@ function newfunction() {
         if (forecastdata_rating_3 === "low-moderate") {
             document.getElementById("li1_3").style.animationName = "rotate-one";
             document.getElementById("firedanger_30").innerHTML = "Severity: Low-Moderate";
+            document.getElementById("li1_3").style.borderTopStyle = "solid";
             /*document.getElementById("firedanger_32").innerHTML = "Average Temperature is " + forecastdata_temp_3 + "℃";
             */
         }
         else if (forecastdata_rating_3 === "high") {
             document.getElementById("li1_3").style.animationName = "rotate-one";
+            document.getElementById("li2_3").style.animationName = "rotate-two";
             document.getElementById("firedanger_30").innerHTML = "Severity: high";
+            document.getElementById("li2_3").style.borderTopStyle = "solid";
             /* document.getElementById("firedanger_32").innerHTML = "Average Temperature is " + forecastdata_temp_3 + "℃";
             */
         }
         else if (forecastdata_rating_3 === "very high") {
             document.getElementById("li1_3").style.animationName = "rotate-one";
             document.getElementById("li2_3").style.animationName = "rotate-two";
+            document.getElementById("li3_3").style.animationName = "rotate-three";
             document.getElementById("firedanger_30").innerHTML = "Severity: very high";
+            document.getElementById("li3_3").style.borderTopStyle = "solid";
             /*document.getElementById("firedanger_32").innerHTML = "Average Temperature is " + forecastdata_temp_3 + "℃";
             */
         }
@@ -207,16 +245,20 @@ function newfunction() {
             document.getElementById("li1_3").style.animationName = "rotate-one";
             document.getElementById("li2_3").style.animationName = "rotate-two";
             document.getElementById("li3_3").style.animationName = "rotate-three";
+            document.getElementById("li4_3").style.animationName = "rotate-four";
             document.getElementById("firedanger_30").innerHTML = "Severity: severe";
+            document.getElementById("li4_3").style.borderTopStyle = "solid";
             /* document.getElementById("firedanger_32").innerHTML = "Average Temperature is " + forecastdata_temp_3 + "℃";
             */
         }
-        else if (forecastdata_rating_3 === "extreme") {
+        else if ((forecastdata_rating_3 === "extreme") || (forecastdata_rating_3 === "catastrophic (code red)")) {
             document.getElementById("li1_3").style.animationName = "rotate-one";
             document.getElementById("li2_3").style.animationName = "rotate-two";
             document.getElementById("li3_3").style.animationName = "rotate-three";
             document.getElementById("li4_3").style.animationName = "rotate-four";
+            document.getElementById("li5_3").style.animationName = "rotate-five";
             document.getElementById("firedanger_30").innerHTML = "Severity: extreme";
+            document.getElementById("li5_3").style.borderTopStyle = "solid";
             /*document.getElementById("firedanger_32").innerHTML = "Average Temperature is " + forecastdata_temp_3 + "℃";
             */
         }
@@ -224,19 +266,24 @@ function newfunction() {
         if (forecastdata_rating_4 === "low-moderate") {
             document.getElementById("li1_4").style.animationName = "rotate-one";
             document.getElementById("firedanger_40").innerHTML = "Severity: Low-moderate";
+            document.getElementById("li1_4").style.borderTopStyle = "solid";
             /*document.getElementById("firedanger_42").innerHTML = "Average Temperature is " + forecastdata_temp_4 + "℃";
             */
         }
         else if (forecastdata_rating_4 === "high") {
             document.getElementById("li1_4").style.animationName = "rotate-one";
+            document.getElementById("li2_4").style.animationName = "rotate-two";
             document.getElementById("firedanger_40").innerHTML = "Severity: high";
+            document.getElementById("li2_4").style.borderTopStyle = "solid";
             /* document.getElementById("firedanger_42").innerHTML = "Average Temperature is " + forecastdata_temp_4 + "℃";
             */
         }
         else if (forecastdata_rating_4 === "very high") {
             document.getElementById("li1_4").style.animationName = "rotate-one";
             document.getElementById("li2_4").style.animationName = "rotate-two";
+            document.getElementById("li3_4").style.animationName = "rotate-three";
             document.getElementById("firedanger_40").innerHTML = "Severity: very high";
+            document.getElementById("li2_4").style.borderTopStyle = "solid";
             /* document.getElementById("firedanger_42").innerHTML = "Average Temperature is " + forecastdata_temp_4 + "℃";
             */
         }
@@ -244,48 +291,61 @@ function newfunction() {
             document.getElementById("li1_4").style.animationName = "rotate-one";
             document.getElementById("li2_4").style.animationName = "rotate-two";
             document.getElementById("li3_4").style.animationName = "rotate-three";
+            document.getElementById("li4_4").style.animationName = "rotate-four";
             document.getElementById("firedanger_40").innerHTML = "Severity: severe";
+            document.getElementById("li4_4").style.borderTopStyle = "solid";
             /* document.getElementById("firedanger_42").innerHTML = "Average Temperature is " + forecastdata_temp_4 + "℃";
             */
         }
-        else if (forecastdata_rating_4 === "extreme") {
+        else if ((forecastdata_rating_4 === "extreme") || (forecastdata_rating_4 === "catastrophic (code red)")) {
             document.getElementById("li1_4").style.animationName = "rotate-one";
             document.getElementById("li2_4").style.animationName = "rotate-two";
             document.getElementById("li3_4").style.animationName = "rotate-three";
             document.getElementById("li4_4").style.animationName = "rotate-four";
+            document.getElementById("li5_4").style.animationName = "rotate-five";
             document.getElementById("firedanger_40").innerHTML = "Severity: exrteme";
+            document.getElementById("li5_4").style.borderTopStyle = "solid";
             /*document.getElementById("firedanger_42").innerHTML = "Average Temperature is " + forecastdata_temp_4 + "℃";
             */
         }
         if (forecastdata_rating_5 === "low-moderate") {
             document.getElementById("li1_5").style.animationName = "rotate-one";
             document.getElementById("firedanger_50").innerHTML = "Severity: Low-moderate";
+            document.getElementById("li1_5").style.borderTopStyle = "solid";
             //document.getElementById("firedanger_52").innerHTML = "Average Temperature is " + forecastdata_temp_5 + "℃";
         }
         else if (forecastdata_rating_5 === "high") {
             document.getElementById("li1_5").style.animationName = "rotate-one";
+            document.getElementById("li2_5").style.animationName = "rotate-two";
             document.getElementById("firedanger_50").innerHTML = "Seevrity: high";
+            document.getElementById("li2_5").style.borderTopStyle = "solid";
             //document.getElementById("firedanger_52").innerHTML = "Average Temperature is " + forecastdata_temp_5 + "℃";
         }
         else if (forecastdata_rating_5 === "very high") {
             document.getElementById("li1_5").style.animationName = "rotate-one";
             document.getElementById("li2_5").style.animationName = "rotate-two";
+            document.getElementById("li3_5").style.animationName = "rotate-three";
             document.getElementById("firedanger_50").innerHTML = "Seevrity: very high";
+            document.getElementById("li3_5").style.borderTopStyle = "solid";
             //document.getElementById("firedanger_52").innerHTML = "Average Temperature is " + forecastdata_temp_5 + "℃";
         }
         else if (forecastdata_rating_5 === "severe") {
             document.getElementById("li1_5").style.animationName = "rotate-one";
             document.getElementById("li2_5").style.animationName = "rotate-two";
             document.getElementById("li3_5").style.animationName = "rotate-three";
+            document.getElementById("li4_5").style.animationName = "rotate-four";
             document.getElementById("firedanger_50").innerHTML = "Severity:severe";
+            document.getElementById("li4_5").style.borderTopStyle = "solid";
             //document.getElementById("firedanger_52").innerHTML = "Average Temperature is " + forecastdata_temp_5 + "℃";
         }
-        else if (forecastdata_rating_5 === "extreme") {
+        else if ((forecastdata_rating_5 === "extreme") || (forecastdata_rating_5 === "catastrophic (code red)")) {
             document.getElementById("li1_5").style.animationName = "rotate-one";
             document.getElementById("li2_5").style.animationName = "rotate-two";
             document.getElementById("li3_5").style.animationName = "rotate-three";
             document.getElementById("li4_5").style.animationName = "rotate-four";
+            document.getElementById("li5_5").style.animationName = "rotate-five";
             document.getElementById("firedanger_50").innerHTML = "Severity: extreme";
+            document.getElementById("li5_5").style.borderTopStyle = "solid";
             //document.getElementById("firedanger_52").innerHTML = "Average Temperature is " + forecastdata_temp_5 + "℃";
         }
 
