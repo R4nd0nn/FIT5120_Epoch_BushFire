@@ -1,6 +1,15 @@
 ﻿* {
     box-sizing: border-box;
-} 
+}
+
+.mySlides {
+    display: none;
+    height:100%
+}
+
+img {
+    vertical-align: middle;
+}
 
 body {
     padding-top: 00px;
@@ -45,15 +54,43 @@ textarea {
         color: tomato;
     }
 
-#coverImageSection {
-    height: 75vh;
+#coverImageSection1 {
+    height: 100%;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url("../Image/farmland_background.jpg");
+    background-image: url("../Image/farmland_background.jpg"); 
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; 
+    overflow: hidden;
+}
+
+#coverImageSection2 {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../Image/fdr-bg.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; 
+    overflow: hidden;
+}
+
+#coverImageSection3 {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../Image/emergency-banner.jpg"); 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; 
+    overflow: hidden;
 }
 
 .slogan {
@@ -76,12 +113,15 @@ textarea {
 }
 
 #importanceSection {
+    width: 100%;
+    height: 60vh;
     text-align: center;
-    padding-top: 1.6%;
+    padding-top: 6.6%;
     padding-bottom: 2.5%;
     background-color: #3e290c;
     /*4BB25B CBA783 #9A5F0B */
     color: #dedbd5;
+    overflow:hidden
 }
 
 #socialAtrributeImage {
@@ -255,6 +295,7 @@ textarea {
     background-color: #2b2720;
     padding: 4% 4% 1% 4%;
     color: #dedbd5;
+    margin-top:4%;
 }
 
 .safetyTitleSection {
@@ -629,4 +670,43 @@ textarea {
     float:left;
     width: 80%;
     padding: 3%;
+}
+.slideshow-container {
+    width: 100%;
+    height: 60vh;
+    position: relative;
+}
+
+.text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 5%;
+    width: 100%;
+    text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active {
+    background-color: #717171;
 }

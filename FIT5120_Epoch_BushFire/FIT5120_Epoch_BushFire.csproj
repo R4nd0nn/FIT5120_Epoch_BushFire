@@ -212,10 +212,13 @@
     <Content Include="Image\cattle.jpg" />
     <Content Include="Image\Chin.JPG" />
     <Content Include="Image\danger-meter.png" />
+    <Content Include="Image\emergency-banner.jpg" />
     <Content Include="Image\emergency-con.png" />
     <Content Include="Image\farm.jpg" />
     <Content Include="Image\farmers-hands-going-through-crops-wheat-field-sunset.jpg" />
     <Content Include="Image\farmland_background.jpg" />
+    <Content Include="Image\fdr-bg.jpg" />
+    <Content Include="Image\fire-rating.jpg" />
     <Content Include="Image\gradient-legend_009.png" />
     <Content Include="Image\hero-agriculture-grain-1280x510.jpg" />
     <Content Include="Image\img-hm-fire.jpg" />
@@ -225,6 +228,7 @@
     <Content Include="Image\logo.png" />
     <Content Include="Image\map-demo.JPG" />
     <Content Include="Image\money-canolaswath-108751255-Thinkstock.jpg" />
+    <Content Include="Image\News3.JPG" />
     <Content Include="Image\nitify.png" />
     <Content Include="Image\safety-icon.png" />
     <Content Include="Image\search-512.png" />
@@ -382,6 +386,7 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Home\Analytics.cshtml" />
+    <Content Include="Views\Home\DangerPlan.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Indicator\" />

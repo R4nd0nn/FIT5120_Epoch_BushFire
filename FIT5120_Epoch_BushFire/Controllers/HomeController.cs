@@ -30,5 +30,10 @@ namespace test.Controllers
         {
             return View();
         }
+
+        public ActionResult DangerPlan()
+        {
+            return View();
+        }
     }
 }
