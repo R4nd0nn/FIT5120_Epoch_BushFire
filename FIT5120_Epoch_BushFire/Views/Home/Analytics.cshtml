@@ -1,0 +1,387 @@
+﻿
+@{
+    ViewBag.Title = "Analytics";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="safetyTitleSection" style="padding:0.1%;">
+
+    <div class="container body-content">
+        <h1 id="Title"> SAFETY PLAN </h1>
+    </div>
+</div>
+
+<!-- div to define canvas object to render-->
+
+<div class="row" style="margin-top:0%;padding-top:0%">
+    <div class="farm" id="farm">
+
+        <div class="model" id="model">
+            <div class="annotation" id="machine">
+                <button id="machine_b" , style="background-color:#ffffff00;border-radius:15%;" onclick="jdfun(this.id)"> <b style="color:whitesmoke; ">Machine</b></button>
+            </div>
+            <div class="annotation" id="crops">
+                <button id="crops_b" , style="background-color:#ffffff00;border-radius:15%; " onclick="jdfun(this.id)"><b style="color:whitesmoke; ">Crops</b></button>
+            </div>
+            <div class="annotation" id="tree">
+                <button id="tree_b" , style="background-color:#ffffff00;border-radius:15%; " onclick="jdfun(this.id)"><b style="color:whitesmoke; ">Tree</b></button>
+            </div>
+            <div class="annotation" id="house">
+                <button id="house_b" , style="background-color:#ffffff00;border-radius:15%; " onclick="jdfun(this.id)"><b style="color:whitesmoke; ">House</b></button>
+            </div>
+            <div class="annotation" id="hay">
+                <button id="hay_b" , style="background-color:#ffffff00;border-radius:15%; " onclick="jdfun(this.id)"><b style="color:whitesmoke; ">Hay</b></button>
+            </div>
+            <div class="annotation" id="windmill">
+                <button id="windmill_b" , style="background-color:#ffffff00;border-radius:15%; " onclick="jdfun(this.id)"><b style="color:whitesmoke; ">Windmill</b></button>
+            </div>
+
+            <div class="annotation" id="popup_id" style="background-color:#00000000; width:250px; height:auto; border-radius:10px;">
+                <p style="margin:5px; font-size:13px;text-align:center; font-family:Calibri; color:whitesmoke"> </p>
+                <p id="pop_txt" style="margin:5px; text-align:justify; padding:3%; color:whitesmoke; line-height:1.5">  </p>
+
+
+            </div>
+            <canvas id="number" width="64" height="64"> </canvas>
+        </div>
+
+
+    </div>
+</div>
+
+<!--jdfun attached with button -->
+
+<script>
+    function jdfun(ID) {
+        var x = ID;
+
+        document.getElementById('popup_id').style.backgroundColor = '#00000050';
+
+        if (ID === 'tree_b') {
+            document.getElementById("pop_txt").innerHTML = '<h6> Tree </h6><br> 1. 10 / 50 Rule: No vegetation upto radius of 10m of property and no tress upto 50m of radius' +
+                '<br> 2. Clear plant within the 4m of width along the fence' +
+                '<br> 3.  plants should separate, so no fuel connectivity.';
+
+        } else if (ID === 'crops_b') {
+            document.getElementById("pop_txt").innerHTML = '<h6> Crops </h6><br> 1. Clean the debris and dry leaves regularly' +
+                '<br> 2. Actively seek information on voluntary harvesting cessation practices.' +
+                '<br> 3. Before harvesting, maintain minimum parameter' +
+                '<br> 4. Meter fuel break around crops';
+
+        } else if (ID === 'machine_b') {
+            document.getElementById("pop_txt").innerHTML = ' <h6> Machine </h6><br> 1. Equip all with atleast three fire extinguishers' +
+                '<br> Install the silencing device to vehicles';
+        } else if (ID === 'hay_b') {
+            document.getElementById("pop_txt").innerHTML = ' <h6> Hay </h6><br> 1. Stack hay to a limited size.' +
+                '<br> 2. Store separately' +
+                '<br> 3. Monitor hay with moisture meter';
+        } else if (ID === 'house_b') {
+            document.getElementById("pop_txt").innerHTML = '<h6> House </h6><br><b>ROOF: </b>' + '<br> 1. Use sarking ' +
+                '<br> 2. Seal gaps with compressed mineral wool insulation' + '<br>' +
+                '<br> <b> WINDOWS: </b>' + '<br> 1. Use shutters on windows' +
+                '<br> 2. Seal gaps in windows' +
+                '<br> 3. Maintain window sills so should not have any flaking paint.' + '<br>' +
+                '<br><b> DOORS: </b>' + '<br> 1. Avoid wooden doors, Use metal doors' +
+                '<br> 2. Seal gaps around door frames' + '<br>' +
+                '<br><b> DECKS: </b> ' + '<br> 1.  Make decks of concrete or with metal' +
+                '<br> 2. Add some gaps between decking materials' +
+                '<br> 3. Keep separate it from the dwelling';
+
+        } else if (ID === 'windmill_b') {
+            document.getElementById("pop_txt").innerHTML = '<h6> Windmill </h6><br> 1. Keep the crops far from windmill because heat and wind can cause fire in turbine';
+        }
+    }
+
+</script>
+
+
+<!--footor circles -->
+
+<div class="nav-option" style="text-align:center">
+    <div class="row">
+        <div class="column-last" style="background-color: #3e290c;
+        color: #dedbd5;
+        padding: 20px;">
+            <div class="circle-box" id="fire_nav">
+                <div class="card-fireDanger" id="segueStats" style="margin:20px;position:relative">
+
+                </div>
+                <div style="text-align:center;">
+                    <h3><b id="refugeeStats" style="padding:10px;"> FIRE DANGER RATING </b></h3>
+                </div>
+            </div>
+
+            <div class="circle-box" id="safety_nav">
+                <div class="card-plan" id="segueSports" style="margin:20px;position:relative">
+                </div>
+                <div style="text-align:center;">
+                    <h3><b id="findSports" style="padding: 10px;"> SAFETY PLAN </b></h3>
+                </div>
+            </div>
+
+            <div class="circle-box" id="emergency_nav">
+                <div class="card-ec" id="segueEmergency" style="margin:20px;position:relative">
+
+                </div>
+                <div style="text-align:center;">
+                    <h3><b id="emergency" style="padding: 10px;"> EMERGENCY CONTACT </b></h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--defining style for annotation and canvas-->
+<style type="text/css">
+    canvas {
+        width: 100%;
+        height: 100px;
+        display: block;
+    }
+
+    .annotation {
+        position: absolute;
+        top: 0;
+        z-index: 1;
+        margin-left: 2px;
+        margin-top: 2px;
+        padding: 0;
+        width: fit-content();
+        color: #fff;
+        background: rgba(0, 0, 0, 0.7);
+        border-radius: 20%;
+        font-size: 10px;
+        line-height: 1.2;
+        transition: opacity .5s;
+    }
+
+    #number {
+        position: absolute;
+        z-index: -1;
+    }
+</style>
+<!--Three js module -->
+<script type="module">
+
+    import * as THREE from 'https://threejs.org/build/three.module.js';
+    import { RoomEnvironment } from 'https://threejs.org/examples/jsm/environments/RoomEnvironment.js';
+    import { OrbitControls } from 'https://threejs.org/examples/jsm/controls/OrbitControls.js';
+    import { GLTFLoader } from 'https://threejs.org/examples/jsm/loaders/GLTFLoader.js';
+    import { MeshoptDecoder } from 'https://threejs.org/examples/jsm/libs/meshopt_decoder.module.js';
+
+    // store element id in constant
+    let camera, scene, renderer, controls;
+    let windmill, crop, house, tree, hay, machine;
+    const annot_machine = document.getElementById("machine");
+    const annot_crop = document.getElementById("crops");
+    const annot_hay = document.getElementById("hay");
+    const annot_house = document.getElementById("house");
+    const annot_tree = document.getElementById("tree");
+    const annot_windmill = document.getElementById("windmill");
+    const popup = document.getElementById("popup_id")
+
+
+    init();
+    animate();
+
+    // main function//
+
+    function init() {
+        const container = document.getElementById('model')
+
+        const canvas = document.getElementById("number");
+        const ctx = canvas.getContext("2d");
+        const x = 32;
+        const y = 32;
+        const radius = 30;
+        const startAngle = 0;
+        const endAngle = 180;
+
+        ctx.fillStyle = "red";    // sprite texture
+        ctx.beginPath();
+        ctx.arc(x, y, radius, startAngle, endAngle);
+        ctx.fill();
+
+        ctx.strokeStyle = "rgb(255, 255, 255)";
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.arc(x, y, radius, startAngle, endAngle);
+        ctx.stroke();
+
+        ctx.fillStyle = "rgb(255, 255, 255)";
+        ctx.font = "45px calibri-light";
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillText("+", x, y);
+
+        renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.toneMapping = THREE.ACESFilmicToneMapping;
+        renderer.toneMappingExposure = 1;
+        renderer.outputEncoding = THREE.sRGBEncoding;
+        container.appendChild(renderer.domElement);
+
+        camera = new THREE.PerspectiveCamera(65, window.innerWidth / window.innerHeight, 0.1, 1500);
+        camera.position.set(300, 100, 10);
+
+        const environment = new RoomEnvironment();
+        const pmremGenerator = new THREE.PMREMGenerator(renderer);
+
+        scene = new THREE.Scene();
+        scene.background = new THREE.Color("#87CEFA");
+        scene.environment = pmremGenerator.fromScene(environment).texture;
+
+
+        const loader = new GLTFLoader().setPath('/3dmodel/');
+
+        loader.setMeshoptDecoder(MeshoptDecoder);
+        loader.load('scene.gltf', function (gltf) {
+            scene.add(gltf.scene);
+            render();
+
+        });
+
+        //select canvas from tag id
+        const numberTexture = new THREE.CanvasTexture(
+            document.querySelector('#number')
+        );
+
+        const spriteMaterial = new THREE.SpriteMaterial({
+            map: numberTexture,
+            alphaTest: 0.7,
+            transparent: true,
+            depthTest: false,
+            depthWrite: false,
+        });
+
+        // defining sprite locations
+        windmill = new THREE.Sprite(spriteMaterial);
+        windmill.position.set(-25, 40, -68);
+        windmill.scale.set(8, 8, 1);
+        windmill.material.opacity = 0.9;
+        scene.add(windmill);
+
+
+        crop = new THREE.Sprite(spriteMaterial);
+        crop.position.set(38, 10, 61);
+        crop.scale.set(8, 8, 1);
+        crop.material.opacity = 0.9;
+        scene.add(crop);
+
+        house = new THREE.Sprite(spriteMaterial);
+        house.position.set(-30, 35, 0);
+        house.scale.set(8, 8, 1);
+        house.material.opacity = 0.9;
+        scene.add(house);
+
+        tree = new THREE.Sprite(spriteMaterial);
+        tree.position.set(-25, 20, 35);
+        tree.scale.set(8, 8, 1);
+        tree.material.opacity = 0.9;
+        scene.add(tree);
+
+        hay = new THREE.Sprite(spriteMaterial);
+        hay.position.set(-20, 10, -30);
+        hay.scale.set(8, 8, 1);
+        hay.material.opacity = 0.9;
+        scene.add(hay);
+
+        machine = new THREE.Sprite(spriteMaterial);
+        machine.position.set(15, 14, -70);
+        machine.scale.set(8, 8, 1);
+        machine.material.opacity = 0.9;
+        scene.add(machine);
+
+        var vector = new THREE.Vector3(-150, -50, 200)
+        var canvas1 = renderer.domElement;
+
+        vector.project(camera);
+
+        vector.x = (0.5 + vector.x / 2) * (canvas1.width / window.devicePixelRatio);
+        vector.y = (0.5 - vector.y / 2) * (canvas1.height / window.devicePixelRatio);
+
+        popup.style.top = `${vector.y}px`;
+        popup.style.left = `${vector.x}px`
+
+
+
+
+        // orbital controls or camera controls
+
+
+        const controls = new OrbitControls(camera, renderer.domElement);
+        controls.addEventListener('change', render);
+        controls.enableZoom = false;
+        controls.minDistance = 100;
+        controls.maxDistance = 250;
+        controls.target.set(0, 0, 0);
+        controls.update();
+
+        window.addEventListener('resize', onWindowResize, false);
+
+    }
+
+    // functions
+    function onWindowResize() {
+
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        render();
+    }
+
+
+    function animate() {
+        requestAnimationFrame(animate);
+        render();
+    }
+
+
+    function updateScreenPosition(annotation, vector) {
+        const canvas = renderer.domElement;
+
+        vector.project(camera);
+
+        vector.x = (0.5 + vector.x / 2) * (canvas.width / window.devicePixelRatio);
+        vector.y = (0.5 - vector.y / 2) * (canvas.height / window.devicePixelRatio);
+        console.log(annotation)
+        annotation.style.top = `${vector.y}px`;
+        annotation.style.left = `${vector.x}px`;
+
+
+    }
+
+    // render function  making vector and positioning on screen
+    function render() {
+
+        renderer.render(scene, camera);
+        var machine_vector = new THREE.Vector3(20, -45, -65)
+        updateScreenPosition(annot_machine, machine_vector);
+
+        var crop_vector = new THREE.Vector3(38, -50, 80)
+        updateScreenPosition(annot_crop, crop_vector);
+
+        var house_vector = new THREE.Vector3(-30, -30, 10)
+        updateScreenPosition(annot_house, house_vector);
+
+        var tree_vector = new THREE.Vector3(-40, -47, 60)
+        updateScreenPosition(annot_tree, tree_vector);
+
+        var hay_vector = new THREE.Vector3(-20, -75, -25)
+        updateScreenPosition(annot_hay, hay_vector);
+
+        var windmill_vector = new THREE.Vector3(-20, -25, -65)
+        updateScreenPosition(annot_windmill, windmill_vector);
+
+    }
+
+
+
+
+</script>
+
+<script src="~/Scripts/Analytics.js"></script>

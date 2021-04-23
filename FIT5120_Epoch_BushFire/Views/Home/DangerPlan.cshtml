@@ -1,0 +1,144 @@
+﻿
+@{
+    ViewBag.Title = "DangerPlan";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="safetyTitleSection">
+
+    <div class="container body-content">
+        <h1 id="Title"> DANGER RATING - PLAN OF ACTION </h1>
+    </div>
+</div>
+
+<div class="action-table">
+    <table class="plan-table">
+        <tr class="plan-row">
+            <th class="plan-column"> Danger Rating </th>
+            <th class="plan-column"> Severity </th>
+            <th class="plan-column"> Action Plan </th>
+        </tr>
+        <tr class="plan-row">
+            <td class="plan-column"> Code Red </td>
+            <td class="plan-column">
+                These are the worst conditions for a bush or grass fire.
+                <br>
+                Homes are not designed or constructed to withstand fires in these conditions
+                <br>
+                The safest place to be is away from high risk bushfire areas
+            </td>
+            <td class="plan-column">
+                Leaving high risk bushfire areas the night before or early in the day is your safest option - do not wait and see.
+                <br>
+                Avoid forested areas, thick bush or long, dry grass
+                <br>
+                Know your trigger - make a decision about:
+                <br>
+                <ul>
+                    <li>when you will leave</li>
+                    <li>where you will go</li>
+                    <li>how you will get there</li>
+                    <li>when you will return</li>
+                    <li>what will you do if you cannot leave</li>
+                </ul>
+            </td>
+        </tr>
+        <tr class="plan-row">
+            <td class="plan-column"> Extreme </td>
+            <td class="plan-column">
+                Expect extremely hot, dry and windy conditions.
+                <br>
+                If a fire starts and takes hold, it will be uncontrollable, unpredictable and fast moving. Spot fires will start, move quickly and come from many directions.
+                <br>
+                Homes that are situated and constructed or modified to withstand a bushfire, that are well prepared and actively defended, may provide safety.
+                <br>
+                You must be physically and mentally prepared to defend in these conditions.
+            </td>
+            <td class="plan-column">
+                Consider staying with your property only if you are prepared to the highest level. This means your home needs to be situated and constructed or modified to withstand a bushfire, you are well prepared and you can actively defend your home if a fire starts
+                <br>
+                If you are not prepared to the highest level, leaving high risk bushfire areas early in the day is your safest option
+                <br>
+                Be aware of local conditions and seek information by listening to your emergency broadcasters, go to cfa.vic.gov.au or call the VicEmergency Hotline on 1800 226 226
+            </td>
+        </tr>
+        <tr class="plan-row">
+            <td class="plan-column"> Severe </td>
+            <td class="plan-column">
+                Expect hot, dry and possibly windy conditions.
+                <br>
+                If a fire starts and takes hold, it may be uncontrollable.
+                <br>
+                Well prepared homes that are actively defended can provide safety.
+                <br>
+                You must be physically and mentally prepared to defend in these conditions.
+            </td>
+            <td class="plan-column">
+                Well prepared homes that are actively defended can provide safety - check your bushfire survival plan.
+                <br>
+                If you are not prepared, leaving bushfire prone areas early in the day is your safest option.
+                <br>
+                Be aware of local conditions and seek information by listening to your emergency broadcasters, go to cfa.vic.gov.au or call the VicEmergency Hotline on 1800 226 226.
+            </td>
+        </tr>
+        <tr class="plan-row">
+            <td class="plan-column"> Very high - High - Low-Moderate </tdclass="plan-column">
+            <td class="plan-column">
+                If a fire starts, it can most likely be controlled in these conditions and homes can provide safety.
+                <br>
+                Be aware of how fires can start and minimise the risk.
+                <br>
+                Controlled burning off may occur in these conditions if it is safe - check to see if permits apply.
+            </td>
+            <td class="plan-column">
+                <ul>
+                    <li>Check your bushfire survival plan.</li>
+                    <li>Monitor conditions.</li>
+                    <li>how you will get there</li>
+                    <li>Action may be needed.</li>
+                    <li>Leave if necessary.</li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div class="nav-option" style="text-align:center">
+    <div class="row">
+        <div class="column-last" style="        background-color: #3e290c;
+        color: #dedbd5;
+        padding: 20px;">
+            <div class="circle-box" id="fire_nav">
+                <div class="card-fireDanger" id="segueStats" style="margin:20px;position:relative">
+
+                </div>
+                <div style="text-align:center;">
+                    <h3><b id="refugeeStats" style="padding:10px;"> FIRE DANGER RATING </b></h3>
+                </div>
+            </div>
+
+            <div class="circle-box" id="safety_nav">
+                <div class="card-plan" id="segueSports" style="margin:20px;position:relative">
+                </div>
+                <div style="text-align:center;">
+                    <h3><b id="findSports" style="padding: 10px;"> SAFETY PLAN </b></h3>
+                </div>
+            </div>
+
+            <div class="circle-box" id="emergency_nav">
+                <div class="card-ec" id="segueEmergency" style="margin:20px;position:relative">
+
+                </div>
+                <div style="text-align:center;">
+                    <h3><b id="emergency" style="padding: 10px;"> EMERGENCY CONTACT </b></h3>
+                </div>
+            </div>
+
+
+
+
+        </div>
+    </div>
+</div>
+
